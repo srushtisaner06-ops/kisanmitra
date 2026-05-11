@@ -237,6 +237,8 @@
               <th class="px-6 py-5 font-title-lg text-title-lg text-right">Min Price (₹/q)</th>
               <th class="px-6 py-5 font-title-lg text-title-lg text-right">Max Price (₹/q)</th>
               <th class="px-6 py-5 font-title-lg text-title-lg text-center">Trend</th>
+              <!-- Alert column: per-row toggle buttons rendered by JS -->
+              <th class="px-6 py-5 font-title-lg text-title-lg text-center">Alert</th>
             </tr>
           </thead>
           <!-- Static rows removed: JS renderTable() populates tbody dynamically on load -->
@@ -344,9 +346,10 @@
       <span class="text-[10px] font-label-md">Help</span>
     </button>
   </nav>
+  <!-- Modal must exist in DOM before JS runs; using DOMContentLoaded fixes the alertModal null bug -->
   <script src="global.js"></script>
   <script>
-      (function () {
+document.addEventListener('DOMContentLoaded', function () {
         // All market data rows
         var allRows = [
           // Expanded: 13 crops covering all 10 states in the dropdown
@@ -381,6 +384,21 @@
           return '<span class="inline-flex items-center gap-1 text-on-surface-variant font-bold"><span class="material-symbols-outlined text-[18px]">horizontal_rule</span>' + row.pct + '</span>';
         }
 
+        // Per-row alert helpers: stored in localStorage as { "CropName": true/false }
+        function isAlertActive(cropName) {
+          var m = JSON.parse(localStorage.getItem('kp-alerts-byname') || '{}');
+          return !!m[cropName];
+        }
+        // Exposed to window so inline onclick attributes can call it
+        window.toggleRowAlert = function(cropName) {
+          var m = JSON.parse(localStorage.getItem('kp-alerts-byname') || '{}');
+          m[cropName] = !m[cropName];
+          localStorage.setItem('kp-alerts-byname', JSON.stringify(m));
+          updateAlertBadge();
+          renderTable();
+          showToast(m[cropName] ? '\uD83D\uDD14 Alert ON: ' + cropName : '\uD83D\uDD15 Alert OFF: ' + cropName);
+        };
+
         function renderTable() {
           var start = currentPage * PAGE_SIZE;
           var page = filteredRows.slice(start, start + PAGE_SIZE);
@@ -399,17 +417,23 @@
           }
 
           tbody.innerHTML = page.map(function (row, i) {
+            var active = isAlertActive(row.crop);
+            var safeCrop = row.crop.replace(/'/g, "\\'");
+            var alertBtn = '<button onclick="window.toggleRowAlert(\'' + safeCrop + '\')" style="' + (active ? 'background:#0d631b;color:#fff;border:1px solid #0d631b;' : 'background:transparent;color:#0d631b;border:1px solid #0d631b;') + '" class="text-[11px] font-bold px-2 py-1 rounded-lg flex items-center gap-1 mx-auto whitespace-nowrap"><span class="material-symbols-outlined" style="font-size:14px;">' + (active ? 'notifications_active' : 'add_alert') + '</span>' + (active ? 'Active' : 'Set Alert') + '</button>';
             return '<tr class="' + (i % 2 === 0 ? 'hover:bg-surface-container-low' : 'bg-surface-container-lowest hover:bg-surface-container-low') + ' transition-colors">'
               + '<td class="px-6 py-4 flex items-center gap-3"><div class="w-10 h-10 rounded-full overflow-hidden bg-surface-container flex items-center justify-center"><span class="material-symbols-outlined text-primary">' + row.icon + '</span></div><span class="font-title-lg text-on-surface">' + row.crop + '</span></td>'
               + '<td class="px-6 py-4 text-on-surface-variant font-body-md">' + row.mandi + '</td>'
               + '<td class="px-6 py-4 text-right font-body-md">' + row.min + '</td>'
               + '<td class="px-6 py-4 text-right font-body-md font-bold text-primary">' + row.max + '</td>'
               + '<td class="px-6 py-4 text-center">' + trendHtml(row) + '</td>'
+              + '<td class="px-6 py-4 text-center">' + alertBtn + '</td>'
               + '</tr>';
           }).join('');
           var total = filteredRows.length;
           var showing = Math.min(start + PAGE_SIZE, total);
-          rowCount.textContent = 'Showing ' + (start + 1) + '-' + showing + ' of ' + total + ' Mandis';
+          // Fixed: show "Page X of Y" so users understand pagination clearly
+          var totalPages = Math.ceil(total / PAGE_SIZE) || 1;
+          rowCount.textContent = 'Page ' + (currentPage + 1) + ' of ' + totalPages + ' · Showing ' + (start + 1) + '–' + showing + ' of ' + total + ' records';
           prevBtn.disabled = currentPage === 0;
           nextBtn.disabled = start + PAGE_SIZE >= total;
           prevBtn.style.opacity = prevBtn.disabled ? '0.4' : '1';
@@ -452,19 +476,37 @@
 
         renderTable();
 
+        // Read ?crop= URL param (set by crop_guide.html "View Market Prices" button)
+        // Automatically pre-filters the table to the selected crop
+        (function() {
+          var params = new URLSearchParams(window.location.search);
+          var cropParam = params.get('crop');
+          if (cropParam) {
+            var searchEl = document.getElementById('market-search');
+            if (searchEl) {
+              searchEl.value = cropParam;
+              applyFilters();
+              showToast('\uD83D\uDD0D Showing prices for: ' + cropParam);
+            }
+          }
+        })();
+
         /* ── PRICE ALERT FEATURE ─────────────────────────────────────────
            Section modified: script IIFE — appended after renderTable()
            WHY: "Set Alert" button + localStorage persistence was missing.
            Reads/writes key 'kp-price-alerts' as a JSON array.
         ─────────────────────────────────────────────────────────────── */
 
-        // Helper: refresh the badge count shown next to "Price Alerts" heading
+        // Helper: refresh the badge — counts BOTH row-level alerts AND modal alerts
         function updateAlertBadge() {
-          var alerts = JSON.parse(localStorage.getItem('kp-price-alerts') || '[]');
+          var rowAlerts = JSON.parse(localStorage.getItem('kp-alerts-byname') || '{}');
+          var rowCount2 = Object.keys(rowAlerts).filter(function(k){ return rowAlerts[k]; }).length;
+          var modalAlerts = JSON.parse(localStorage.getItem('kp-price-alerts') || '[]');
+          var total = rowCount2 + modalAlerts.length;
           var badge = document.getElementById('alert-count-badge');
           if (!badge) return;
-          if (alerts.length > 0) {
-            badge.textContent = alerts.length + ' active';
+          if (total > 0) {
+            badge.textContent = total + ' active';
             badge.classList.remove('hidden');
           } else {
             badge.classList.add('hidden');
@@ -544,7 +586,7 @@
           });
         }
 
-      })();
+      });
   </script>
 
   <!-- PRICE ALERT MODAL ─────────────────────────────────────────────────
