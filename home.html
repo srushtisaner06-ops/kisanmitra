@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Krishi Portal - Supporting Indian Farmers</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700&amp;family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="global.css"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary-fixed-variant": "#24502c",
+                      "secondary-container": "#91f78e",
+                      "on-secondary": "#ffffff",
+                      "inverse-primary": "#88d982",
+                      "tertiary-fixed-dim": "#a2d3a4",
+                      "error": "#ba1a1a",
+                      "surface-container-high": "#e5eadf",
+                      "primary-container": "#2e7d32",
+                      "surface": "#f7fbf0",
+                      "surface-tint": "#1b6d24",
+                      "surface-container-highest": "#e0e4da",
+                      "on-error": "#ffffff",
+                      "primary": "#0d631b",
+                      "on-background": "#181d17",
+                      "on-primary-fixed": "#002204",
+                      "on-error-container": "#93000a",
+                      "on-secondary-fixed-variant": "#005313",
+                      "inverse-surface": "#2d322b",
+                      "primary-fixed": "#a3f69c",
+                      "surface-container-low": "#f1f5eb",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-container": "#ebefe5",
+                      "surface-bright": "#f7fbf0",
+                      "outline": "#707a6c",
+                      "on-primary-fixed-variant": "#005312",
+                      "on-tertiary": "#ffffff",
+                      "tertiary-fixed": "#bdefbe",
+                      "secondary": "#006e1c",
+                      "on-primary-container": "#cbffc2",
+                      "surface-dim": "#d7dbd2",
+                      "surface-variant": "#e0e4da",
+                      "on-tertiary-fixed": "#002109",
+                      "inverse-on-surface": "#eef2e8",
+                      "on-tertiary-container": "#ccfecd",
+                      "outline-variant": "#bfcaba",
+                      "tertiary": "#335f3a",
+                      "on-surface-variant": "#40493d",
+                      "on-primary": "#ffffff",
+                      "secondary-fixed": "#94f990",
+                      "secondary-fixed-dim": "#78dc77",
+                      "on-secondary-fixed": "#002204",
+                      "on-secondary-container": "#00731e",
+                      "tertiary-container": "#4b7850",
+                      "error-container": "#ffdad6",
+                      "background": "#f7fbf0",
+                      "on-surface": "#181d17",
+                      "primary-fixed-dim": "#88d982"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "16px",
+                      "margin-desktop": "32px",
+                      "unit": "8px",
+                      "container-max": "1200px",
+                      "margin-mobile": "16px",
+                      "stack-md": "12px",
+                      "stack-sm": "8px",
+                      "stack-lg": "24px"
+              },
+              "fontFamily": {
+                      "headline-lg": ["Plus Jakarta Sans"],
+                      "body-md": ["Open Sans"],
+                      "display-lg": ["Plus Jakarta Sans"],
+                      "caption": ["Open Sans"],
+                      "headline-md": ["Plus Jakarta Sans"],
+                      "title-lg": ["Open Sans"],
+                      "body-lg": ["Open Sans"],
+                      "label-md": ["Open Sans"],
+                      "headline-lg-mobile": ["Plus Jakarta Sans"]
+              },
+              "fontSize": {
+                      "headline-lg": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                      "body-md": ["15px", {"lineHeight": "22px", "fontWeight": "400"}],
+                      "display-lg": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                      "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                      "headline-md": ["22px", {"lineHeight": "28px", "fontWeight": "600"}],
+                      "title-lg": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+                      "body-lg": ["17px", {"lineHeight": "26px", "fontWeight": "400"}],
+                      "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                      "headline-lg-mobile": ["22px", {"lineHeight": "30px", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+            display: inline-block;
+            vertical-align: middle;
+            font-size: 20px;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-surface border-b border-outline-variant shadow-sm">
+<nav class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-3 max-w-screen-xl mx-auto">
+<div class="text-headline-md font-headline-lg-mobile text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="eco">eco</span>
+<span class="font-headline-lg">Krishi Portal</span>
+</div>
+<div class="hidden md:flex items-center gap-6">
+<a class="text-primary font-bold border-b-2 border-primary pb-0.5 font-label-md text-label-md" href="home.html">Home</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors font-label-md text-label-md" href="market_price.html">Market Prices</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors font-label-md text-label-md" href="crop_guide.html">Crop Guide</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors font-label-md text-label-md" href="fertilizer.html">Fertilizers</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors font-label-md text-label-md" href="govt_schemes.html">Schemes</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors font-label-md text-label-md" href="farming_tips.html">Farming Tips</a>
+</div>
+<div class="flex items-center gap-3">
+<button class="lang-toggle-btn text-on-surface-variant hover:text-primary transition-colors flex items-center gap-1 font-label-md text-label-md" aria-label="Change Language">
+<span class="material-symbols-outlined" data-icon="language">language</span>
+<span class="hidden sm:inline">Language</span>
+</button>
+<button class="dark-toggle-btn text-on-surface-variant hover:text-primary transition-colors active:scale-95" aria-label="Toggle dark mode">
+<span class="material-symbols-outlined" data-icon="dark_mode">dark_mode</span>
+</button>
+</div>
+</nav>
+</header>
+<main class="pt-16">
+<!-- Hero Section -->
+<section class="px-margin-mobile md:px-margin-desktop py-8 max-w-screen-xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+<div class="md:col-span-7 space-y-4">
+<h1 class="text-display-lg font-display-lg text-on-surface leading-tight">Supporting Indian Farmers with Digital Solutions</h1>
+<p class="text-body-lg font-body-lg text-on-surface-variant max-w-xl">Real-time market insights, expert guides, and direct access to government schemes. Simple, reliable tools for the farming community.</p>
+<div class="flex flex-wrap gap-3 pt-2">
+<button id="cta-explore" class="bg-primary-container text-on-primary font-label-md text-label-md px-6 py-2.5 rounded-lg min-h-[44px] hover:opacity-90 transition-opacity shadow-sm">Explore Services</button>
+<button id="cta-learn" class="border border-outline-variant text-primary font-label-md text-label-md px-6 py-2.5 rounded-lg min-h-[44px] hover:bg-surface-container transition-colors">Learn More</button>
+</div>
+</div>
+<div class="md:col-span-5 relative rounded-lg overflow-hidden h-[300px] md:h-[350px] shadow-sm">
+<img alt="Indian Farmer in Wheat Field" class="w-full h-full object-cover" data-alt="A high-quality, realistic photograph of a middle-aged Indian farmer standing proudly in a vast, lush green wheat field during the golden hour." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAru0hMvKi0iHWyN9SBe1VeLLD8b8TVxf46dB8LIcXOKvDA8wHfv7ZYuP-tB3ogL5Y3ns9kq3i7zEwDy8p1jKxe-A6j1UFZwZSiIusGof1vjv5Hs6Ug5THCxFzQ_dXtGbYCFlT0tmSB1M3S32zu2eyDQwhojkEtnGkwbqCQzSCoj_BdlDhxpYFw-3WgT7d86n9FBgec0TkzjG85IbEzik6gOW8HFCLGkzOTYIv0VzcPKspW8fn2EHL-i6sV8YGW7CZx0pABhfk-5Ix3"/>
+</div>
+</div>
+</section>
+<!-- Statistics Bar -->
+<section id="stats-section" class="bg-surface-container border-y border-outline-variant py-4">
+<div class="px-margin-mobile md:px-margin-desktop max-w-screen-xl mx-auto flex flex-wrap justify-between items-center">
+<div class="flex items-center gap-3 px-4 py-2">
+<p class="text-headline-md font-headline-md text-primary counter-value" data-counter="1" data-counter-suffix="M+">1M+</p>
+<p class="text-label-md font-label-md text-on-surface-variant">Farmers</p>
+</div>
+<div class="w-px h-8 bg-outline-variant hidden sm:block"></div>
+<div class="flex items-center gap-3 px-4 py-2">
+<p class="text-headline-md font-headline-md text-primary counter-value" data-counter="500" data-counter-suffix="+">500+</p>
+<p class="text-label-md font-label-md text-on-surface-variant">Mandis</p>
+</div>
+<div class="w-px h-8 bg-outline-variant hidden sm:block"></div>
+<div class="flex items-center gap-3 px-4 py-2">
+<p class="text-headline-md font-headline-md text-primary counter-value" data-counter="200" data-counter-suffix="+">200+</p>
+<p class="text-label-md font-label-md text-on-surface-variant">Crop Varieties</p>
+</div>
+</div>
+</section>
+<!-- Services Section -->
+<section id="services" class="px-margin-mobile md:px-margin-desktop py-12 max-w-screen-xl mx-auto">
+<div class="mb-8 border-l-4 border-primary pl-4">
+<h2 class="text-headline-lg font-headline-lg text-on-surface">Digital Services</h2>
+<p class="text-body-md font-body-md text-on-surface-variant">Utility-focused tools for daily farm management.</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Market Prices -->
+<div class="card-hover bg-surface-container-lowest border border-outline-variant p-4 rounded-lg hover:border-primary transition-colors group flex flex-col h-full">
+<div class="w-10 h-10 bg-primary-container/10 rounded flex items-center justify-center mb-3 text-primary">
+<span class="material-symbols-outlined" data-icon="currency_rupee">currency_rupee</span>
+</div>
+<h3 class="text-title-lg font-title-lg text-on-surface mb-1">Market Prices</h3>
+<p class="text-caption text-on-surface-variant flex-grow">Live mandi updates across the state.</p>
+<button onclick="location.href='market_price.html'" class="text-primary text-caption font-label-md mt-4 flex items-center gap-1">Check Prices <span class="material-symbols-outlined text-[14px]">arrow_forward</span></button>
+</div>
+<!-- Crop Guide -->
+<div class="card-hover bg-surface-container-lowest border border-outline-variant p-4 rounded-lg hover:border-primary transition-colors group flex flex-col h-full">
+<div class="w-10 h-10 bg-primary-container/10 rounded flex items-center justify-center mb-3 text-primary">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+</div>
+<h3 class="text-title-lg font-title-lg text-on-surface mb-1">Crop Guide</h3>
+<p class="text-caption text-on-surface-variant flex-grow">Planting and pest management data.</p>
+<button onclick="location.href='crop_guide.html'" class="text-primary text-caption font-label-md mt-4 flex items-center gap-1">View Guides <span class="material-symbols-outlined text-[14px]">arrow_forward</span></button>
+</div>
+<!-- Fertilizers -->
+<div class="card-hover bg-surface-container-lowest border border-outline-variant p-4 rounded-lg hover:border-primary transition-colors group flex flex-col h-full">
+<div class="w-10 h-10 bg-primary-container/10 rounded flex items-center justify-center mb-3 text-primary">
+<span class="material-symbols-outlined" data-icon="science">science</span>
+</div>
+<h3 class="text-title-lg font-title-lg text-on-surface mb-1">Fertilizers</h3>
+<p class="text-caption text-on-surface-variant flex-grow">Soil-specific recommendations.</p>
+<button onclick="location.href='fertilizer.html'" class="text-primary text-caption font-label-md mt-4 flex items-center gap-1">Soil Input <span class="material-symbols-outlined text-[14px]">arrow_forward</span></button>
+</div>
+<!-- Government Schemes -->
+<div class="card-hover bg-surface-container-lowest border border-outline-variant p-4 rounded-lg hover:border-primary transition-colors group flex flex-col h-full">
+<div class="w-10 h-10 bg-primary-container/10 rounded flex items-center justify-center mb-3 text-primary">
+<span class="material-symbols-outlined" data-icon="account_balance">account_balance</span>
+</div>
+<h3 class="text-title-lg font-title-lg text-on-surface mb-1">Schemes</h3>
+<p class="text-caption text-on-surface-variant flex-grow">Subsidies and insurance programs.</p>
+<button onclick="location.href='govt_schemes.html'" class="text-primary text-caption font-label-md mt-4 flex items-center gap-1">Apply Now <span class="material-symbols-outlined text-[14px]">arrow_forward</span></button>
+</div>
+<!-- Farming Tips -->
+<div class="card-hover bg-surface-container-lowest border border-outline-variant p-4 rounded-lg hover:border-primary transition-colors group flex flex-col h-full">
+<div class="w-10 h-10 bg-primary-container/10 rounded flex items-center justify-center mb-3 text-primary">
+<span class="material-symbols-outlined" data-icon="psychology">psychology</span>
+</div>
+<h3 class="text-title-lg font-title-lg text-on-surface mb-1">Expert Tips</h3>
+<p class="text-caption text-on-surface-variant flex-grow">Weekly innovations and advice.</p>
+<button onclick="location.href='farming_tips.html'" class="text-primary text-caption font-label-md mt-4 flex items-center gap-1">Read More <span class="material-symbols-outlined text-[14px]">arrow_forward</span></button>
+</div>
+<!-- Weather Forecast -->
+<div class="card-hover bg-surface-container-lowest border border-outline-variant p-4 rounded-lg hover:border-primary transition-colors group flex flex-col h-full">
+<div class="w-10 h-10 bg-primary-container/10 rounded flex items-center justify-center mb-3 text-primary">
+<span class="material-symbols-outlined" data-icon="partly_cloudy_day">partly_cloudy_day</span>
+</div>
+<h3 class="text-title-lg font-title-lg text-on-surface mb-1">Weather</h3>
+<p class="text-caption text-on-surface-variant flex-grow">Local alerts and planning.</p>
+<button onclick="location.href='weather.html'" class="text-primary text-caption font-label-md mt-4 flex items-center gap-1">View Details <span class="material-symbols-outlined text-[14px]">arrow_forward</span></button>
+</div>
+<!-- Soil Testing -->
+<div class="card-hover bg-surface-container-lowest border border-outline-variant p-4 rounded-lg hover:border-primary transition-colors group flex flex-col h-full">
+<div class="w-10 h-10 bg-primary-container/10 rounded flex items-center justify-center mb-3 text-primary">
+<span class="material-symbols-outlined" data-icon="biotech">biotech</span>
+</div>
+<h3 class="text-title-lg font-title-lg text-on-surface mb-1">Soil Testing</h3>
+<p class="text-caption text-on-surface-variant flex-grow">Nearest lab locations &amp; reports.</p>
+<button onclick="showToast('📍 Nearest lab: IARI, New Delhi — 2.4 km away')" class="text-primary text-caption font-label-md mt-4 flex items-center gap-1">Find Labs <span class="material-symbols-outlined text-[14px]">arrow_forward</span></button>
+</div>
+<!-- Equipment Rental -->
+<div class="card-hover bg-surface-container-lowest border border-outline-variant p-4 rounded-lg hover:border-primary transition-colors group flex flex-col h-full">
+<div class="w-10 h-10 bg-primary-container/10 rounded flex items-center justify-center mb-3 text-primary">
+<span class="material-symbols-outlined" data-icon="agriculture">agriculture</span>
+</div>
+<h3 class="text-title-lg font-title-lg text-on-surface mb-1">Rentals</h3>
+<p class="text-caption text-on-surface-variant flex-grow">Modern machinery on rent.</p>
+<button onclick="showToast('🚜 Tractor rental available near you — contact 1800-123-4567')" class="text-primary text-caption font-label-md mt-4 flex items-center gap-1">Browse Tools <span class="material-symbols-outlined text-[14px]">arrow_forward</span></button>
+</div>
+</div>
+</section>
+<!-- Seasonal Crop Spotlight -->
+<section class="bg-surface-container py-12">
+<div class="px-margin-mobile md:px-margin-desktop max-w-screen-xl mx-auto">
+<div class="flex justify-between items-center mb-8">
+<div>
+<h2 class="text-headline-lg font-headline-lg text-on-surface">Seasonal Crop Spotlight</h2>
+<p class="text-body-md text-on-surface-variant">Recommended crops for current sowing cycle.</p>
+</div>
+<div class="flex gap-2">
+<button class="w-8 h-8 border border-outline-variant rounded flex items-center justify-center text-primary hover:bg-white transition-colors shadow-sm">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-8 h-8 border border-outline-variant rounded flex items-center justify-center text-primary hover:bg-white transition-colors shadow-sm">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="flex gap-4 overflow-x-auto hide-scrollbar pb-2 -mx-margin-mobile px-margin-mobile md:mx-0 md:px-0">
+<!-- Wheat -->
+<div class="flex-shrink-0 w-64 bg-white border border-outline-variant rounded-lg overflow-hidden shadow-sm">
+<img alt="Wheat Harvest" class="w-full h-32 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzfbX4uwsG9xTXCprmPEoByMrdjM9CrWyVHZJAOs29n1NB3ysdX8OUtD8KA6rekA9PuY3RMrXE0YJNgJ3ctgQHEodzj6OEmf_tpq5REZtALJqE3WU3fCHFf8bV3GyI687hdk8yOsVeeNKgDWasm-sd8qCTfu7eRkyJrfwaz9hyiFEFmmWA4Ue2huWLS-8FEHzWnB_2NHhAntq9-WfxjWwu6GqU4moM_5wvvnLOyYaXNy6er15ccc3pXC-JJQA2yo29Jlx7kqxOmjuU"/>
+<div class="p-3 space-y-1.5">
+<h4 class="text-title-lg font-title-lg text-on-surface">Wheat (Gehun)</h4>
+<div class="flex flex-wrap gap-1.5">
+<span class="bg-secondary-container/20 text-on-secondary-fixed-variant px-1.5 py-0.5 rounded text-[11px] font-label-md">Rabi</span>
+<span class="bg-tertiary-fixed/20 text-on-tertiary-fixed-variant px-1.5 py-0.5 rounded text-[11px] font-label-md">Loamy</span>
+</div>
+<button class="text-primary text-caption font-label-md flex items-center gap-1 hover:underline pt-1">Details <span class="material-symbols-outlined text-[14px]">arrow_forward</span></button>
+</div>
+</div>
+<!-- Rice -->
+<div class="flex-shrink-0 w-64 bg-white border border-outline-variant rounded-lg overflow-hidden shadow-sm">
+<img alt="Paddy Field" class="w-full h-32 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPWnVCuSOInvptcUYOrc3pobn1vEX3kIoIZdP9uB-t0nuB2_38NlNrIQBS2ltb6U0smzYfHuU4_aTdom7RFQ_4CMyaD_McZ-VA53dx7SjRPTRVPE0BsxG_YAzNKF2UmB4tKqbejFHfnkHpBVfiv0Om-VvTJBVizk1mItlBRoSjJrbK5sK-g4aOTnMlELGzIuakfJ0XnEMiwyu_x88favXpvB22rio6qpywxwv0xmruplEPCXaxdwwMfB5irObxlJA0M8-9_8x5Kfa7"/>
+<div class="p-3 space-y-1.5">
+<h4 class="text-title-lg font-title-lg text-on-surface">Rice (Chawal)</h4>
+<div class="flex flex-wrap gap-1.5">
+<span class="bg-secondary-container/20 text-on-secondary-fixed-variant px-1.5 py-0.5 rounded text-[11px] font-label-md">Kharif</span>
+<span class="bg-tertiary-fixed/20 text-on-tertiary-fixed-variant px-1.5 py-0.5 rounded text-[11px] font-label-md">Clayey</span>
+</div>
+<button class="text-primary text-caption font-label-md flex items-center gap-1 hover:underline pt-1">Details <span class="material-symbols-outlined text-[14px]">arrow_forward</span></button>
+</div>
+</div>
+<!-- Cotton -->
+<div class="flex-shrink-0 w-64 bg-white border border-outline-variant rounded-lg overflow-hidden shadow-sm">
+<img alt="Cotton Crop" class="w-full h-32 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyo5xkwHyZAm0yuGRPxmVfgm9tILwrnGxvOnj79wpH4QtRKf2LAZRB8TNP1_uCdPeckGSWBmAyzHBACFP2Q5meGsP1wtLKuCBPB4MWnAR_ZXi8uwOECiq8cqmz1HFEs07Arzp7qiSIKf1FzGwEFIL-9VwgEKdH7eSCidLiQVlAUZzgclWCKluRCvRC4P7JkKvEudOMusaElZCH3YBAGcD0HPnKNXfSeAMTKVN86GdgeKqWOw3BygrTAjr_NoYZck2Df2pU5-s2Gmos"/>
+<div class="p-3 space-y-1.5">
+<h4 class="text-title-lg font-title-lg text-on-surface">Cotton (Kapaas)</h4>
+<div class="flex flex-wrap gap-1.5">
+<span class="bg-secondary-container/20 text-on-secondary-fixed-variant px-1.5 py-0.5 rounded text-[11px] font-label-md">Kharif</span>
+<span class="bg-tertiary-fixed/20 text-on-tertiary-fixed-variant px-1.5 py-0.5 rounded text-[11px] font-label-md">Black</span>
+</div>
+<button class="text-primary text-caption font-label-md flex items-center gap-1 hover:underline pt-1">Details <span class="material-symbols-outlined text-[14px]">arrow_forward</span></button>
+</div>
+</div>
+<!-- Mustard -->
+<div class="flex-shrink-0 w-64 bg-white border border-outline-variant rounded-lg overflow-hidden shadow-sm">
+<img alt="Mustard Field" class="w-full h-32 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNvdAB_dKdcIGB02HX8ydkUb4md7XTN0g8PBXBcEvAPy5MlV-oiWOGX24Y70cmy_b9H6KYHjMelCZBb5P53myb7_Q88MLL_wB-U5kqc_RbhO_4pejbD6X_qXVv1AjgzD7ELikEsn4VQHZfF2Pa1naK7MJQ3I633WMazvGYM2md6cWlKye803-9WBaOtNWOsfDbF08UMBNoGtS1jN5bJnw6r4W3BcQW4RO5fBAiNXTucU9zEJrvEtGdMXdeosHVb-WR0W3IZiaUuDDt"/>
+<div class="p-3 space-y-1.5">
+<h4 class="text-title-lg font-title-lg text-on-surface">Mustard (Sarson)</h4>
+<div class="flex flex-wrap gap-1.5">
+<span class="bg-secondary-container/20 text-on-secondary-fixed-variant px-1.5 py-0.5 rounded text-[11px] font-label-md">Rabi</span>
+<span class="bg-tertiary-fixed/20 text-on-tertiary-fixed-variant px-1.5 py-0.5 rounded text-[11px] font-label-md">Sandy</span>
+</div>
+<button class="text-primary text-caption font-label-md flex items-center gap-1 hover:underline pt-1">Details <span class="material-symbols-outlined text-[14px]">arrow_forward</span></button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials -->
+<section id="testimonials-section" class="px-margin-mobile md:px-margin-desktop py-12 max-w-screen-xl mx-auto">
+<div class="text-center mb-10">
+<h2 class="text-headline-lg font-headline-lg text-on-surface">Community Voice</h2>
+<p class="text-body-md text-on-surface-variant">Feedback from across India.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-white border border-outline-variant p-5 rounded-lg shadow-sm">
+<div class="flex items-center gap-3 mb-3">
+<img alt="Farmer Ramesh" class="w-10 h-10 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArARkisp1ClRLnrtzL9kQVwW-29mMulRFzcoJMmQu8tvnx_noyb9qbbBBW5QH4Ra6vcDDSrOCSbLGszJdO7Xts4NjK_p9VmAA9jYNDBEc1fOBtqdU9f8q7-VZTdCr1vyVh_VxEvv8HeLPMnXGC643NAOV6xT83QqfTdvy6I--V5Lrj4zhJU9LrL9rcCxwZqT6ScR613msBMVGLHccK-mmn782UwlMfbL7sPJkHQPT91rwbWc-fvHnhg8AsqojKP4IZnlDEP2wtjb--"/>
+<div>
+<p class="text-label-md font-label-md text-on-surface">Ramesh Kumar</p>
+<p class="text-[11px] text-on-surface-variant">Punjab</p>
+</div>
+</div>
+<p class="text-body-md text-on-surface-variant italic">"Market price updates help me sell at the best rates. No more guesswork."</p>
+</div>
+<div class="bg-white border border-outline-variant p-5 rounded-lg shadow-sm">
+<div class="flex items-center gap-3 mb-3">
+<img alt="Farmer Sunita" class="w-10 h-10 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXI17srwsmfFCeAkZUcYY5biNE4KKCZVVkLWOxVb5wN43yR4eIX-1SH9wAUQo2Fia9v4I7TaOVWdYmAbusKm0lSN7_l-EKq294SLUiAyHmJFtb_Vc3_ldsNMMYoM79F03zisN0ham_vgVJaKTFUSkwOXFNHie1LnlQ3D8pR_hHM9Aq-gdn-75z4jlyJ7jKetikEv89SSPAvnIR5gH8N0Hl6qi-XO8PXXp8HjYaAhOPqEvu3yg7eXaLzofFGNar9F1nATAOAytFExGY"/>
+<div>
+<p class="text-label-md font-label-md text-on-surface">Sunita Devi</p>
+<p class="text-[11px] text-on-surface-variant">Madhya Pradesh</p>
+</div>
+</div>
+<p class="text-body-md text-on-surface-variant italic">"Fertilizer guides reduced my costs by 15%. Simple and practical."</p>
+</div>
+<div class="bg-white border border-outline-variant p-5 rounded-lg shadow-sm">
+<div class="flex items-center gap-3 mb-3">
+<img alt="Farmer Arjun" class="w-10 h-10 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdeCr6hMRd6Sy35my5if60NwhaGAp2TR18bOhsIB8MDmzlcqWyVFTiX73bAqQnENajpaGw76t5kkQK2DGB1DvYofkZjJa1IMTCob9FCbUjwCDOWv1KRH3ghJWgQMJCH1AmBrrVLSMO68977gRawDmI_auY_ZjgAYFjtDTtgjAIR0_-ggW8PPar0L3CmVRFNySwv-hUq3-ZYwAx0ani0rjDf2ESH93RlPw-QPrVOt1UpgWbIlth0RT5G-1u4nWx6bVq41P6MxqsWvwU"/>
+<div>
+<p class="text-label-md font-label-md text-on-surface">Arjun Singh</p>
+<p class="text-[11px] text-on-surface-variant">Rajasthan</p>
+</div>
+</div>
+<p class="text-body-md text-on-surface-variant italic">"Weather alerts saved my harvest last month. Prompt notifications are key."</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<!-- Page Scripts -->
+<script src="global.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // CTA Button: Explore Services → scroll to #services
+  var exploreBtn = document.getElementById('cta-explore');
+  if (exploreBtn) {
+    exploreBtn.addEventListener('click', function() {
+      document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
+    });
+  }
+  // CTA Button: Learn More → scroll to stats
+  var learnBtn = document.getElementById('cta-learn');
+  if (learnBtn) {
+    learnBtn.addEventListener('click', function() {
+      document.getElementById('stats-section').scrollIntoView({ behavior: 'smooth' });
+    });
+  }
+
+  // Crop Spotlight Carousel scroll
+  var strip = document.querySelector('.hide-scrollbar');
+  var leftBtn = document.querySelectorAll('[class*="chevron_left"]')[0];
+  var rightBtn = document.querySelectorAll('[class*="chevron_right"]')[0];
+  if (strip) {
+    var leftChev = document.querySelector('button .material-symbols-outlined:not([data-icon])');
+    // Use parent buttons of chevron icons
+    var navBtns = document.querySelectorAll('section .flex.gap-2 button');
+    if (navBtns.length >= 2) {
+      navBtns[0].addEventListener('click', function() { strip.scrollBy({ left: -280, behavior: 'smooth' }); });
+      navBtns[1].addEventListener('click', function() { strip.scrollBy({ left: 280, behavior: 'smooth' }); });
+    }
+  }
+
+  // Crop Details buttons → crop_guide.html
+  document.querySelectorAll('.hide-scrollbar button').forEach(function(btn) {
+    btn.addEventListener('click', function() { location.href = 'crop_guide.html'; });
+  });
+
+  // Testimonials: auto-carousel on mobile
+  var testimonialGrid = document.querySelector('#testimonials-section .grid');
+  // (Desktop shows 3-column grid, mobile auto-slides)
+  var cards = document.querySelectorAll('#testimonials-section .grid > div');
+  if (cards.length && window.innerWidth < 768) {
+    var current = 0;
+    cards.forEach(function(c, i) { if (i > 0) c.style.display = 'none'; });
+    setInterval(function() {
+      cards[current].style.display = 'none';
+      current = (current + 1) % cards.length;
+      cards[current].style.display = '';
+    }, 3500);
+  }
+});
+</script>
+<footer class="bg-surface-container-high border-t border-outline-variant w-full py-8">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 px-margin-mobile md:px-margin-desktop max-w-screen-xl mx-auto">
+<div class="md:col-span-1 space-y-3">
+<div class="text-title-lg font-headline-md text-primary">Krishi Portal</div>
+<p class="text-caption text-on-surface-variant">Empowering Indian Farmers with digital tools for a prosperous future.</p>
+<p class="text-[11px] text-on-surface-variant">© 2024 Krishi Portal.</p>
+</div>
+<div class="space-y-3">
+<h4 class="text-label-md font-label-md text-on-surface">Quick Links</h4>
+<ul class="space-y-1.5">
+<li><a class="text-on-surface-variant hover:text-primary transition-colors text-caption" href="#">Privacy Policy</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors text-caption" href="#">Terms of Service</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors text-caption" href="#">Contact Us</a></li>
+</ul>
+</div>
+<div class="space-y-3">
+<h4 class="text-label-md font-label-md text-on-surface">Services</h4>
+<ul class="space-y-1.5">
+<li><a class="text-on-surface-variant hover:text-primary transition-colors text-caption" href="#">Market Prices</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors text-caption" href="#">Crop Advisory</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors text-caption" href="#">Government Schemes</a></li>
+</ul>
+</div>
+<div class="space-y-3">
+<h4 class="text-label-md font-label-md text-on-surface">Helpline</h4>
+<div class="p-3 border border-outline-variant rounded bg-surface">
+<p class="text-caption font-bold text-on-surface">1800-123-4567</p>
+<p class="text-[10px] text-on-surface-variant mt-1">24/7 Regional Support</p>
+</div>
+</div>
+</div>
+</footer>
+</body></html>
