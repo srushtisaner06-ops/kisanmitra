@@ -3,7 +3,8 @@
 <html class="light" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Farming Tips - Krishi Portal</title>
+<title>Farming Tips &amp; Best Practices | KisanMitra Portal</title>
+<meta name="description" content="Expert farming tips curated for Indian farmers — organic farming, pest control, irrigation, soil health, and more from KisanMitra." />
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&amp;family=Open+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
@@ -159,7 +160,7 @@
 </div>
 <h2 class="text-headline-lg font-headline-lg text-on-surface mb-stack-md">Optimizing Water Usage with Low-Cost Drip Systems</h2>
 <p class="text-body-md font-body-md text-on-surface-variant mb-stack-lg">Learn how to install and maintain a gravity-fed drip irrigation system using local materials to reduce water consumption by up to 40% while increasing crop quality.</p>
-<button class="bg-primary text-on-primary h-12 px-8 rounded-lg font-label-md hover:bg-secondary transition-colors w-fit active:scale-95 transition-transform">Read Full Guide</button>
+<button id="featured-guide-btn" class="bg-primary text-on-primary h-12 px-8 rounded-lg font-label-md hover:bg-secondary transition-colors w-fit active:scale-95 transition-transform">Read Full Guide</button>
 </div>
 </div>
 </section>
@@ -174,69 +175,19 @@
 <button class="tip-filter-btn bg-surface-container border border-outline-variant text-on-surface-variant px-6 py-3 rounded-full text-label-md font-label-md hover:border-primary hover:text-primary transition-colors" data-cat="Soil Health">Soil Health</button>
 </div>
 </section>
-<!-- Article Feed -->
-<section class="space-y-stack-md">
-<!-- Article Card 1 -->
-<div class="tip-card bg-surface-container-lowest border border-outline-variant rounded-lg p-4 md:p-6 shadow-[0px_2px_8px_rgba(46,125,50,0.08)] flex flex-col md:flex-row gap-gutter group hover:border-primary transition-colors" data-category="Organic Farming">
-<div class="w-full md:w-1/3 lg:w-1/4 h-48 md:h-auto overflow-hidden rounded-lg">
-<img class="w-full h-full object-cover transition-transform group-hover:scale-105 duration-500" data-alt="A wide, realistic landscape shot of a vibrant Indian rice paddy terrace during the monsoon season. The sky is dramatic with soft gray clouds and bright patches of light illuminating the neon green seedlings. Two farmers are seen in the distance working traditionally, creating a serene and grounded atmosphere. The overall style is modern corporate photography with high clarity and natural earth tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9WjyYOXTOzAswukc2Ar6NZ64BMDYdihjzScmi0EClk1KB3pL68zeb3d1T3v1X1UQyQSMDQ_1phDqYMHGk1sCyO6Hanl7w0Lm1khoAlqkPj6BAsNMgy8U0JCPcKM9gtgtfv00qPZLWy4mhkDHpovexc_a9nkuAR2MvhaNjsPpczzRdBiC5CyW-pXLKz9gsQlOpH0wi6Wc2wuoF9ExMrqlzpugXzMthu_aCIFsjXSvEbyVpcagL7oMzF329am1fa67X2q-qhb0qFu-W"/>
-</div>
-<div class="flex-1 py-2 flex flex-col">
-<div class="flex items-center gap-4 mb-2 text-caption font-caption text-on-surface-variant">
-<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]" data-icon="calendar_today">calendar_today</span> Oct 24, 2024</span>
-<span class="bg-primary/10 text-primary px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider">Organic Farming</span>
-</div>
-<h3 class="text-title-lg font-headline-md text-on-surface mb-2">Sustainable Vermicompost: Turning Waste into Gold</h3>
-<p class="text-body-md font-body-md text-on-surface-variant mb-stack-md line-clamp-2">Learn the step-by-step process of creating high-nutrient compost using earthworms and farm residue to eliminate the need for chemical fertilizers.</p>
-<div class="mt-auto">
-<button class="text-primary font-label-md text-label-md flex items-center gap-1 hover:gap-2 transition-all">
-                            Read More <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
-</button>
-</div>
-</div>
-</div>
-<!-- Article Card 2 -->
-<div class="tip-card bg-surface-container-lowest border border-outline-variant rounded-lg p-4 md:p-6 shadow-[0px_2px_8px_rgba(46,125,50,0.08)] flex flex-col md:flex-row gap-gutter group hover:border-primary transition-colors" data-category="Pest Control">
-<div class="w-full md:w-1/3 lg:w-1/4 h-48 md:h-auto overflow-hidden rounded-lg">
-<img class="w-full h-full object-cover transition-transform group-hover:scale-105 duration-500" data-alt="A macro photograph of healthy tomato leaves in a sun-drenched Indian vegetable garden. The leaves are a vivid, deep green with crystal-clear droplets of morning dew on the surface. The background shows a soft bokeh of a traditional farm fence and distant trees. The lighting is crisp and optimistic, emphasizing health and biological vitality in a realistic, non-processed professional style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_7B7rKveheudXNsZm2CBLm0FArSAz6EYOlcO9TXGZ7PdCNTbPb-gUfPP4RAvWE36_h2bmCvwye3SrFsKtoedDf6nSp0DdqT-SQbil6J6QZztf6svPu2kIcBETqXDjfJYId6xbPGMbqjJMs5XxHO6vmeSDR0lkLfrDpvKmndBXUOt5frRyJDoffKiDYZQULQC57yoimptn1f0hXvtTltfAClwGv5sCnndQ35GcZlpGN3NtmRySgllT5higwTA1vK0b4iSG7Ut4WDcz"/>
-</div>
-<div class="flex-1 py-2 flex flex-col">
-<div class="flex items-center gap-4 mb-2 text-caption font-caption text-on-surface-variant">
-<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]" data-icon="calendar_today">calendar_today</span> Oct 20, 2024</span>
-<span class="bg-primary/10 text-primary px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider">Pest Control</span>
-</div>
-<h3 class="text-title-lg font-headline-md text-on-surface mb-2">Natural Pest Repellents: The Power of Neem Oil</h3>
-<p class="text-body-md font-body-md text-on-surface-variant mb-stack-md line-clamp-2">How to prepare and apply organic neem-based solutions to protect your vegetables from common pests without using harmful toxins.</p>
-<div class="mt-auto">
-<button class="text-primary font-label-md text-label-md flex items-center gap-1 hover:gap-2 transition-all">
-                            Read More <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
-</button>
-</div>
-</div>
-</div>
-<!-- Article Card 3 -->
-<div class="tip-card bg-surface-container-lowest border border-outline-variant rounded-lg p-4 md:p-6 shadow-[0px_2px_8px_rgba(46,125,50,0.08)] flex flex-col md:flex-row gap-gutter group hover:border-primary transition-colors" data-category="Water Conservation">
-<div class="w-full md:w-1/3 lg:w-1/4 h-48 md:h-auto overflow-hidden rounded-lg">
-<img class="w-full h-full object-cover transition-transform group-hover:scale-105 duration-500" data-alt="A focused image of a modern solar-powered water pump operating in a rural field during a bright, sunny day. The solar panels are angled toward the sun, and a steady stream of clear water is being directed into a small canal. The scene represents technological advancement in rural India, with a realistic color palette dominated by warm earth tones and the brilliant blue of the sky." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwVkm-eKX8TePmybG5Gb5QCf2rYPkLSpBVMQZ8_-S6kG0AsQxirlK6dEYpf1JAElqFgZrFkzLkfOULcFsJQ4Ig4ieQEylX89FEl7dtEZ3sxMW1KLYobd6CNyYYYnWuHufJRlz4gGPBMF-62d05WOQAC2wy3CZLCOIB3WNEUFPqcf8xaHGyA4IRnVaIX_oT83mEbgfF5iU6HHZd7I-mn-OOfFOS2gWaCKUQygKG-kq6kw1S4UyXWwM_7n7R_TnQfbGLRJODJiJO1pZ4"/>
-</div>
-<div class="flex-1 py-2 flex flex-col">
-<div class="flex items-center gap-4 mb-2 text-caption font-caption text-on-surface-variant">
-<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]" data-icon="calendar_today">calendar_today</span> Oct 15, 2024</span>
-<span class="bg-primary/10 text-primary px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider">Water Conservation</span>
-</div>
-<h3 class="text-title-lg font-headline-md text-on-surface mb-2">Rainwater Harvesting Techniques for Small Farms</h3>
-<p class="text-body-md font-body-md text-on-surface-variant mb-stack-md line-clamp-2">Simple pit and trench methods to capture monsoon runoff and recharge groundwater levels for the dry season.</p>
-<div class="mt-auto">
-<button class="text-primary font-label-md text-label-md flex items-center gap-1 hover:gap-2 transition-all">
-                            Read More <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
-</button>
-</div>
-</div>
-</div>
+<!-- Article Feed — rendered dynamically by farmingTipsData.js + inline JS -->
+<section id="tips-feed" class="space-y-stack-md">
+<!-- Cards injected here by JS -->
 </section>
+<!-- Empty state (shown when filter yields no results) -->
+<div id="tips-empty" class="hidden py-16 text-center">
+  <span class="material-symbols-outlined text-[48px] text-outline mb-3 block">search_off</span>
+  <p class="text-body-md text-on-surface-variant">No articles found for this category.</p>
+</div>
 <!-- Load More -->
-<div class="mt-stack-lg flex justify-center">
-<button class="border-2 border-primary text-primary px-8 py-3 rounded-lg font-label-md hover:bg-primary hover:text-on-primary transition-all active:scale-95">Load More Articles</button>
+<div class="mt-stack-lg flex flex-col items-center gap-3">
+  <button id="load-more-btn" class="border-2 border-primary text-primary px-8 py-3 rounded-lg font-label-md hover:bg-primary hover:text-on-primary transition-all active:scale-95">Load More Articles</button>
+  <p id="load-more-info" class="text-caption text-on-surface-variant"></p>
 </div>
 </main>
 <!-- Footer -->
@@ -248,17 +199,17 @@
 </div>
 <div class="flex flex-col gap-2">
 <h4 class="text-label-md font-label-md text-on-surface uppercase tracking-wider mb-2">Quick Links</h4>
-<a class="text-on-surface-variant dark:text-surface-variant text-body-md font-body-md hover:text-primary transition-colors" href="#">Privacy Policy</a>
-<a class="text-on-surface-variant dark:text-surface-variant text-body-md font-body-md hover:text-primary transition-colors" href="#">Terms of Service</a>
-<a class="text-on-surface-variant dark:text-surface-variant text-body-md font-body-md hover:text-primary transition-colors" href="#">Contact Us</a>
+<a class="text-on-surface-variant dark:text-surface-variant text-body-md font-body-md hover:text-primary transition-colors" href="privacy-policy.html">Privacy Policy</a>
+<a class="text-on-surface-variant dark:text-surface-variant text-body-md font-body-md hover:text-primary transition-colors" href="terms-of-service.html">Terms of Service</a>
+<a class="text-on-surface-variant dark:text-surface-variant text-body-md font-body-md hover:text-primary transition-colors" href="contact_us.html">Contact Us</a>
 </div>
 <div class="flex flex-col gap-4">
 <h4 class="text-label-md font-label-md text-on-surface uppercase tracking-wider">Farmer Helpline</h4>
 <div class="flex items-center gap-3 text-primary font-bold text-title-lg">
 <span class="material-symbols-outlined" data-icon="call">call</span>
-                    1800-123-4567
-                </div>
-<p class="text-caption font-caption text-on-surface-variant">Toll-free, available 24/7 in 12 languages.</p>
+<a href="tel:1551" class="hover:underline">1551 (Kisan Call Centre)</a>
+</div>
+<p class="text-caption font-caption text-on-surface-variant">Toll-free, available 06:00–22:00 IST in 22 languages.</p>
 </div>
 </div>
 <div class="mt-stack-lg pt-stack-md border-t border-outline-variant/30 text-center text-caption font-caption text-on-surface-variant">
@@ -266,43 +217,146 @@
         </div>
 </footer>
 <script src="global.js"></script>
+<script src="farmingTipsData.js"></script>
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  var filterBtns = document.querySelectorAll('.tip-filter-btn');
-  var tipCards = document.querySelectorAll('.tip-card');
+/**
+ * farming_tips.html — Functional JS
+ * Implements: dynamic article rendering, real category filter,
+ * working Load More, real Read More links, featured article button.
+ * Depends on farmingTipsData.js (FEATURED_TIP + FARMING_TIPS arrays).
+ */
+(function () {
+  'use strict';
 
-  filterBtns.forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      // Update active button
-      filterBtns.forEach(function(b) {
-        b.classList.remove('bg-primary','text-on-primary');
-        b.classList.add('bg-surface-container','border','border-outline-variant','text-on-surface-variant');
-      });
-      btn.classList.add('bg-primary','text-on-primary');
-      btn.classList.remove('bg-surface-container','border','border-outline-variant','text-on-surface-variant');
+  /* ── Config ── */
+  var PER_BATCH = 8;         // articles shown initially and per Load More click
+  var activeCat  = 'all';   // current category filter
+  var shownCount = 0;       // how many articles are currently rendered
 
-      var cat = btn.dataset.cat;
-      tipCards.forEach(function(card) {
-        card.style.display = (cat === 'all' || card.dataset.category === cat) ? '' : 'none';
+  /* ── Helpers ── */
+  function escHtml(s) {
+    return String(s || '')
+      .replace(/&/g,'&amp;').replace(/</g,'&lt;')
+      .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  /* ── Build a single article card (preserving original card design) ── */
+  function buildCard(article) {
+    return '<div class="tip-card bg-surface-container-lowest border border-outline-variant rounded-lg p-4 md:p-6 shadow-[0px_2px_8px_rgba(46,125,50,0.08)] flex flex-col md:flex-row gap-gutter group hover:border-primary transition-colors" data-category="' + escHtml(article.category) + '">'
+      + '<div class="w-full md:w-1/3 lg:w-1/4 h-48 md:h-auto overflow-hidden rounded-lg">'
+      + '<img class="w-full h-full object-cover transition-transform group-hover:scale-105 duration-500" src="' + escHtml(article.image) + '" alt="' + escHtml(article.title) + '" loading="lazy" />'
+      + '</div>'
+      + '<div class="flex-1 py-2 flex flex-col">'
+      + '<div class="flex items-center gap-4 mb-2 text-caption font-caption text-on-surface-variant">'
+      + '<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]" data-icon="calendar_today">calendar_today</span> ' + escHtml(article.date) + '</span>'
+      + '<span class="bg-primary/10 text-primary px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider">' + escHtml(article.category) + '</span>'
+      + '</div>'
+      + '<h3 class="text-title-lg font-headline-md text-on-surface mb-2">' + escHtml(article.title) + '</h3>'
+      + '<p class="text-body-md font-body-md text-on-surface-variant mb-stack-md line-clamp-2">' + escHtml(article.excerpt) + '</p>'
+      + '<div class="mt-auto">'
+      + '<a href="' + escHtml(article.articleUrl) + '" target="_blank" rel="noopener noreferrer" class="text-primary font-label-md text-label-md flex items-center gap-1 hover:gap-2 transition-all">'
+      + 'Read More <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>'
+      + '</a>'
+      + '</div>'
+      + '</div>'
+      + '</div>';
+  }
+
+  /* ── Get filtered article list ── */
+  function getFiltered() {
+    if (activeCat === 'all') return FARMING_TIPS.slice();
+    return FARMING_TIPS.filter(function(a) { return a.category === activeCat; });
+  }
+
+  /* ── Render articles up to shownCount ── */
+  function renderFeed() {
+    var feed  = document.getElementById('tips-feed');
+    var empty = document.getElementById('tips-empty');
+    var btn   = document.getElementById('load-more-btn');
+    var info  = document.getElementById('load-more-info');
+    if (!feed) return;
+
+    var filtered = getFiltered();
+
+    if (filtered.length === 0) {
+      feed.innerHTML = '';
+      if (empty) empty.classList.remove('hidden');
+      if (btn) btn.style.display = 'none';
+      if (info) info.textContent = '';
+      return;
+    }
+    if (empty) empty.classList.add('hidden');
+
+    var visible = filtered.slice(0, shownCount);
+    feed.innerHTML = visible.map(buildCard).join('');
+
+    // Load More button visibility + info text
+    var remaining = filtered.length - shownCount;
+    if (remaining <= 0) {
+      if (btn) btn.style.display = 'none';
+      if (info) info.textContent = 'All ' + filtered.length + ' articles loaded.';
+    } else {
+      if (btn) btn.style.display = '';
+      if (info) info.textContent = 'Showing ' + shownCount + ' of ' + filtered.length + ' articles';
+    }
+  }
+
+  /* ── Category filter tabs ── */
+  function wireFilterTabs() {
+    var filterBtns = document.querySelectorAll('.tip-filter-btn');
+    filterBtns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        // Update active styling
+        filterBtns.forEach(function(b) {
+          b.classList.remove('bg-primary','text-on-primary');
+          b.classList.add('bg-surface-container','border','border-outline-variant','text-on-surface-variant');
+        });
+        this.classList.add('bg-primary','text-on-primary');
+        this.classList.remove('bg-surface-container','border','border-outline-variant','text-on-surface-variant');
+
+        // Reset and re-render
+        activeCat  = this.dataset.cat;
+        shownCount = PER_BATCH;
+        renderFeed();
       });
     });
-  });
+  }
 
-  // Read More buttons
-  document.querySelectorAll('.tip-card button').forEach(function(btn) {
+  /* ── Load More ── */
+  function wireLoadMore() {
+    var btn = document.getElementById('load-more-btn');
+    if (!btn) return;
     btn.addEventListener('click', function() {
-      var title = this.closest('.tip-card').querySelector('h3').textContent;
-      showToast('\uD83D\uDCDA Opening: ' + title);
+      shownCount += PER_BATCH;
+      renderFeed();
     });
+  }
+
+  /* ── Featured Article Button ── */
+  function wireFeaturedBtn() {
+    var btn = document.getElementById('featured-guide-btn');
+    if (!btn) return;
+    btn.addEventListener('click', function() {
+      if (typeof FEATURED_TIP !== 'undefined' && FEATURED_TIP.articleUrl) {
+        window.open(FEATURED_TIP.articleUrl, '_blank', 'noopener,noreferrer');
+      }
+    });
+  }
+
+  /* ── Init ── */
+  document.addEventListener('DOMContentLoaded', function() {
+    if (typeof FARMING_TIPS === 'undefined' || !Array.isArray(FARMING_TIPS)) {
+      document.getElementById('tips-feed').innerHTML =
+        '<div class="py-8 text-center text-error">Error: Article data not loaded. Please refresh.</div>';
+      return;
+    }
+    shownCount = PER_BATCH;
+    renderFeed();
+    wireFilterTabs();
+    wireLoadMore();
+    wireFeaturedBtn();
   });
 
-  // Featured guide button
-  var featuredBtn = document.querySelector('section button.bg-primary');
-  if (featuredBtn) featuredBtn.addEventListener('click', function() { showToast('\uD83D\uDCA7 Full drip irrigation guide loading...'); });
-
-  // Load More
-  var loadMoreBtn = document.querySelector('.border-2.border-primary');
-  if (loadMoreBtn) loadMoreBtn.addEventListener('click', function() { showToast('\u2705 All 12 articles loaded'); });
-});
+}());
 </script>
 </body></html>
