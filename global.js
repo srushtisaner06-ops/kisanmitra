@@ -408,29 +408,30 @@
      13. WIRE DESKTOP NAV — ADD WEATHER & CONTACT
   ────────────────────────────────────────── */
   function injectMissingNavLinks() {
+    // Weather is now hardcoded in all page navbars.
+    // Only inject Contact Us if genuinely absent (e.g. older page templates).
     const desktopNavs = document.querySelectorAll('header nav, header > div > div.hidden');
     desktopNavs.forEach(nav => {
-      if (!nav.classList.contains('hidden') && !nav.querySelector('a')) return;
       const links = nav.querySelectorAll('a');
       if (!links.length) return;
 
       const hrefs = Array.from(links).map(a => a.getAttribute('href'));
-      const toAdd = [
-        { href: 'weather.html', text: 'Weather' },
-        { href: 'contact_us.html', text: 'Contact' },
-      ];
-
-      toAdd.forEach(item => {
-        if (!hrefs.includes(item.href)) {
-          const a = document.createElement('a');
-          a.href = item.href;
-          a.textContent = item.text;
-          // Copy classes from last nav link
-          const lastLink = links[links.length - 1];
-          a.className = lastLink.className.replace('text-primary font-bold border-b-2 border-primary pb-0.5', '');
-          nav.appendChild(a);
-        }
-      });
+      if (!hrefs.includes('contact_us.html')) {
+        const a = document.createElement('a');
+        a.href = 'contact_us.html';
+        a.textContent = 'Contact Us';
+        const lastLink = links[links.length - 1];
+        const baseClass = (lastLink.className || '')
+          .replace('text-primary', 'text-on-surface-variant')
+          .replace('font-bold', '')
+          .replace('border-b-2', '')
+          .replace('border-primary', '')
+          .replace('pb-1', '')
+          .replace('pb-0.5', '')
+          .trim();
+        a.className = baseClass;
+        nav.appendChild(a);
+      }
     });
   }
 

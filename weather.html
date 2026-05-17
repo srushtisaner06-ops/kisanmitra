@@ -3,6 +3,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Weather Forecast - Krishi Portal</title>
+<meta name="description" content="Hyperlocal weather intelligence for Indian farmers. Check current temperature, humidity, rainfall, wind speed, and 5-day forecasts with farmer-focused advisories."/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
@@ -50,9 +51,36 @@
 </script>
 <style>
   .material-symbols-outlined { font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24; }
+  /* Loading overlay */
+  #weather-loading {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(247,251,240,0.80);
+    backdrop-filter: blur(4px);
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 16px;
+  }
+  #weather-loading .spinner {
+    width: 48px; height: 48px;
+    border: 4px solid #e0e4da;
+    border-top-color: #0d631b;
+    border-radius: 50%;
+    animation: spin 0.9s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
 </style>
 </head>
 <body class="bg-background text-on-background font-body-md min-h-screen">
+
+<!-- Loading Overlay -->
+<div id="weather-loading" role="status" aria-label="Loading weather data">
+  <div class="spinner"></div>
+  <p class="text-body-md text-on-surface-variant font-label-md">Fetching weather data…</p>
+</div>
 
 <!-- TopNavBar -->
 <header class="fixed top-0 w-full z-50 bg-surface dark:bg-surface-dim border-b border-outline-variant shadow-[0px_2px_8px_rgba(46,125,50,0.08)]">
@@ -62,13 +90,14 @@
     <span class="font-headline-lg">Krishi Portal</span>
   </div>
   <nav class="hidden md:flex items-center gap-6">
-    <a class="text-on-surface-variant hover:text-secondary transition-colors text-label-md font-label-md" href="home.html">Home</a>
-    <a class="text-on-surface-variant hover:text-secondary transition-colors text-label-md font-label-md" href="market_price.html">Market Prices</a>
-    <a class="text-on-surface-variant hover:text-secondary transition-colors text-label-md font-label-md" href="crop_guide.html">Crop Guide</a>
-    <a class="text-on-surface-variant hover:text-secondary transition-colors text-label-md font-label-md" href="fertilizer.html">Fertilizers</a>
-    <a class="text-on-surface-variant hover:text-secondary transition-colors text-label-md font-label-md" href="govt_schemes.html">Schemes</a>
-    <a class="text-on-surface-variant hover:text-secondary transition-colors text-label-md font-label-md" href="farming_tips.html">Farming Tips</a>
-    <a class="text-primary font-bold border-b-2 border-primary pb-1 text-label-md font-label-md" href="weather.html">Weather</a>
+    <a class="text-on-surface-variant hover:text-secondary transition-colors text-label-md font-label-md" href="home.html" data-i18n="nav_home">Home</a>
+    <a class="text-on-surface-variant hover:text-secondary transition-colors text-label-md font-label-md" href="market_price.html" data-i18n="nav_market">Market Prices</a>
+    <a class="text-on-surface-variant hover:text-secondary transition-colors text-label-md font-label-md" href="crop_guide.html" data-i18n="nav_crop">Crop Guide</a>
+    <a class="text-on-surface-variant hover:text-secondary transition-colors text-label-md font-label-md" href="fertilizer.html" data-i18n="nav_fertilizer">Fertilizers</a>
+    <a class="text-on-surface-variant hover:text-secondary transition-colors text-label-md font-label-md" href="govt_schemes.html" data-i18n="nav_schemes">Schemes</a>
+    <a class="text-on-surface-variant hover:text-secondary transition-colors text-label-md font-label-md" href="farming_tips.html" data-i18n="nav_tips">Farming Tips</a>
+    <a class="text-primary font-bold border-b-2 border-primary pb-1 text-label-md font-label-md" href="weather.html" data-i18n="nav_weather">Weather</a>
+    <a class="text-on-surface-variant hover:text-secondary transition-colors text-label-md font-label-md" href="contact_us.html" data-i18n="nav_contact">Contact Us</a>
   </nav>
   <div class="flex items-center gap-4">
     <button class="lang-toggle-btn text-primary text-label-md font-label-md hover:text-secondary transition-colors flex items-center gap-1">
@@ -100,9 +129,12 @@
     <div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 shadow-[0px_2px_8px_rgba(46,125,50,0.08)] flex flex-col md:flex-row gap-4 items-center">
       <div class="relative flex-1 w-full">
         <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">search</span>
-        <input id="location-search" type="text" placeholder="Search your district or city (e.g., Ludhiana, Pune)..." class="w-full pl-12 pr-4 py-3 bg-surface border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all text-body-md"/>
+        <input id="location-search" type="text" placeholder="Search your district or city (e.g., Ludhiana, Pune, Nashik)…"
+          class="w-full pl-12 pr-4 py-3 bg-surface border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all text-body-md"
+          aria-label="City or district search"/>
       </div>
-      <button id="location-btn" class="w-full md:w-auto px-8 py-3 bg-primary text-on-primary font-label-md rounded-lg hover:bg-secondary transition-colors flex items-center justify-center gap-2 h-[48px]">
+      <button id="location-btn"
+        class="w-full md:w-auto px-8 py-3 bg-primary text-on-primary font-label-md rounded-lg hover:bg-secondary transition-colors flex items-center justify-center gap-2 h-[48px]">
         <span class="material-symbols-outlined text-[20px]">my_location</span>Use My Location
       </button>
     </div>
@@ -117,14 +149,14 @@
         <div class="bg-primary-container p-6 text-white">
           <div class="flex justify-between items-start">
             <div>
-              <p class="text-label-md font-label-md text-primary-fixed opacity-80">📍 Ludhiana, Punjab</p>
-              <p class="text-caption text-primary-fixed opacity-70 mt-1" id="current-date">Saturday, 10 May 2026</p>
+              <p id="weather-location-label" class="text-label-md font-label-md text-primary-fixed opacity-80">📍 Ludhiana, India</p>
+              <p id="current-date" class="text-caption text-primary-fixed opacity-70 mt-1">—</p>
             </div>
-            <span class="material-symbols-outlined text-[64px] text-primary-fixed">wb_sunny</span>
+            <span id="weather-icon" class="material-symbols-outlined text-[64px] text-primary-fixed">partly_cloudy_day</span>
           </div>
           <div class="mt-4">
-            <p class="text-[72px] font-display-lg text-white leading-none">34°C</p>
-            <p class="text-title-lg text-primary-fixed opacity-90 mt-1">Clear & Sunny</p>
+            <p id="weather-temp" class="text-[72px] font-display-lg text-white leading-none">—°C</p>
+            <p id="weather-condition" class="text-title-lg text-primary-fixed opacity-90 mt-1">Loading…</p>
           </div>
         </div>
         <div class="p-6 grid grid-cols-2 gap-4">
@@ -134,7 +166,7 @@
             </div>
             <div>
               <p class="text-caption text-on-surface-variant">Humidity</p>
-              <p class="text-label-md font-bold text-on-surface">58%</p>
+              <p id="weather-humidity" class="text-label-md font-bold text-on-surface">—</p>
             </div>
           </div>
           <div class="flex items-center gap-3">
@@ -143,7 +175,7 @@
             </div>
             <div>
               <p class="text-caption text-on-surface-variant">Wind Speed</p>
-              <p class="text-label-md font-bold text-on-surface">14 km/h</p>
+              <p id="weather-wind" class="text-label-md font-bold text-on-surface">—</p>
             </div>
           </div>
           <div class="flex items-center gap-3">
@@ -152,7 +184,7 @@
             </div>
             <div>
               <p class="text-caption text-on-surface-variant">Visibility</p>
-              <p class="text-label-md font-bold text-on-surface">8 km</p>
+              <p id="weather-visibility" class="text-label-md font-bold text-on-surface">—</p>
             </div>
           </div>
           <div class="flex items-center gap-3">
@@ -161,7 +193,7 @@
             </div>
             <div>
               <p class="text-caption text-on-surface-variant">Feels Like</p>
-              <p class="text-label-md font-bold text-on-surface">37°C</p>
+              <p id="weather-feels-like" class="text-label-md font-bold text-on-surface">—</p>
             </div>
           </div>
           <div class="flex items-center gap-3">
@@ -170,7 +202,7 @@
             </div>
             <div>
               <p class="text-caption text-on-surface-variant">Sunrise</p>
-              <p class="text-label-md font-bold text-on-surface">05:44 AM</p>
+              <p id="weather-sunrise" class="text-label-md font-bold text-on-surface">—</p>
             </div>
           </div>
           <div class="flex items-center gap-3">
@@ -179,19 +211,40 @@
             </div>
             <div>
               <p class="text-caption text-on-surface-variant">Sunset</p>
-              <p class="text-label-md font-bold text-on-surface">07:18 PM</p>
+              <p id="weather-sunset" class="text-label-md font-bold text-on-surface">—</p>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- 5-Day Forecast -->
+    <!-- 5-Day Forecast + Advisory -->
     <div class="lg:col-span-7 flex flex-col gap-gutter">
       <div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 shadow-[0px_2px_8px_rgba(46,125,50,0.08)]">
         <h2 class="text-title-lg font-headline-md text-on-surface mb-4">5-Day Forecast</h2>
         <div class="space-y-3" id="forecast-list">
-          <!-- Populated by JS -->
+          <!-- Loading skeleton rows -->
+          <div class="flex items-center justify-between py-3 border-b border-outline-variant animate-pulse">
+            <div class="h-4 w-20 bg-surface-container rounded"></div>
+            <div class="h-7 w-7 bg-surface-container rounded"></div>
+            <div class="h-4 w-24 bg-surface-container rounded hidden sm:block"></div>
+            <div class="h-4 w-10 bg-surface-container rounded"></div>
+            <div class="h-4 w-14 bg-surface-container rounded"></div>
+          </div>
+          <div class="flex items-center justify-between py-3 border-b border-outline-variant animate-pulse">
+            <div class="h-4 w-20 bg-surface-container rounded"></div>
+            <div class="h-7 w-7 bg-surface-container rounded"></div>
+            <div class="h-4 w-24 bg-surface-container rounded hidden sm:block"></div>
+            <div class="h-4 w-10 bg-surface-container rounded"></div>
+            <div class="h-4 w-14 bg-surface-container rounded"></div>
+          </div>
+          <div class="flex items-center justify-between py-3 animate-pulse">
+            <div class="h-4 w-20 bg-surface-container rounded"></div>
+            <div class="h-7 w-7 bg-surface-container rounded"></div>
+            <div class="h-4 w-24 bg-surface-container rounded hidden sm:block"></div>
+            <div class="h-4 w-10 bg-surface-container rounded"></div>
+            <div class="h-4 w-14 bg-surface-container rounded"></div>
+          </div>
         </div>
       </div>
 
@@ -203,7 +256,7 @@
           </div>
           <div>
             <h3 class="text-title-lg font-title-lg text-on-surface mb-1">Today's Farming Advice</h3>
-            <p class="text-body-md text-on-surface-variant">☀️ <strong>Clear skies ahead.</strong> Ideal conditions for top-dressing nitrogen fertilizer on wheat. Avoid irrigation today — soil moisture is adequate. Plan harvesting activities for Saturday morning before afternoon heat.</p>
+            <p id="farming-advisory" class="text-body-md text-on-surface-variant">Loading farming advisory based on current weather…</p>
           </div>
         </div>
       </div>
@@ -219,7 +272,7 @@
       </div>
       <div>
         <h3 class="text-title-lg font-title-lg text-on-surface mb-1">Rain Alert</h3>
-        <p class="text-body-md text-on-surface-variant">Light to moderate rainfall expected on <strong>Wednesday 14 May</strong>. Delay harvesting operations by 2 days. Cover stored grain in open areas.</p>
+        <p id="rain-alert-text" class="text-body-md text-on-surface-variant">Analyzing rainfall data…</p>
         <span class="inline-block mt-2 px-3 py-0.5 bg-primary/10 text-primary text-caption font-bold rounded-full">⚠️ Plan Accordingly</span>
       </div>
     </div>
@@ -229,8 +282,8 @@
         <span class="material-symbols-outlined text-secondary">wb_sunny</span>
       </div>
       <div>
-        <h3 class="text-title-lg font-title-lg text-on-surface mb-1">UV Index: High (7)</h3>
-        <p class="text-body-md text-on-surface-variant">Workers in open fields should wear hats and light-colored clothing. Peak UV hours: <strong>11 AM – 3 PM</strong>. Schedule heavy outdoor tasks before 10 AM.</p>
+        <h3 id="uv-alert-title" class="text-title-lg font-title-lg text-on-surface mb-1">UV Index</h3>
+        <p id="uv-alert-text" class="text-body-md text-on-surface-variant">Calculating UV exposure risk…</p>
         <span class="inline-block mt-2 px-3 py-0.5 bg-secondary/10 text-secondary text-caption font-bold rounded-full">🌤 Take Precautions</span>
       </div>
     </div>
@@ -238,26 +291,26 @@
 
   <!-- Seasonal Outlook -->
   <section class="mt-stack-lg bg-surface-container-lowest border border-outline-variant rounded-xl p-6 shadow-[0px_2px_8px_rgba(46,125,50,0.08)]">
-    <h2 class="text-headline-md font-headline-md text-on-surface mb-4">Monthly Outlook — May 2026</h2>
+    <h2 class="text-headline-md font-headline-md text-on-surface mb-4" id="monthly-title">Monthly Outlook</h2>
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
       <div class="text-center p-4 bg-surface-container rounded-lg">
         <span class="material-symbols-outlined text-primary text-[36px]">thermostat</span>
-        <p class="text-headline-md font-bold text-primary mt-1">38°C</p>
+        <p id="monthly-high" class="text-headline-md font-bold text-primary mt-1">—</p>
         <p class="text-caption text-on-surface-variant">Avg High</p>
       </div>
       <div class="text-center p-4 bg-surface-container rounded-lg">
         <span class="material-symbols-outlined text-tertiary text-[36px]">device_thermostat</span>
-        <p class="text-headline-md font-bold text-tertiary mt-1">24°C</p>
+        <p id="monthly-low" class="text-headline-md font-bold text-tertiary mt-1">—</p>
         <p class="text-caption text-on-surface-variant">Avg Low</p>
       </div>
       <div class="text-center p-4 bg-surface-container rounded-lg">
         <span class="material-symbols-outlined text-primary text-[36px]">water_drop</span>
-        <p class="text-headline-md font-bold text-primary mt-1">18mm</p>
+        <p id="monthly-rain" class="text-headline-md font-bold text-primary mt-1">—</p>
         <p class="text-caption text-on-surface-variant">Rainfall</p>
       </div>
       <div class="text-center p-4 bg-surface-container rounded-lg">
         <span class="material-symbols-outlined text-secondary text-[36px]">air</span>
-        <p class="text-headline-md font-bold text-secondary mt-1">16 km/h</p>
+        <p id="monthly-wind" class="text-headline-md font-bold text-secondary mt-1">—</p>
         <p class="text-caption text-on-surface-variant">Avg Wind</p>
       </div>
     </div>
@@ -304,57 +357,5 @@
 
 <script src="translations.js"></script>
 <script src="global.js"></script>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  // Current date
-  var dateEl = document.getElementById('current-date');
-  if (dateEl) {
-    dateEl.textContent = new Date().toLocaleDateString('en-IN', { weekday:'long', day:'numeric', month:'long', year:'numeric' });
-  }
-
-  // 5-Day Forecast data
-  var forecast = [
-    { day: 'Sunday',    icon: 'wb_sunny',          cond: 'Sunny',            high: 36, low: 23, rain: '5%'  },
-    { day: 'Monday',    icon: 'partly_cloudy_day',  cond: 'Partly Cloudy',    high: 34, low: 22, rain: '15%' },
-    { day: 'Tuesday',   icon: 'partly_cloudy_day',  cond: 'Hazy',             high: 35, low: 24, rain: '10%' },
-    { day: 'Wednesday', icon: 'rainy',              cond: 'Light Rain',        high: 29, low: 21, rain: '75%' },
-    { day: 'Thursday',  icon: 'thunderstorm',       cond: 'Thundershowers',    high: 27, low: 20, rain: '85%' },
-  ];
-
-  var list = document.getElementById('forecast-list');
-  if (list) {
-    list.innerHTML = forecast.map(function(f, i) {
-      var rainColor = parseInt(f.rain) > 60 ? 'text-error' : 'text-on-surface-variant';
-      return '<div class="flex items-center justify-between py-3 ' + (i < forecast.length-1 ? 'border-b border-outline-variant' : '') + '">'
-        + '<p class="text-label-md font-label-md text-on-surface w-24">' + f.day + '</p>'
-        + '<span class="material-symbols-outlined text-primary text-[28px]">' + f.icon + '</span>'
-        + '<p class="text-body-md text-on-surface-variant flex-1 text-center hidden sm:block">' + f.cond + '</p>'
-        + '<p class="text-caption ' + rainColor + ' w-12 text-center">💧 ' + f.rain + '</p>'
-        + '<p class="text-label-md font-bold text-primary w-16 text-right">' + f.high + '° / <span class="font-normal text-on-surface-variant">' + f.low + '°</span></p>'
-        + '</div>';
-    }).join('');
-  }
-
-  // Location search
-  var locBtn = document.getElementById('location-btn');
-  var locInput = document.getElementById('location-search');
-  if (locBtn) {
-    locBtn.addEventListener('click', function() {
-      var loc = locInput ? locInput.value.trim() : '';
-      if (loc) {
-        showToast('📍 Fetching weather for: ' + loc);
-      } else if (navigator.geolocation) {
-        showToast('📡 Detecting your location...');
-      } else {
-        showToast('📍 Location: Ludhiana, Punjab (default)');
-      }
-    });
-  }
-  if (locInput) {
-    locInput.addEventListener('keydown', function(e) {
-      if (e.key === 'Enter') locBtn && locBtn.click();
-    });
-  }
-});
-</script>
+<script src="weather.js"></script>
 </body></html>
