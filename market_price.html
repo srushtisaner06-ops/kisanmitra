@@ -138,24 +138,18 @@
         <span class="font-headline-lg">Krishi Portal</span>
       </div>
       <nav class="hidden md:flex items-center gap-6">
-        <a class="text-on-surface-variant dark:text-surface-variant text-label-md font-label-md hover:text-secondary transition-colors"
-          href="home.html">Home</a>
-        <a class="text-primary dark:text-primary-fixed font-bold border-b-2 border-primary pb-1 text-label-md font-label-md"
-          href="market_price.html">Market Prices</a>
-        <a class="text-on-surface-variant dark:text-surface-variant text-label-md font-label-md hover:text-secondary transition-colors"
-          href="crop_guide.html">Crop Guide</a>
-        <a class="text-on-surface-variant dark:text-surface-variant text-label-md font-label-md hover:text-secondary transition-colors"
-          href="fertilizer.html">Fertilizers</a>
-        <a class="text-on-surface-variant dark:text-surface-variant text-label-md font-label-md hover:text-secondary transition-colors"
-          href="govt_schemes.html">Government Schemes</a>
-        <a class="text-on-surface-variant dark:text-surface-variant text-label-md font-label-md hover:text-secondary transition-colors"
-          href="farming_tips.html">Farming Tips</a>
+        <a class="text-on-surface-variant dark:text-surface-variant text-label-md font-label-md hover:text-secondary transition-colors" href="home.html" data-i18n="nav_home">Home</a>
+        <a class="text-primary dark:text-primary-fixed font-bold border-b-2 border-primary pb-1 text-label-md font-label-md" href="market_price.html" data-i18n="nav_market">Market Prices</a>
+        <a class="text-on-surface-variant dark:text-surface-variant text-label-md font-label-md hover:text-secondary transition-colors" href="crop_guide.html" data-i18n="nav_crop">Crop Guide</a>
+        <a class="text-on-surface-variant dark:text-surface-variant text-label-md font-label-md hover:text-secondary transition-colors" href="fertilizer.html" data-i18n="nav_fertilizer">Fertilizers</a>
+        <a class="text-on-surface-variant dark:text-surface-variant text-label-md font-label-md hover:text-secondary transition-colors" href="govt_schemes.html" data-i18n="nav_schemes">Government Schemes</a>
+        <a class="text-on-surface-variant dark:text-surface-variant text-label-md font-label-md hover:text-secondary transition-colors" href="farming_tips.html" data-i18n="nav_tips">Farming Tips</a>
       </nav>
       <div class="flex items-center gap-4">
         <button
           class="lang-toggle-btn text-primary text-label-md font-label-md hover:text-secondary transition-colors flex items-center gap-1">
           <span class="material-symbols-outlined" data-icon="language">language</span>
-          Language
+          <span data-i18n="nav_language">Language</span>
         </button>
         <button class="dark-toggle-btn text-on-surface-variant hover:text-primary transition-colors"
           aria-label="Toggle dark mode">
@@ -169,8 +163,8 @@
     <section
       class="mt-stack-lg bg-primary-container rounded-xl p-8 md:p-12 text-on-primary-container relative overflow-hidden flex flex-col md:flex-row items-center gap-stack-lg shadow-[0px_2px_8px_rgba(46,125,50,0.08)]">
       <div class="flex-1 z-10 text-center md:text-left">
-        <h1 class="text-display-lg font-display-lg mb-stack-sm text-white">Live Market Prices (Mandis)</h1>
-        <p class="text-body-lg font-body-lg text-primary-fixed opacity-90 max-w-2xl">Stay updated with real-time crop
+        <h1 class="text-display-lg font-display-lg mb-stack-sm text-white" data-i18n="market_hero_title">Live Market Prices (Mandis)</h1>
+        <p class="text-body-lg font-body-lg text-primary-fixed opacity-90 max-w-2xl" data-i18n="market_hero_sub">Stay updated with real-time crop
           rates across India. Empowering you to sell at the right time for the best value.</p>
       </div>
       <div
@@ -184,21 +178,19 @@
     <!-- Search and Filters -->
     <section class="mt-stack-lg grid grid-cols-1 md:grid-cols-4 gap-gutter items-end">
       <div class="md:col-span-2">
-        <label class="block text-label-md font-label-md text-on-surface-variant mb-stack-sm">Search Crop or
-          Mandi</label>
+        <label class="block text-label-md font-label-md text-on-surface-variant mb-stack-sm" data-i18n="market_search_label">Search Crop or Mandi</label>
         <div class="relative">
-          <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline"
-            data-icon="search">search</span>
+          <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
           <input id="market-search"
             class="w-full pl-10 pr-4 py-3 bg-surface-container-lowest border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all"
-            placeholder="e.g., Wheat, Punjab Mandi..." type="text" />
+            placeholder="e.g., Wheat, Punjab Mandi..." data-i18n-ph="market_search_ph" type="text" />
         </div>
       </div>
       <div>
-        <label class="block text-label-md font-label-md text-on-surface-variant mb-stack-sm">State</label>
+        <label class="block text-label-md font-label-md text-on-surface-variant mb-stack-sm" data-i18n="market_state_label">State</label>
         <select id="state-filter"
           class="w-full px-4 py-3 bg-surface-container-lowest border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none appearance-none">
-          <option value="">All States</option>
+          <option value="" data-i18n="market_all_states">All States</option>
           <option value="Punjab">Punjab</option>
           <option value="Haryana">Haryana</option>
           <option value="Uttar Pradesh">Uttar Pradesh</option>
@@ -216,7 +208,7 @@
         <button id="filter-btn"
           class="flex-1 bg-primary text-white font-label-md text-label-md py-3 px-6 rounded-lg hover:bg-secondary transition-colors flex items-center justify-center gap-2 shadow-sm">
           <span class="material-symbols-outlined text-[20px]" data-icon="filter_alt">filter_alt</span>
-          Filter
+          <span data-i18n="market_filter_btn">Filter</span>
         </button>
         <button id="sort-btn"
           class="p-3 border border-outline-variant rounded-lg text-primary hover:bg-surface-container transition-colors"
@@ -232,13 +224,12 @@
         <table class="w-full text-left border-collapse min-w-[800px]">
           <thead class="bg-primary-container text-white">
             <tr>
-              <th class="px-6 py-5 font-title-lg text-title-lg">Crop Name</th>
-              <th class="px-6 py-5 font-title-lg text-title-lg">Mandi</th>
-              <th class="px-6 py-5 font-title-lg text-title-lg text-right">Min Price (₹/q)</th>
-              <th class="px-6 py-5 font-title-lg text-title-lg text-right">Max Price (₹/q)</th>
-              <th class="px-6 py-5 font-title-lg text-title-lg text-center">Trend</th>
-              <!-- Alert column: per-row toggle buttons rendered by JS -->
-              <th class="px-6 py-5 font-title-lg text-title-lg text-center">Alert</th>
+              <th class="px-6 py-5 font-title-lg text-title-lg" data-i18n="market_col_crop">Crop Name</th>
+              <th class="px-6 py-5 font-title-lg text-title-lg" data-i18n="market_col_mandi">Mandi</th>
+              <th class="px-6 py-5 font-title-lg text-title-lg text-right" data-i18n="market_col_min">Min Price (₹/q)</th>
+              <th class="px-6 py-5 font-title-lg text-title-lg text-right" data-i18n="market_col_max">Max Price (₹/q)</th>
+              <th class="px-6 py-5 font-title-lg text-title-lg text-center" data-i18n="market_col_trend">Trend</th>
+              <th class="px-6 py-5 font-title-lg text-title-lg text-center" data-i18n="market_col_alert">Alert</th>
             </tr>
           </thead>
           <!-- Static rows removed: JS renderTable() populates tbody dynamically on load -->
@@ -249,9 +240,9 @@
         <span id="row-count" class="text-caption font-caption text-on-surface-variant">Showing 5 of 5 Mandis</span>
         <div class="flex gap-2">
           <button id="prev-btn"
-            class="px-4 py-2 border border-outline-variant rounded-lg text-primary font-label-md text-label-md bg-white hover:bg-surface-container transition-colors">Previous</button>
+            class="px-4 py-2 border border-outline-variant rounded-lg text-primary font-label-md text-label-md bg-white hover:bg-surface-container transition-colors" data-i18n="market_prev">Previous</button>
           <button id="next-btn"
-            class="px-4 py-2 border border-outline-variant rounded-lg text-primary font-label-md text-label-md bg-white hover:bg-surface-container transition-colors">Next</button>
+            class="px-4 py-2 border border-outline-variant rounded-lg text-primary font-label-md text-label-md bg-white hover:bg-surface-container transition-colors" data-i18n="market_next">Next</button>
         </div>
       </div>
     </section>
@@ -347,7 +338,8 @@
     </button>
   </nav>
   <!-- Modal must exist in DOM before JS runs; using DOMContentLoaded fixes the alertModal null bug -->
-  <script src="global.js"></script>
+  <script src="translations.js"></script>
+<script src="global.js"></script>
   <script>
 document.addEventListener('DOMContentLoaded', function () {
         // All market data rows

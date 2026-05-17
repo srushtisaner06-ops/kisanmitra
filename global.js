@@ -35,10 +35,10 @@
   /* ──────────────────────────────────────────
      2. LANGUAGE SWITCHER
   ────────────────────────────────────────── */
+  // Supported languages shown in the dropdown
   const LANGUAGES = [
     { code: 'en', label: '🇮🇳 English' },
     { code: 'hi', label: '🇮🇳 हिन्दी' },
-    { code: 'pa', label: '🇮🇳 ਪੰਜਾਬੀ' },
     { code: 'mr', label: '🇮🇳 मराठी' },
   ];
 
@@ -52,29 +52,36 @@
       dropdown = document.createElement('div');
       dropdown.id = 'kp-lang-dropdown';
       const saved = localStorage.getItem('kp-lang') || 'en';
+
       LANGUAGES.forEach(lang => {
         const btn = document.createElement('button');
         btn.textContent = lang.label;
         btn.dataset.lang = lang.code;
         if (lang.code === saved) btn.classList.add('active');
+
         btn.addEventListener('click', () => {
+          // Persist choice
           localStorage.setItem('kp-lang', lang.code);
+          // Update active state in dropdown
           dropdown.querySelectorAll('button').forEach(b => b.classList.remove('active'));
           btn.classList.add('active');
           dropdown.classList.remove('open');
-          showToast(`🌐 Language set to ${lang.label}`);
+          // ── Apply translations to the current page ──
+          if (window.KP_I18N) window.KP_I18N.apply();
+          showToast('🌐 ' + lang.label);
         });
+
         dropdown.appendChild(btn);
       });
+
       document.body.appendChild(dropdown);
     }
 
     langBtns.forEach(btn => {
-      btn.style.position = 'relative';
       btn.addEventListener('click', (e) => {
         e.stopPropagation();
         const rect = btn.getBoundingClientRect();
-        dropdown.style.top = (rect.bottom + window.scrollY + 8) + 'px';
+        dropdown.style.top  = (rect.bottom + window.scrollY + 8) + 'px';
         dropdown.style.right = (window.innerWidth - rect.right) + 'px';
         dropdown.style.position = 'absolute';
         dropdown.classList.toggle('open');
@@ -84,6 +91,9 @@
     document.addEventListener('click', (e) => {
       if (!dropdown.contains(e.target)) dropdown.classList.remove('open');
     });
+
+    // ── Apply saved language immediately on page load ──
+    if (window.KP_I18N) window.KP_I18N.apply();
   }
 
   /* ──────────────────────────────────────────
