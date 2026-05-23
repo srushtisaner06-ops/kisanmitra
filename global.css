@@ -1,0 +1,722 @@
+/* ============================================================
+   global.css — Krishi Portal Shared Styles
+   Applies to all pages via <link rel="stylesheet" href="global.css">
+   ============================================================ */
+
+/* ---------- Smooth scroll globally ---------- */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ---------- Scroll Reveal Animation ---------- */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- Card Hover Lift ---------- */
+.card-hover {
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(13, 99, 27, 0.13);
+}
+
+/* ---------- Animated Counter ---------- */
+.counter-value {
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+/* ---------- Toast Notification ---------- */
+#kp-toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  background: #0d631b;
+  color: #ffffff;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 320px;
+  transform: translateY(80px);
+  opacity: 0;
+  transition: transform 0.35s cubic-bezier(.22,.68,0,1.2), opacity 0.3s ease;
+  pointer-events: none;
+}
+#kp-toast.show {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+#kp-toast .toast-icon {
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+/* ---------- Success Modal ---------- */
+#kp-success-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: rgba(24, 29, 23, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+#kp-success-modal.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+#kp-success-modal .modal-box {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 40px 32px;
+  max-width: 420px;
+  width: 90%;
+  text-align: center;
+  transform: scale(0.88);
+  transition: transform 0.35s cubic-bezier(.22,.68,0,1.2);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18);
+}
+#kp-success-modal.show .modal-box {
+  transform: scale(1);
+}
+#kp-success-modal .modal-icon {
+  font-size: 64px;
+  color: #0d631b;
+  margin-bottom: 16px;
+}
+#kp-success-modal .modal-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #181d17;
+  margin-bottom: 8px;
+}
+#kp-success-modal .modal-text {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  color: #40493d;
+  margin-bottom: 24px;
+}
+#kp-success-modal .modal-close {
+  background: #0d631b;
+  color: #ffffff;
+  border: none;
+  padding: 12px 32px;
+  border-radius: 8px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+#kp-success-modal .modal-close:hover {
+  background: #006e1c;
+}
+
+/* ---------- Language Dropdown ---------- */
+#kp-lang-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: #ffffff;
+  border: 1px solid #bfcaba;
+  border-radius: 10px;
+  min-width: 160px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+  z-index: 9999;
+  opacity: 0;
+  transform: translateY(-6px);
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+#kp-lang-dropdown.open {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+#kp-lang-dropdown button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 10px 16px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #40493d;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+#kp-lang-dropdown button:hover,
+#kp-lang-dropdown button.active {
+  background: #f1f5eb;
+  color: #0d631b;
+}
+
+/* ---------- Hamburger Menu Overlay ---------- */
+#kp-mobile-nav {
+  display: none;
+  position: fixed;
+  top: 57px;
+  left: 0;
+  right: 0;
+  background: #f7fbf0;
+  border-bottom: 1px solid #bfcaba;
+  z-index: 49;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  padding: 12px 16px 20px;
+  flex-direction: column;
+  gap: 2px;
+}
+#kp-mobile-nav.open {
+  display: flex;
+}
+#kp-mobile-nav a {
+  display: block;
+  padding: 10px 12px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #40493d;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+#kp-mobile-nav a:hover,
+#kp-mobile-nav a.active-nav {
+  background: #ebefe5;
+  color: #0d631b;
+}
+
+/* ---------- Hamburger Button ---------- */
+.kp-hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+  border: none;
+  background: transparent;
+}
+.kp-hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #40493d;
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.kp-hamburger.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.kp-hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+.kp-hamburger.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ---------- Scroll to Top Button ---------- */
+#kp-scroll-top {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  z-index: 9998;
+  width: 44px;
+  height: 44px;
+  background: #0d631b;
+  color: #ffffff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(13, 99, 27, 0.3);
+  opacity: 0;
+  transform: translateY(16px);
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+#kp-scroll-top.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+#kp-scroll-top:hover {
+  background: #006e1c;
+}
+
+/* ---------- Active Nav Link ---------- */
+.active-nav {
+  color: #0d631b !important;
+  font-weight: 700 !important;
+  border-bottom: 2px solid #0d631b;
+  padding-bottom: 2px;
+}
+
+/* ---------- Dark Mode Overrides ---------- */
+html.dark body {
+  background-color: #1a1f19;
+  color: #e0e4da;
+}
+html.dark header {
+  background-color: #232b22 !important;
+  border-color: #40493d !important;
+}
+html.dark footer {
+  background-color: #232b22 !important;
+  border-color: #40493d !important;
+}
+html.dark .bg-white {
+  background-color: #2d322b !important;
+}
+html.dark #kp-mobile-nav {
+  background: #232b22;
+  border-color: #40493d;
+}
+html.dark #kp-mobile-nav a {
+  color: #bfcaba;
+}
+html.dark #kp-mobile-nav a:hover,
+html.dark #kp-mobile-nav a.active-nav {
+  background: #2d322b;
+  color: #88d982;
+}
+html.dark .kp-hamburger span {
+  background: #bfcaba;
+}
+html.dark #kp-lang-dropdown {
+  background: #2d322b;
+  border-color: #40493d;
+}
+html.dark #kp-lang-dropdown button {
+  color: #bfcaba;
+}
+html.dark #kp-lang-dropdown button:hover {
+  background: #232b22;
+  color: #88d982;
+}
+
+/* ---------- Form Error States ---------- */
+.field-error {
+  border-color: #ba1a1a !important;
+}
+.error-msg {
+  color: #ba1a1a;
+  font-size: 12px;
+  font-family: 'Open Sans', sans-serif;
+  margin-top: 4px;
+  display: block;
+}
+
+/* ---------- Filter Tab Pills ---------- */
+.filter-tab {
+  padding: 6px 16px;
+  border-radius: 999px;
+  border: 1px solid #bfcaba;
+  background: transparent;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #40493d;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.filter-tab:hover {
+  border-color: #0d631b;
+  color: #0d631b;
+}
+.filter-tab.active {
+  background: #0d631b;
+  color: #ffffff;
+  border-color: #0d631b;
+}
+
+/* ---------- Testimonial Carousel Dots ---------- */
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #bfcaba;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+  border: none;
+}
+.carousel-dot.active {
+  background: #0d631b;
+  transform: scale(1.3);
+}
+
+/* ---------- Search Highlight ---------- */
+mark.kp-highlight {
+  background: #a3f69c;
+  color: #002204;
+  border-radius: 3px;
+  padding: 0 2px;
+}
+
+/* ---------- Page transition fade ---------- */
+body {
+  animation: pageFadeIn 0.3s ease;
+}
+@keyframes pageFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ============================================================
+   VISUAL ENHANCEMENTS — KisanMitra Image & Media Upgrade
+   ============================================================ */
+
+/* ---------- Lazy-load image fade-in ---------- */
+img.lazy-fade {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+img.lazy-fade.loaded {
+  opacity: 1;
+}
+
+/* ---------- Hero Section — Full-width Immersive ---------- */
+.hero-fullwidth {
+  position: relative;
+  min-height: 520px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: #0d631b;
+}
+.hero-fullwidth .hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  z-index: 0;
+}
+.hero-fullwidth .hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    rgba(7, 55, 12, 0.92) 0%,
+    rgba(13, 99, 27, 0.78) 45%,
+    rgba(13, 99, 27, 0.30) 100%
+  );
+  z-index: 1;
+}
+.hero-fullwidth .hero-content {
+  position: relative;
+  z-index: 2;
+  color: #ffffff;
+  padding: 80px 32px 64px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+@media (max-width: 767px) {
+  .hero-fullwidth { min-height: 400px; }
+  .hero-fullwidth .hero-content { padding: 60px 16px 48px; }
+}
+
+/* ---------- Hero badge pill ---------- */
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(163, 246, 156, 0.2);
+  border: 1px solid rgba(163, 246, 156, 0.4);
+  color: #a3f69c;
+  padding: 5px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: 'Open Sans', sans-serif;
+  margin-bottom: 20px;
+}
+
+/* ---------- Stats Visual Section ---------- */
+.stats-visual-section {
+  position: relative;
+  overflow: hidden;
+  background: #0d4f18;
+}
+.stats-visual-section .stats-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.15;
+  z-index: 0;
+}
+.stats-visual-section .stats-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- Crop Advisory Banner ---------- */
+.advisory-banner {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+}
+.advisory-banner .advisory-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+.advisory-banner .advisory-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 80, 20, 0.88) 0%,
+    rgba(0, 80, 20, 0.60) 60%,
+    transparent 100%
+  );
+  z-index: 1;
+}
+.advisory-banner .advisory-content {
+  position: relative;
+  z-index: 2;
+  padding: 40px 48px;
+  color: #ffffff;
+}
+@media (max-width: 767px) {
+  .advisory-banner .advisory-content { padding: 28px 20px; }
+}
+
+/* ---------- Card Image with Zoom Hover ---------- */
+.card-img-wrap {
+  overflow: hidden;
+  border-radius: 8px 8px 0 0;
+}
+.card-img-wrap img,
+.card-img-zoom {
+  transition: transform 0.45s cubic-bezier(.25,.46,.45,.94);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.card-hover:hover .card-img-zoom,
+.card-hover:hover .card-img-wrap img {
+  transform: scale(1.06);
+}
+
+/* ---------- Service Card with Image ---------- */
+.service-card-img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  display: block;
+  border-radius: 8px 8px 0 0;
+}
+
+/* ---------- Gallery Grid ---------- */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+@media (max-width: 767px) {
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .gallery-grid { grid-template-columns: 1fr 1fr; }
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  aspect-ratio: 4 / 3;
+  cursor: pointer;
+  background: #d7dbd2;
+}
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  display: block;
+}
+.gallery-item:hover img {
+  transform: scale(1.08);
+}
+.gallery-item .gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(7,55,12,0.80) 0%, transparent 55%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  display: flex;
+  align-items: flex-end;
+  padding: 16px;
+}
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
+}
+.gallery-item .gallery-caption {
+  color: #ffffff;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+.gallery-item.tall {
+  grid-row: span 2;
+  aspect-ratio: unset;
+  min-height: 280px;
+}
+
+/* ---------- Testimonial Card Enhancement ---------- */
+.testimonial-card {
+  position: relative;
+  overflow: hidden;
+}
+.testimonial-card::before {
+  content: '\201C';
+  position: absolute;
+  top: -8px;
+  left: 16px;
+  font-size: 80px;
+  font-family: Georgia, serif;
+  color: #0d631b;
+  opacity: 0.12;
+  line-height: 1;
+  pointer-events: none;
+}
+.testimonial-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #a3f69c;
+  flex-shrink: 0;
+}
+
+/* ---------- Success Story Cards ---------- */
+.story-card {
+  border-left: 4px solid #0d631b;
+  background: #ffffff;
+  border-radius: 0 12px 12px 0;
+  overflow: hidden;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+.story-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(13, 99, 27, 0.15);
+}
+.story-card-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+/* ---------- Weather Hero with Image ---------- */
+.weather-hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 60%;
+  z-index: 0;
+  opacity: 0.25;
+}
+
+/* ---------- Page section header accent ---------- */
+.section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  font-family: 'Open Sans', sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #006e1c;
+  margin-bottom: 8px;
+}
+
+/* ---------- Govt Schemes Visual Header ---------- */
+.schemes-hero {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 32px;
+  background: #0d4f18;
+}
+.schemes-hero .schemes-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.22;
+  z-index: 0;
+}
+.schemes-hero .schemes-content {
+  position: relative;
+  z-index: 1;
+  padding: 40px 40px;
+  color: #ffffff;
+}
+@media (max-width: 767px) {
+  .schemes-hero .schemes-content { padding: 28px 20px; }
+}
+
+/* ---------- Dark mode image overlay adjustments ---------- */
+html.dark .hero-fullwidth .hero-overlay {
+  background: linear-gradient(
+    105deg,
+    rgba(3, 30, 6, 0.95) 0%,
+    rgba(7, 55, 12, 0.85) 45%,
+    rgba(7, 55, 12, 0.45) 100%
+  );
+}
+html.dark .gallery-item {
+  background: #2d322b;
+}
+html.dark .story-card {
+  background: #2d322b;
+}
+html.dark .testimonial-card::before {
+  color: #88d982;
+}
+

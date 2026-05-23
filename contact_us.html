@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="global.css"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed-variant": "#24502c",
+                    "secondary-container": "#91f78e",
+                    "on-secondary": "#ffffff",
+                    "inverse-primary": "#88d982",
+                    "tertiary-fixed-dim": "#a2d3a4",
+                    "error": "#ba1a1a",
+                    "surface-container-high": "#e5eadf",
+                    "primary-container": "#2e7d32",
+                    "surface": "#f7fbf0",
+                    "surface-tint": "#1b6d24",
+                    "surface-container-highest": "#e0e4da",
+                    "on-error": "#ffffff",
+                    "primary": "#0d631b",
+                    "on-background": "#181d17",
+                    "on-primary-fixed": "#002204",
+                    "on-error-container": "#93000a",
+                    "on-secondary-fixed-variant": "#005313",
+                    "inverse-surface": "#2d322b",
+                    "primary-fixed": "#a3f69c",
+                    "surface-container-low": "#f1f5eb",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container": "#ebefe5",
+                    "surface-bright": "#f7fbf0",
+                    "outline": "#707a6c",
+                    "on-primary-fixed-variant": "#005312",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-fixed": "#bdefbe",
+                    "secondary": "#006e1c",
+                    "on-primary-container": "#cbffc2",
+                    "surface-dim": "#d7dbd2",
+                    "surface-variant": "#e0e4da",
+                    "on-tertiary-fixed": "#002109",
+                    "inverse-on-surface": "#eef2e8",
+                    "on-tertiary-container": "#ccfecd",
+                    "outline-variant": "#bfcaba",
+                    "tertiary": "#335f3a",
+                    "on-surface-variant": "#40493d",
+                    "on-primary": "#ffffff",
+                    "secondary-fixed": "#94f990",
+                    "secondary-fixed-dim": "#78dc77",
+                    "on-secondary-fixed": "#002204",
+                    "on-secondary-container": "#00731e",
+                    "tertiary-container": "#4b7850",
+                    "error-container": "#ffdad6",
+                    "background": "#f7fbf0",
+                    "on-surface": "#181d17",
+                    "primary-fixed-dim": "#88d982"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "margin-desktop": "32px",
+                    "unit": "8px",
+                    "container-max": "1200px",
+                    "margin-mobile": "16px",
+                    "stack-md": "16px",
+                    "stack-sm": "8px",
+                    "stack-lg": "32px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "body-md": ["Open Sans"],
+                    "display-lg": ["Plus Jakarta Sans"],
+                    "caption": ["Open Sans"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "title-lg": ["Open Sans"],
+                    "body-lg": ["Open Sans"],
+                    "label-md": ["Open Sans"],
+                    "headline-lg-mobile": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "display-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #E8F5E9; /* Specific Brand Background */
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-surface dark:bg-surface-dim border-b border-outline-variant dark:border-outline shadow-[0px_2px_8px_rgba(46,125,50,0.08)]">
+<nav class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-screen-xl mx-auto">
+<div class="text-headline-md font-headline-lg-mobile text-primary dark:text-primary-fixed flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="eco">eco</span>
+<span class="font-headline-lg">Krishi Portal</span>
+</div>
+<div class="hidden md:flex gap-6 items-center">
+<a class="text-on-surface-variant dark:text-surface-variant font-label-md hover:text-secondary dark:hover:text-secondary-fixed transition-colors" href="home.html">Home</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-label-md hover:text-secondary dark:hover:text-secondary-fixed transition-colors" href="market_price.html">Market Prices</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-label-md hover:text-secondary dark:hover:text-secondary-fixed transition-colors" href="crop_guide.html">Crop Guide</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-label-md hover:text-secondary dark:hover:text-secondary-fixed transition-colors" href="fertilizer.html">Fertilizers</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-label-md hover:text-secondary dark:hover:text-secondary-fixed transition-colors" href="govt_schemes.html">Government Schemes</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-label-md hover:text-secondary dark:hover:text-secondary-fixed transition-colors" href="farming_tips.html">Farming Tips</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-label-md hover:text-secondary dark:hover:text-secondary-fixed transition-colors" href="weather.html">Weather</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-0.5 font-label-md" href="contact_us.html">Contact Us</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="lang-toggle-btn text-primary font-label-md border border-primary px-4 py-2 rounded-lg hover:bg-primary-fixed transition-colors">Language</button>
+<button class="dark-toggle-btn" aria-label="Toggle dark mode"><span class="material-symbols-outlined text-on-surface-variant cursor-pointer">dark_mode</span></button>
+</div>
+</nav>
+</header>
+<main class="pt-[100px] pb-stack-lg px-margin-mobile md:px-margin-desktop max-w-screen-xl mx-auto">
+<!-- Header Section -->
+<section class="mb-stack-lg text-center md:text-left">
+<h1 class="text-display-lg font-display-lg text-primary mb-2">Contact Us &amp; Get Support</h1>
+<p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl">We are here to help you grow. Reach out to our dedicated support team for agricultural guidance, portal assistance, or technical support.</p>
+</section>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-stack-lg">
+<!-- Left Side: Contact Information -->
+<div class="lg:col-span-5 space-y-gutter">
+<!-- Helpline Card -->
+<div class="bg-surface-container-lowest border border-outline-variant p-stack-lg rounded-xl shadow-[0px_2px_8px_rgba(46,125,50,0.08)]">
+<div class="flex items-start gap-4 mb-stack-md">
+<div class="bg-primary-container text-on-primary-container p-3 rounded-lg">
+<span class="material-symbols-outlined" data-icon="support_agent">support_agent</span>
+</div>
+<div>
+<h3 class="text-title-lg font-title-lg text-primary">Toll-Free Helpline</h3>
+<p class="text-caption font-caption text-on-surface-variant">Available 24/7 in multiple languages</p>
+</div>
+</div>
+<div class="space-y-2">
+<a class="block text-headline-lg font-headline-lg text-primary hover:underline" href="tel:18001234567">1800-123-4567</a>
+<a class="block text-headline-lg font-headline-lg text-primary hover:underline" href="tel:18009876543">1800-987-6543</a>
+</div>
+</div>
+<!-- Office & Email Card -->
+<div class="bg-surface-container-lowest border border-outline-variant p-stack-lg rounded-xl shadow-[0px_2px_8px_rgba(46,125,50,0.08)] space-y-gutter">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary" data-icon="mail">mail</span>
+<div>
+<h4 class="font-label-md text-primary uppercase tracking-wider">Email Us</h4>
+<p class="text-body-md font-body-md text-on-surface">support@krishiportal.gov.in</p>
+<p class="text-body-md font-body-md text-on-surface">help@kisanmitra.in</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary" data-icon="location_on">location_on</span>
+<div>
+<h4 class="font-label-md text-primary uppercase tracking-wider">Our Office</h4>
+<p class="text-body-md font-body-md text-on-surface">Krishi Bhawan, Dr. Rajendra Prasad Road,<br/>New Delhi - 110001, India</p>
+</div>
+</div>
+</div>
+<!-- Socials & Visual Image -->
+<div class="bg-primary-container text-on-primary-container p-stack-lg rounded-xl flex flex-col items-center text-center">
+<h3 class="text-title-lg font-title-lg mb-4">Connect on Social Media</h3>
+<div class="flex gap-6 mb-stack-lg">
+<a class="p-3 bg-on-primary-container text-primary-container rounded-full hover:scale-110 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="facebook">social_leaderboard</span>
+</a>
+<a class="p-3 bg-on-primary-container text-primary-container rounded-full hover:scale-110 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="share">share</span>
+</a>
+<a class="p-3 bg-on-primary-container text-primary-container rounded-full hover:scale-110 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+</a>
+</div>
+<img alt="Indian Farmer Support" class="w-full h-48 object-cover rounded-lg shadow-md border border-white/20 lazy-fade" loading="lazy" decoding="async" onload="this.classList.add('loaded')" src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=600&q=80"/>
+</div>
+</div>
+<!-- Right Side: Contact Form -->
+<div class="lg:col-span-7">
+<div class="bg-surface-container-lowest border border-outline-variant p-stack-lg rounded-xl shadow-[0px_2px_8px_rgba(46,125,50,0.08)]">
+<h2 class="text-headline-md font-headline-md text-primary mb-gutter">Send us a Message</h2>
+<form id="contact-form" action="#" class="space-y-6" method="POST">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="flex flex-col gap-2">
+<label class="text-label-md font-label-md text-on-surface" for="name">Full Name</label>
+<input class="w-full h-12 px-4 bg-surface border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all placeholder:text-outline" id="name" name="name" placeholder="Enter your name" type="text"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-label-md font-label-md text-on-surface" for="mobile">Mobile Number</label>
+<input class="w-full h-12 px-4 bg-surface border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all placeholder:text-outline" id="mobile" name="mobile" placeholder="10-digit number" type="tel"/>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-label-md font-label-md text-on-surface" for="state">Select State</label>
+<select class="w-full h-12 px-4 bg-surface border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all" id="state" name="state">
+<option disabled="" selected="" value="">Choose your state</option>
+<option value="UP">Uttar Pradesh</option>
+<option value="PB">Punjab</option>
+<option value="MH">Maharashtra</option>
+<option value="BR">Bihar</option>
+<option value="RJ">Rajasthan</option>
+<option value="others">Others</option>
+</select>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-label-md font-label-md text-on-surface" for="message">Message / Query</label>
+<textarea class="w-full p-4 bg-surface border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all placeholder:text-outline resize-none" id="message" name="message" placeholder="Tell us how we can help you..." rows="6"></textarea>
+</div>
+<div class="pt-2">
+<button class="w-full md:w-auto px-12 py-4 bg-primary text-on-primary font-title-lg rounded-lg shadow-md hover:bg-secondary transition-all active:scale-95 flex items-center justify-center gap-2" type="submit">
+<span class="material-symbols-outlined" data-icon="send">send</span>
+                                Submit Message
+                            </button>
+</div>
+<p class="text-caption font-caption text-on-surface-variant">
+                            By submitting this form, you agree to our <a class="text-primary underline" href="#">Privacy Policy</a> and will receive a response within 24-48 business hours.
+                        </p>
+</form>
+</div>
+<!-- Location Map Placeholder -->
+<div class="mt-gutter overflow-hidden border border-outline-variant rounded-xl h-64 relative group shadow-[0px_2px_8px_rgba(46,125,50,0.08)]">
+<img alt="Indian farmland from above New Delhi region" class="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 transition-all duration-500 lazy-fade" data-location="New Delhi" loading="lazy" decoding="async" onload="this.classList.add('loaded')" src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=80"/>
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<div class="bg-surface-container-lowest p-4 rounded-xl shadow-lg border border-primary flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="location_pin" data-weight="fill">location_pin</span>
+<div>
+<h4 class="font-bold text-primary">Headquarters</h4>
+<p class="text-caption">New Delhi, India</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-stack-lg bg-surface-container dark:bg-surface-container-high border-t border-outline-variant dark:border-outline">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter px-margin-mobile md:px-margin-desktop max-w-screen-xl mx-auto items-center">
+<div class="text-title-lg font-headline-md text-primary dark:text-primary-fixed">
+                Krishi Portal
+            </div>
+<div class="flex flex-wrap gap-4 justify-center">
+<a class="text-on-surface-variant dark:text-surface-variant font-caption hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-caption hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Terms of Service</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-caption hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Contact Us</a>
+</div>
+<div class="text-right text-caption font-caption text-on-surface dark:text-on-surface-variant">
+                © 2024 Krishi Portal. Empowering Indian Farmers.
+            </div>
+</div>
+</footer>
+<script src="translations.js"></script>
+<script src="global.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var form = document.getElementById('contact-form');
+  if (!form) return;
+
+  // Real-time field clearing
+  ['name','mobile','state','message'].forEach(function(id) {
+    var el = document.getElementById(id);
+    if (el) el.addEventListener('input', function() {
+      el.classList.remove('field-error');
+      var err = document.getElementById(id + '-err');
+      if (err) err.textContent = '';
+    });
+  });
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var valid = true;
+
+    // Name
+    valid = validateField('name', function(v){ return v.trim().length >= 2; }, 'Please enter your full name') && valid;
+    // Mobile: exactly 10 digits
+    valid = validateField('mobile', function(v){ return /^[6-9]\d{9}$/.test(v.trim()); }, 'Enter a valid 10-digit Indian mobile number') && valid;
+    // State
+    valid = validateField('state', function(v){ return v !== ''; }, 'Please select your state') && valid;
+    // Message
+    valid = validateField('message', function(v){ return v.trim().length >= 10; }, 'Message must be at least 10 characters') && valid;
+
+    if (valid) {
+      showSuccessModal(
+        'Message Sent Successfully! ✅',
+        'Thank you for reaching out. Our support team will respond within 24–48 business hours.'
+      );
+      form.reset();
+    }
+  });
+});
+</script>
+</body></html>

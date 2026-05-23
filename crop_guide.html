@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>KisanMitra - Crop Recommendation</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&amp;family=Open+Sans:wght@400;600&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="global.css" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed-variant": "#24502c",
+                        "secondary-container": "#91f78e",
+                        "on-secondary": "#ffffff",
+                        "inverse-primary": "#88d982",
+                        "tertiary-fixed-dim": "#a2d3a4",
+                        "error": "#ba1a1a",
+                        "surface-container-high": "#e5eadf",
+                        "primary-container": "#2e7d32",
+                        "surface": "#f7fbf0",
+                        "surface-tint": "#1b6d24",
+                        "surface-container-highest": "#e0e4da",
+                        "on-error": "#ffffff",
+                        "primary": "#0d631b",
+                        "on-background": "#181d17",
+                        "on-primary-fixed": "#002204",
+                        "on-error-container": "#93000a",
+                        "on-secondary-fixed-variant": "#005313",
+                        "inverse-surface": "#2d322b",
+                        "primary-fixed": "#a3f69c",
+                        "surface-container-low": "#f1f5eb",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container": "#ebefe5",
+                        "surface-bright": "#f7fbf0",
+                        "outline": "#707a6c",
+                        "on-primary-fixed-variant": "#005312",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed": "#bdefbe",
+                        "secondary": "#006e1c",
+                        "on-primary-container": "#cbffc2",
+                        "surface-dim": "#d7dbd2",
+                        "surface-variant": "#e0e4da",
+                        "on-tertiary-fixed": "#002109",
+                        "inverse-on-surface": "#eef2e8",
+                        "on-tertiary-container": "#ccfecd",
+                        "outline-variant": "#bfcaba",
+                        "tertiary": "#335f3a",
+                        "on-surface-variant": "#40493d",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed": "#94f990",
+                        "secondary-fixed-dim": "#78dc77",
+                        "on-secondary-fixed": "#002204",
+                        "on-secondary-container": "#00731e",
+                        "tertiary-container": "#4b7850",
+                        "error-container": "#ffdad6",
+                        "background": "#f7fbf0",
+                        "on-surface": "#181d17",
+                        "primary-fixed-dim": "#88d982"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "margin-desktop": "32px",
+                        "unit": "8px",
+                        "container-max": "1200px",
+                        "margin-mobile": "16px",
+                        "stack-md": "16px",
+                        "stack-sm": "8px",
+                        "stack-lg": "32px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "body-md": ["Open Sans"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "caption": ["Open Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "title-lg": ["Open Sans"],
+                        "body-lg": ["Open Sans"],
+                        "label-md": ["Open Sans"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "caption": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "title-lg": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        body {
+            background-color: #E8F5E9;
+            /* Specific override for Brand Tonal Layer */
+        }
+    </style>
+</head>
+
+<body class="font-body-md text-on-surface">
+    <!-- TopNavBar -->
+    <header
+        class="fixed top-0 w-full z-50 bg-surface dark:bg-surface-dim border-b border-outline-variant dark:border-outline shadow-[0px_2px_8px_rgba(46,125,50,0.08)]">
+        <div
+            class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-screen-xl mx-auto">
+            <div
+                class="text-headline-md font-headline-lg-mobile text-primary dark:text-primary-fixed flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary" data-icon="eco">eco</span>
+                <span class="font-headline-lg">Krishi Portal</span>
+            </div>
+            <nav class="hidden md:flex items-center gap-6">
+                <a class="text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors text-label-md font-label-md"
+                    href="home.html">Home</a>
+                <a class="text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors text-label-md font-label-md"
+                    href="market_price.html">Market Prices</a>
+                <a class="text-primary dark:text-primary-fixed font-bold border-b-2 border-primary pb-1 text-label-md font-label-md"
+                    href="crop_guide.html">Crop Guide</a>
+                <a class="text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors text-label-md font-label-md"
+                    href="fertilizer.html">Fertilizers</a>
+                <a class="text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors text-label-md font-label-md"
+                    href="govt_schemes.html">Government Schemes</a>
+                <!-- Added missing Farming Tips nav link -->
+                <a class="text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors text-label-md font-label-md"
+                    href="farming_tips.html">Farming Tips</a>
+                <a class="text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors text-label-md font-label-md"
+                    href="weather.html">Weather</a>
+            </nav>
+            <div class="flex items-center gap-4">
+                <button class="lang-toggle-btn text-primary font-label-md transition-transform">Language</button>
+                <button class="dark-toggle-btn"><span
+                        class="material-symbols-outlined text-on-surface-variant cursor-pointer">dark_mode</span></button>
+            </div>
+        </div>
+    </header>
+    <main class="pt-24 pb-stack-lg max-w-screen-xl mx-auto px-margin-mobile md:px-margin-desktop">
+        <!-- Hero Heading -->
+        <section class="mb-stack-lg">
+            <h1 class="text-display-lg font-display-lg text-primary mb-2">Find the Best Crop for Your Land</h1>
+            <p class="text-body-lg font-body-lg text-on-surface-variant">Personalized agricultural recommendations based
+                on your unique soil and seasonal conditions.</p>
+        </section>
+        <!-- Main Interaction Area: Bento/Asymmetric Layout -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+            <!-- Left Side: Selection Form -->
+            <div
+                class="lg:col-span-5 bg-surface-container-lowest border border-outline-variant p-stack-lg rounded-xl shadow-[0px_2px_8px_rgba(46,125,50,0.08)]">
+                <h2 class="text-headline-md font-headline-md text-on-surface mb-stack-md">Land Configuration</h2>
+                <form class="space-y-stack-md">
+                    <div>
+                        <label class="block text-label-md font-label-md text-on-surface-variant mb-2">Soil Type</label>
+                        <!-- id added so JS can read selected soil type -->
+                        <select id="soil-select"
+                            class="w-full h-12 bg-white border border-outline-variant rounded-lg px-4 focus:ring-2 focus:ring-primary focus:border-primary transition-all text-body-md">
+                            <option value="Alluvial">Alluvial Soil (Gangetic Plains)</option>
+                            <option value="Black">Black Soil (Regur)</option>
+                            <option value="Red">Red and Yellow Soil</option>
+                            <option value="Laterite">Laterite Soil</option>
+                            <option value="Arid">Arid/Desert Soil</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-label-md font-label-md text-on-surface-variant mb-2">Season</label>
+                        <div class="grid grid-cols-3 gap-2" id="season-buttons">
+                            <button
+                                class="season-btn py-3 px-2 border-2 border-primary bg-primary-container/10 rounded-lg text-primary font-label-md text-center active"
+                                data-season="Kharif" type="button">Kharif</button>
+                            <button
+                                class="season-btn py-3 px-2 border border-outline-variant rounded-lg text-on-surface-variant font-label-md text-center hover:bg-surface-container transition-colors"
+                                data-season="Rabi" type="button">Rabi</button>
+                            <button
+                                class="season-btn py-3 px-2 border border-outline-variant rounded-lg text-on-surface-variant font-label-md text-center hover:bg-surface-container transition-colors"
+                                data-season="Zaid" type="button">Zaid</button>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-label-md font-label-md text-on-surface-variant mb-2">Water
+                            Availability</label>
+                        <!-- id added so JS can read water availability -->
+                        <select id="water-select"
+                            class="w-full h-12 bg-white border border-outline-variant rounded-lg px-4 focus:ring-2 focus:ring-primary focus:border-primary transition-all text-body-md">
+                            <option value="High">High (Irrigated/Borewell)</option>
+                            <option value="Moderate">Moderate (Rainfed/Canal)</option>
+                            <option value="Low">Low (Dryland Farming)</option>
+                        </select>
+                    </div>
+                    <div class="pt-4">
+                        <!-- id="gen-btn" — triggers real recommendation engine in JS -->
+                        <button id="gen-btn"
+                            class="w-full bg-primary text-on-primary h-12 rounded-lg font-label-md flex items-center justify-center gap-2 hover:bg-primary/90 transition-transform active:scale-[0.98]"
+                            type="button">
+                            <span class="material-symbols-outlined" data-icon="search">search</span>
+                            Generate Recommendation
+                        </button>
+                    </div>
+                </form>
+                <div class="mt-stack-lg p-4 bg-tertiary-fixed/10 border-l-4 border-tertiary rounded-r-lg">
+                    <p class="text-caption font-caption text-on-tertiary-fixed-variant">
+                        <strong>Expert Tip:</strong> Testing your soil pH value every 2 years can improve yield accuracy
+                        by up to 30%.
+                    </p>
+                </div>
+            </div>
+            <!-- Right Side: Recommendation Card -->
+            <div class="lg:col-span-7 space-y-gutter">
+                <div
+                    class="bg-white border border-outline-variant rounded-xl overflow-hidden shadow-[0px_2px_8px_rgba(46,125,50,0.08)]">
+                    <div class="relative h-64 w-full">
+                        <img alt="Recommendation Image" class="w-full h-full object-cover"
+                            data-alt="A high-quality, professional photograph of a lush green rice paddy field in rural India during the monsoon season. The lighting is soft and natural under a slightly overcast sky, creating a calm and fertile atmosphere. In the foreground, individual stalks of vibrant green rice are in sharp focus with dewdrops on the leaves, while the background shows a vast expanse of terraced fields and distant tropical trees. The overall aesthetic is grounded, organic, and trustworthy."
+                            src="https://images.unsplash.com/photo-1602080858428-57174f9431cf?auto=format&fit=crop&w=800&q=80"
+                            class="lazy-fade" loading="eager" decoding="async" onload="this.classList.add('loaded')" />
+                        <!-- id="rec-match-pct" — updated by JS with actual match % -->
+                        <div id="rec-match-pct"
+                            class="absolute top-4 right-4 bg-secondary-container text-on-secondary-container px-4 py-1 rounded-full text-label-md font-bold">
+                            98% Match
+                        </div>
+                    </div>
+                    <div class="p-stack-lg">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <!-- id="rec-crop-name" — JS updates this with recommended crop -->
+                                <h3 id="rec-crop-name" class="text-headline-lg font-headline-lg text-on-surface">Basmati Rice (Oryza sativa)</h3>
+                                <div class="flex gap-2 mt-2">
+                                    <span
+                                        class="bg-primary/10 text-primary px-3 py-1 rounded-full text-caption font-bold">High
+                                        Yield</span>
+                                    <span
+                                        class="bg-primary/10 text-primary px-3 py-1 rounded-full text-caption font-bold">Low
+                                        Pest Risk</span>
+                                </div>
+                            </div>
+                            <button
+                                class="text-primary hover:bg-primary-container/10 p-2 rounded-full transition-colors">
+                                <span class="material-symbols-outlined" data-icon="share">share</span>
+                            </button>
+                        </div>
+                        <div
+                            class="grid grid-cols-2 gap-stack-md py-stack-md border-y border-outline-variant mb-stack-md">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-primary"
+                                        data-icon="trending_up">trending_up</span>
+                                </div>
+                                <div>
+                                    <p class="text-caption font-caption text-on-surface-variant">Expected Yield</p>
+                                    <!-- id="rec-yield" — updated dynamically -->
+                                    <p id="rec-yield" class="text-label-md font-label-md">25-30 Quintals/Acre</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-primary"
+                                        data-icon="schedule">schedule</span>
+                                </div>
+                                <div>
+                                    <p class="text-caption font-caption text-on-surface-variant">Duration</p>
+                                    <!-- id="rec-duration" — updated dynamically -->
+                                    <p id="rec-duration" class="text-label-md font-label-md">110-120 Days</p>
+                                </div>
+                            </div>
+                        </div>
+                        <h4 class="text-title-lg font-title-lg text-primary mb-stack-sm">Sowing Tips</h4>
+                        <!-- id="rec-tips" — JS replaces <li> items with real crop tips -->
+                        <ul id="rec-tips" class="space-y-3">
+                            <li class="flex items-start gap-3">
+                                <span class="material-symbols-outlined text-secondary text-sm mt-1">check_circle</span>
+                                <p class="text-body-md font-body-md text-on-surface-variant">Prepare the nursery bed with organic manure at least 15 days before transplantation.</p>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="material-symbols-outlined text-secondary text-sm mt-1">check_circle</span>
+                                <p class="text-body-md font-body-md text-on-surface-variant">Maintain 2-3 cm of standing water during the first month for root establishment.</p>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="material-symbols-outlined text-secondary text-sm mt-1">check_circle</span>
+                                <p class="text-body-md font-body-md text-on-surface-variant">Apply Nitrogen-based fertilizers in three split doses for optimal growth.</p>
+                            </li>
+                        </ul>
+                        <div class="mt-stack-lg flex gap-4">
+                            <!-- id="download-btn" — triggers real file download via JS Blob -->
+                            <button id="download-btn"
+                                class="flex-1 border-2 border-primary text-primary h-12 rounded-lg font-label-md hover:bg-primary-container/10 transition-colors">Download PDF Guide</button>
+                            <!-- onclick updated by JS to pass ?crop= param to market_price.html -->
+                            <button id="view-market-btn"
+                                class="flex-1 bg-primary text-on-primary h-12 rounded-lg font-label-md hover:bg-primary/90 transition-transform active:scale-[0.98]">View Market Prices</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Secondary Recommendation (Compact) -->
+                <div
+                    class="bg-surface-container-low border border-outline-variant p-stack-md rounded-xl flex items-center gap-4">
+                    <img alt="Secondary Suggestion" class="w-24 h-24 rounded-lg object-cover"
+                        data-alt="A detailed, close-up photograph of golden wheat kernels still on the stalk in a dry, sun-drenched Indian field. The image captures the warmth of a late afternoon sun, casting a golden hue over the entire scene. The style is sharp and corporate, emphasizing agricultural productivity and health. The background shows a soft bokeh of more wheat fields extending toward the horizon under a clear, bright blue sky."
+                        src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?auto=format&fit=crop&w=200&q=80"
+                        class="lazy-fade" loading="lazy" decoding="async" onload="this.classList.add('loaded')" />
+                    <div class="flex-1">
+                        <p class="text-caption font-caption text-primary font-bold">Alternative Choice</p>
+                        <!-- id="rec-alt-name" / "rec-alt-desc" — updated by JS -->
+                        <h4 id="rec-alt-name" class="text-title-lg font-title-lg">Sonalika Wheat</h4>
+                        <p id="rec-alt-desc" class="text-body-md text-on-surface-variant">Recommended if water levels decrease.</p>
+                    </div>
+                    <span class="material-symbols-outlined text-on-surface-variant"
+                        data-icon="chevron_right">chevron_right</span>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Footer -->
+    <footer
+        class="bg-surface-container dark:bg-surface-container-high border-t border-outline-variant dark:border-outline w-full py-stack-lg mt-stack-lg">
+        <div
+            class="grid grid-cols-1 md:grid-cols-3 gap-gutter px-margin-mobile md:px-margin-desktop max-w-screen-xl mx-auto">
+            <div>
+                <span class="text-title-lg font-headline-md text-primary dark:text-primary-fixed mb-4 block">Krishi
+                    Portal</span>
+                <p class="text-caption font-caption text-on-surface-variant mb-4">Empowering Indian Farmers through
+                    data-driven agricultural intelligence and digital literacy.</p>
+                <p class="text-caption font-caption text-on-surface-variant">© 2024 Krishi Portal. Empowering Indian
+                    Farmers.</p>
+            </div>
+            <div>
+                <h4 class="text-label-md font-label-md text-on-surface mb-4">Quick Links</h4>
+                <ul class="space-y-2">
+                    <li><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors text-caption font-caption"
+                            href="home.html">Home</a></li>
+                    <li><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors text-caption font-caption"
+                            href="market_price.html">Market Prices</a></li>
+                    <li><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors text-caption font-caption"
+                            href="contact_us.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-label-md font-label-md text-on-surface mb-4">Support</h4>
+                <div class="flex items-center gap-2 mb-2 text-primary font-bold text-label-md">
+                    <span class="material-symbols-outlined text-sm" data-icon="call">call</span>
+                    <span>1800-123-4567</span>
+                </div>
+                <p class="text-caption font-caption text-on-surface-variant">Toll-free Kisan Helpline available 24/7 in
+                    12 languages.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+<script src="translations.js"></script>
+<script src="global.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+  /* ─── CROP DATASET ──────────────────────────────────────────────────────
+     Each entry maps soil/season/water to a real crop recommendation.
+     soils[] values match the value="" attributes on #soil-select options.
+     water values: 'High' | 'Moderate' | 'Low'
+  ───────────────────────────────────────────────────────────────────────── */
+  var cropDB = [
+    { name:'Basmati Rice', sci:'Oryza sativa', season:'Kharif', soils:['Alluvial'], water:'High', yield:'25-30 Quintals/Acre', duration:'110-120 Days', match:98, states:'Punjab, Haryana, UP', profit:'High', risk:'Low', marketKey:'Basmati Rice', alt:'Maize (Makka)', altDesc:'Good fallback if standing water cannot be maintained mid-season.', tips:['Prepare nursery bed with organic manure 15 days before transplantation.','Maintain 2-3 cm standing water during first month for root establishment.','Apply Nitrogen fertilizers in three split doses for optimal growth.'] },
+    { name:'Wheat', sci:'Triticum aestivum', season:'Rabi', soils:['Alluvial','Black'], water:'Moderate', yield:'18-22 Quintals/Acre', duration:'120-130 Days', match:96, states:'Punjab, Haryana, UP, MP', profit:'High', risk:'Low', marketKey:'Wheat (Triticum)', alt:'Mustard (Sarson)', altDesc:'Better for dryland zones; requires less water with stable MSP.', tips:['Sow between Oct 15 – Nov 15 for optimal germination in Rabi season.','Apply DAP at sowing and Urea in two splits during irrigation.','First irrigation at crown root initiation (21 days after sowing) is critical.'] },
+    { name:'Cotton', sci:'Gossypium hirsutum', season:'Kharif', soils:['Black','Red'], water:'Moderate', yield:'8-12 Quintals/Acre', duration:'150-180 Days', match:91, states:'Maharashtra, Gujarat, Telangana', profit:'High', risk:'Medium', marketKey:'Cotton', alt:'Soybean', altDesc:'Shorter duration, lower input cost — suitable for Black soil regions.', tips:['Sow after first monsoon rains when soil temperature reaches 20°C.','Use Bt cotton varieties to reduce bollworm damage and pesticide cost.','Inter-crop with groundnut to maximize per-acre land utilization.'] },
+    { name:'Mustard', sci:'Brassica juncea', season:'Rabi', soils:['Alluvial','Arid'], water:'Low', yield:'8-12 Quintals/Acre', duration:'90-110 Days', match:93, states:'Rajasthan, UP, Haryana, MP', profit:'Medium', risk:'Low', marketKey:'Mustard (Sarson)', alt:'Gram (Chana)', altDesc:'Fixes soil nitrogen naturally; stable MSP and suits drier Rabi zones.', tips:['Sow in lines 30 cm apart for optimum plant population density.','Only 1-2 irrigations needed; most critical stage is at flowering.','Apply sulphur along with NPK to improve oil content of seeds.'] },
+    { name:'Maize', sci:'Zea mays', season:'Kharif', soils:['Red','Laterite'], water:'Moderate', yield:'20-25 Quintals/Acre', duration:'80-100 Days', match:89, states:'Karnataka, Telangana, Rajasthan, MP', profit:'Medium', risk:'Low', marketKey:'Maize (Makka)', alt:'Bajra (Pearl Millet)', altDesc:'More drought tolerant; ideal for light sandy soils with low rainfall.', tips:['Sow at 60×20 cm spacing with single seed per hill for uniform stand.','Apply 120 kg N per hectare in 3 equal splits aligned with irrigations.','Harvest when husks turn brown and grain moisture drops below 20%.'] },
+    { name:'Soybean', sci:'Glycine max', season:'Kharif', soils:['Black'], water:'Moderate', yield:'12-18 Quintals/Acre', duration:'90-110 Days', match:94, states:'Madhya Pradesh, Maharashtra, Rajasthan', profit:'High', risk:'Medium', marketKey:'Soybean', alt:'Arhar (Pigeon Pea)', altDesc:'Deep-rooted and drought tolerant; suitable as sole or inter crop.', tips:['Inoculate seeds with Rhizobium culture before sowing to boost yield.','Sow at start of monsoon when 75-100 mm of rainfall has been received.','Avoid waterlogging; ridge-furrow system is recommended for heavy rainfall.'] },
+    { name:'Groundnut', sci:'Arachis hypogaea', season:'Kharif', soils:['Red','Alluvial'], water:'Moderate', yield:'18-22 Quintals/Acre', duration:'100-130 Days', match:87, states:'Gujarat, Rajasthan, Andhra Pradesh', profit:'High', risk:'Low', marketKey:'Groundnut', alt:'Sesame (Til)', altDesc:'Drought tolerant oilseed crop with very low water requirement.', tips:['Sow in rows 30 cm apart with 10 cm plant-to-plant spacing.','Apply gypsum at 200 kg/ha at flowering stage for good pod development.','Earthing-up at 30-35 days after sowing helps pegs enter the soil properly.'] },
+    { name:'Sugarcane', sci:'Saccharum officinarum', season:'Zaid', soils:['Alluvial','Black'], water:'High', yield:'300-400 Quintals/Acre', duration:'300-365 Days', match:85, states:'Uttar Pradesh, Maharashtra, Karnataka', profit:'High', risk:'Low', marketKey:'Sugarcane', alt:'Banana', altDesc:'Higher per-acre profit with shorter cycle in tropical farming zones.', tips:['Plant sets with 2-3 healthy buds in furrows spaced 90 cm apart.','Apply 300 kg N per hectare divided into 4-6 equal splits with irrigation.','Ensure irrigation every 7-10 days during the grand growth period.'] },
+    { name:'Onion', sci:'Allium cepa', season:'Rabi', soils:['Alluvial','Red'], water:'Moderate', yield:'100-150 Quintals/Acre', duration:'90-120 Days', match:88, states:'Maharashtra, Karnataka, Andhra Pradesh', profit:'Variable', risk:'High', marketKey:'Onion (Kanda)', alt:'Garlic', altDesc:'More price-stable; less disease-prone; well-suited for Rabi season.', tips:['Prepare nursery beds 20 days before transplanting seedlings.','Transplant 45-day-old seedlings at 10×15 cm spacing in rows.','Stop irrigation 10 days before harvest for proper bulb curing.'] },
+    { name:'Turmeric', sci:'Curcuma longa', season:'Kharif', soils:['Red','Laterite'], water:'High', yield:'150-250 Quintals/Acre', duration:'210-240 Days', match:82, states:'Andhra Pradesh, Telangana, Tamil Nadu', profit:'High', risk:'Medium', marketKey:'Turmeric (Haldi)', alt:'Ginger', altDesc:'Similar growing conditions with higher market price but more volatility.', tips:['Plant rhizomes in April-May before the first pre-monsoon showers.','Mulch the field with green leaves after planting to retain soil moisture.','Apply 30 tonnes/hectare of FYM before planting for optimal rhizome yield.'] }
+  ];
+
+  var currentCrop = cropDB[0]; // tracks currently displayed crop
+
+  /* ─── RECOMMENDATION ENGINE ─────────────────────────────────────────────
+     Matches soil + season + water availability to best crop.
+     Falls back progressively: exact → season+soil → season only → first crop
+  ─────────────────────────────────────────────────────────────────────── */
+  function getRecommendation(soil, season, water) {
+    var m = cropDB.filter(function(c){ return c.season===season && c.soils.indexOf(soil)!==-1 && c.water===water; });
+    if (!m.length) m = cropDB.filter(function(c){ return c.season===season && c.soils.indexOf(soil)!==-1; });
+    if (!m.length) m = cropDB.filter(function(c){ return c.season===season; });
+    return m.length ? m[0] : cropDB[0];
+  }
+
+  /* ─── UPDATE CARD ───────────────────────────────────────────────────────
+     Updates all IDs in the recommendation card with live crop data.
+  ─────────────────────────────────────────────────────────────────────── */
+  function updateCard(crop) {
+    currentCrop = crop;
+    document.getElementById('rec-crop-name').textContent = crop.name + ' (' + crop.sci + ')';
+    document.getElementById('rec-match-pct').textContent = crop.match + '% Match';
+    document.getElementById('rec-yield').textContent = crop.yield;
+    document.getElementById('rec-duration').textContent = crop.duration;
+    document.getElementById('rec-tips').innerHTML = crop.tips.map(function(t){
+      return '<li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary text-sm mt-1">check_circle</span><p class="text-body-md font-body-md text-on-surface-variant">'+t+'</p></li>';
+    }).join('');
+    document.getElementById('rec-alt-name').textContent = crop.alt;
+    document.getElementById('rec-alt-desc').textContent = crop.altDesc;
+    // Update "View Market Prices" to pass selected crop as URL query param
+    var mktBtn = document.getElementById('view-market-btn');
+    if (mktBtn) mktBtn.onclick = function(){ location.href = 'market_price.html?crop=' + encodeURIComponent(crop.marketKey); };
+  }
+
+  /* ─── SEASON TOGGLE ─────────────────────────────────────────────────── */
+  var seasonBtns = document.querySelectorAll('.season-btn');
+  function getActiveSeason() {
+    var active = document.querySelector('.season-btn.border-2');
+    return active ? active.dataset.season : 'Kharif';
+  }
+  seasonBtns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      seasonBtns.forEach(function(b){
+        b.classList.remove('border-2','border-primary','bg-primary-container/10','text-primary');
+        b.classList.add('border','border-outline-variant','text-on-surface-variant');
+      });
+      btn.classList.remove('border','border-outline-variant','text-on-surface-variant');
+      btn.classList.add('border-2','border-primary','bg-primary-container/10','text-primary');
+    });
+  });
+
+  /* ─── GENERATE RECOMMENDATION ───────────────────────────────────────── */
+  var genBtn = document.getElementById('gen-btn');
+  if (genBtn) {
+    genBtn.addEventListener('click', function(){
+      var soil  = document.getElementById('soil-select').value;
+      var water = document.getElementById('water-select').value;
+      var season = getActiveSeason();
+      var crop = getRecommendation(soil, season, water);
+      updateCard(crop);
+      showToast('\u2705 Best crop for ' + season + ' · ' + soil + ' soil: ' + crop.name);
+    });
+  }
+
+  /* ─── DOWNLOAD GUIDE (Blob API) ─────────────────────────────────────────
+     Creates a real downloadable .txt file with crop guide content.
+     WHY: No server needed; Blob + createObjectURL works in all modern browsers.
+  ─────────────────────────────────────────────────────────────────────── */
+  var dlBtn = document.getElementById('download-btn');
+  if (dlBtn) {
+    dlBtn.addEventListener('click', function(){
+      var c = currentCrop;
+      var lines = [
+        'KRISHI PORTAL \u2014 CROP GUIDE', '='.repeat(30), '',
+        'Crop        : ' + c.name + ' (' + c.sci + ')',
+        'Season      : ' + c.season,
+        'Water Need  : ' + c.water,
+        'Yield       : ' + c.yield,
+        'Duration    : ' + c.duration,
+        'Best States : ' + c.states,
+        'Profit      : ' + c.profit,
+        'Risk Level  : ' + c.risk,
+        '', 'SOWING TIPS', '-'.repeat(20)
+      ].concat(c.tips.map(function(t,i){ return (i+1)+'. '+t; })).concat([
+        '', 'ALTERNATIVE CROP', '-'.repeat(20),
+        c.alt + ': ' + c.altDesc,
+        '', 'Kisan Helpline: 1800-123-4567 (24/7)',
+        '\u00a9 2024 Krishi Portal'
+      ]);
+      var blob = new Blob([lines.join('\n')], {type:'text/plain;charset=utf-8'});
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = url;
+      a.download = c.name.toLowerCase().replace(/[^a-z]/g,'-') + '-crop-guide.txt';
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      showToast('\uD83D\uDCC4 Downloading ' + c.name + ' guide...');
+    });
+  }
+
+  /* ─── ALTERNATIVE CROP CARD CLICK ───────────────────────────────────── */
+  var altCard = document.querySelector('.bg-surface-container-low.border.border-outline-variant.p-stack-md');
+  if (altCard) {
+    altCard.style.cursor = 'pointer';
+    altCard.addEventListener('click', function(){
+      showToast('\uD83C\uDF3E Selected: ' + currentCrop.alt + ' as your alternative crop');
+    });
+  }
+
+  // Initialize card with default (Kharif + Alluvial + High water = Basmati Rice)
+  updateCard(getRecommendation('Alluvial', 'Kharif', 'High'));
+});
+</script>
