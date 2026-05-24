@@ -232,7 +232,7 @@
                     <div class="relative h-64 w-full">
                         <img alt="Recommendation Image" class="w-full h-full object-cover"
                             data-alt="A high-quality, professional photograph of a lush green rice paddy field in rural India during the monsoon season. The lighting is soft and natural under a slightly overcast sky, creating a calm and fertile atmosphere. In the foreground, individual stalks of vibrant green rice are in sharp focus with dewdrops on the leaves, while the background shows a vast expanse of terraced fields and distant tropical trees. The overall aesthetic is grounded, organic, and trustworthy."
-                            src="https://images.unsplash.com/photo-1602080858428-57174f9431cf?auto=format&fit=crop&w=800&q=80"
+                            src="https://plus.unsplash.com/premium_photo-1661962692059-55d5a4319814?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                             class="lazy-fade" loading="eager" decoding="async" onload="this.classList.add('loaded')" />
                         <!-- id="rec-match-pct" — updated by JS with actual match % -->
                         <div id="rec-match-pct"
@@ -244,7 +244,8 @@
                         <div class="flex justify-between items-start mb-4">
                             <div>
                                 <!-- id="rec-crop-name" — JS updates this with recommended crop -->
-                                <h3 id="rec-crop-name" class="text-headline-lg font-headline-lg text-on-surface">Basmati Rice (Oryza sativa)</h3>
+                                <h3 id="rec-crop-name" class="text-headline-lg font-headline-lg text-on-surface">Basmati
+                                    Rice (Oryza sativa)</h3>
                                 <div class="flex gap-2 mt-2">
                                     <span
                                         class="bg-primary/10 text-primary px-3 py-1 rounded-full text-caption font-bold">High
@@ -289,24 +290,29 @@
                         <ul id="rec-tips" class="space-y-3">
                             <li class="flex items-start gap-3">
                                 <span class="material-symbols-outlined text-secondary text-sm mt-1">check_circle</span>
-                                <p class="text-body-md font-body-md text-on-surface-variant">Prepare the nursery bed with organic manure at least 15 days before transplantation.</p>
+                                <p class="text-body-md font-body-md text-on-surface-variant">Prepare the nursery bed
+                                    with organic manure at least 15 days before transplantation.</p>
                             </li>
                             <li class="flex items-start gap-3">
                                 <span class="material-symbols-outlined text-secondary text-sm mt-1">check_circle</span>
-                                <p class="text-body-md font-body-md text-on-surface-variant">Maintain 2-3 cm of standing water during the first month for root establishment.</p>
+                                <p class="text-body-md font-body-md text-on-surface-variant">Maintain 2-3 cm of standing
+                                    water during the first month for root establishment.</p>
                             </li>
                             <li class="flex items-start gap-3">
                                 <span class="material-symbols-outlined text-secondary text-sm mt-1">check_circle</span>
-                                <p class="text-body-md font-body-md text-on-surface-variant">Apply Nitrogen-based fertilizers in three split doses for optimal growth.</p>
+                                <p class="text-body-md font-body-md text-on-surface-variant">Apply Nitrogen-based
+                                    fertilizers in three split doses for optimal growth.</p>
                             </li>
                         </ul>
                         <div class="mt-stack-lg flex gap-4">
                             <!-- id="download-btn" — triggers real file download via JS Blob -->
                             <button id="download-btn"
-                                class="flex-1 border-2 border-primary text-primary h-12 rounded-lg font-label-md hover:bg-primary-container/10 transition-colors">Download PDF Guide</button>
+                                class="flex-1 border-2 border-primary text-primary h-12 rounded-lg font-label-md hover:bg-primary-container/10 transition-colors">Download
+                                PDF Guide</button>
                             <!-- onclick updated by JS to pass ?crop= param to market_price.html -->
                             <button id="view-market-btn"
-                                class="flex-1 bg-primary text-on-primary h-12 rounded-lg font-label-md hover:bg-primary/90 transition-transform active:scale-[0.98]">View Market Prices</button>
+                                class="flex-1 bg-primary text-on-primary h-12 rounded-lg font-label-md hover:bg-primary/90 transition-transform active:scale-[0.98]">View
+                                Market Prices</button>
                         </div>
                     </div>
                 </div>
@@ -321,7 +327,8 @@
                         <p class="text-caption font-caption text-primary font-bold">Alternative Choice</p>
                         <!-- id="rec-alt-name" / "rec-alt-desc" — updated by JS -->
                         <h4 id="rec-alt-name" class="text-title-lg font-title-lg">Sonalika Wheat</h4>
-                        <p id="rec-alt-desc" class="text-body-md text-on-surface-variant">Recommended if water levels decrease.</p>
+                        <p id="rec-alt-desc" class="text-body-md text-on-surface-variant">Recommended if water levels
+                            decrease.</p>
                     </div>
                     <span class="material-symbols-outlined text-on-surface-variant"
                         data-icon="chevron_right">chevron_right</span>
@@ -365,138 +372,139 @@
         </div>
     </footer>
 </body>
+
 </html>
 <script src="translations.js"></script>
 <script src="global.js"></script>
 <script>
-document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function () {
 
-  /* ─── CROP DATASET ──────────────────────────────────────────────────────
-     Each entry maps soil/season/water to a real crop recommendation.
-     soils[] values match the value="" attributes on #soil-select options.
-     water values: 'High' | 'Moderate' | 'Low'
-  ───────────────────────────────────────────────────────────────────────── */
-  var cropDB = [
-    { name:'Basmati Rice', sci:'Oryza sativa', season:'Kharif', soils:['Alluvial'], water:'High', yield:'25-30 Quintals/Acre', duration:'110-120 Days', match:98, states:'Punjab, Haryana, UP', profit:'High', risk:'Low', marketKey:'Basmati Rice', alt:'Maize (Makka)', altDesc:'Good fallback if standing water cannot be maintained mid-season.', tips:['Prepare nursery bed with organic manure 15 days before transplantation.','Maintain 2-3 cm standing water during first month for root establishment.','Apply Nitrogen fertilizers in three split doses for optimal growth.'] },
-    { name:'Wheat', sci:'Triticum aestivum', season:'Rabi', soils:['Alluvial','Black'], water:'Moderate', yield:'18-22 Quintals/Acre', duration:'120-130 Days', match:96, states:'Punjab, Haryana, UP, MP', profit:'High', risk:'Low', marketKey:'Wheat (Triticum)', alt:'Mustard (Sarson)', altDesc:'Better for dryland zones; requires less water with stable MSP.', tips:['Sow between Oct 15 – Nov 15 for optimal germination in Rabi season.','Apply DAP at sowing and Urea in two splits during irrigation.','First irrigation at crown root initiation (21 days after sowing) is critical.'] },
-    { name:'Cotton', sci:'Gossypium hirsutum', season:'Kharif', soils:['Black','Red'], water:'Moderate', yield:'8-12 Quintals/Acre', duration:'150-180 Days', match:91, states:'Maharashtra, Gujarat, Telangana', profit:'High', risk:'Medium', marketKey:'Cotton', alt:'Soybean', altDesc:'Shorter duration, lower input cost — suitable for Black soil regions.', tips:['Sow after first monsoon rains when soil temperature reaches 20°C.','Use Bt cotton varieties to reduce bollworm damage and pesticide cost.','Inter-crop with groundnut to maximize per-acre land utilization.'] },
-    { name:'Mustard', sci:'Brassica juncea', season:'Rabi', soils:['Alluvial','Arid'], water:'Low', yield:'8-12 Quintals/Acre', duration:'90-110 Days', match:93, states:'Rajasthan, UP, Haryana, MP', profit:'Medium', risk:'Low', marketKey:'Mustard (Sarson)', alt:'Gram (Chana)', altDesc:'Fixes soil nitrogen naturally; stable MSP and suits drier Rabi zones.', tips:['Sow in lines 30 cm apart for optimum plant population density.','Only 1-2 irrigations needed; most critical stage is at flowering.','Apply sulphur along with NPK to improve oil content of seeds.'] },
-    { name:'Maize', sci:'Zea mays', season:'Kharif', soils:['Red','Laterite'], water:'Moderate', yield:'20-25 Quintals/Acre', duration:'80-100 Days', match:89, states:'Karnataka, Telangana, Rajasthan, MP', profit:'Medium', risk:'Low', marketKey:'Maize (Makka)', alt:'Bajra (Pearl Millet)', altDesc:'More drought tolerant; ideal for light sandy soils with low rainfall.', tips:['Sow at 60×20 cm spacing with single seed per hill for uniform stand.','Apply 120 kg N per hectare in 3 equal splits aligned with irrigations.','Harvest when husks turn brown and grain moisture drops below 20%.'] },
-    { name:'Soybean', sci:'Glycine max', season:'Kharif', soils:['Black'], water:'Moderate', yield:'12-18 Quintals/Acre', duration:'90-110 Days', match:94, states:'Madhya Pradesh, Maharashtra, Rajasthan', profit:'High', risk:'Medium', marketKey:'Soybean', alt:'Arhar (Pigeon Pea)', altDesc:'Deep-rooted and drought tolerant; suitable as sole or inter crop.', tips:['Inoculate seeds with Rhizobium culture before sowing to boost yield.','Sow at start of monsoon when 75-100 mm of rainfall has been received.','Avoid waterlogging; ridge-furrow system is recommended for heavy rainfall.'] },
-    { name:'Groundnut', sci:'Arachis hypogaea', season:'Kharif', soils:['Red','Alluvial'], water:'Moderate', yield:'18-22 Quintals/Acre', duration:'100-130 Days', match:87, states:'Gujarat, Rajasthan, Andhra Pradesh', profit:'High', risk:'Low', marketKey:'Groundnut', alt:'Sesame (Til)', altDesc:'Drought tolerant oilseed crop with very low water requirement.', tips:['Sow in rows 30 cm apart with 10 cm plant-to-plant spacing.','Apply gypsum at 200 kg/ha at flowering stage for good pod development.','Earthing-up at 30-35 days after sowing helps pegs enter the soil properly.'] },
-    { name:'Sugarcane', sci:'Saccharum officinarum', season:'Zaid', soils:['Alluvial','Black'], water:'High', yield:'300-400 Quintals/Acre', duration:'300-365 Days', match:85, states:'Uttar Pradesh, Maharashtra, Karnataka', profit:'High', risk:'Low', marketKey:'Sugarcane', alt:'Banana', altDesc:'Higher per-acre profit with shorter cycle in tropical farming zones.', tips:['Plant sets with 2-3 healthy buds in furrows spaced 90 cm apart.','Apply 300 kg N per hectare divided into 4-6 equal splits with irrigation.','Ensure irrigation every 7-10 days during the grand growth period.'] },
-    { name:'Onion', sci:'Allium cepa', season:'Rabi', soils:['Alluvial','Red'], water:'Moderate', yield:'100-150 Quintals/Acre', duration:'90-120 Days', match:88, states:'Maharashtra, Karnataka, Andhra Pradesh', profit:'Variable', risk:'High', marketKey:'Onion (Kanda)', alt:'Garlic', altDesc:'More price-stable; less disease-prone; well-suited for Rabi season.', tips:['Prepare nursery beds 20 days before transplanting seedlings.','Transplant 45-day-old seedlings at 10×15 cm spacing in rows.','Stop irrigation 10 days before harvest for proper bulb curing.'] },
-    { name:'Turmeric', sci:'Curcuma longa', season:'Kharif', soils:['Red','Laterite'], water:'High', yield:'150-250 Quintals/Acre', duration:'210-240 Days', match:82, states:'Andhra Pradesh, Telangana, Tamil Nadu', profit:'High', risk:'Medium', marketKey:'Turmeric (Haldi)', alt:'Ginger', altDesc:'Similar growing conditions with higher market price but more volatility.', tips:['Plant rhizomes in April-May before the first pre-monsoon showers.','Mulch the field with green leaves after planting to retain soil moisture.','Apply 30 tonnes/hectare of FYM before planting for optimal rhizome yield.'] }
-  ];
+        /* ─── CROP DATASET ──────────────────────────────────────────────────────
+           Each entry maps soil/season/water to a real crop recommendation.
+           soils[] values match the value="" attributes on #soil-select options.
+           water values: 'High' | 'Moderate' | 'Low'
+        ───────────────────────────────────────────────────────────────────────── */
+        var cropDB = [
+            { name: 'Basmati Rice', sci: 'Oryza sativa', season: 'Kharif', soils: ['Alluvial'], water: 'High', yield: '25-30 Quintals/Acre', duration: '110-120 Days', match: 98, states: 'Punjab, Haryana, UP', profit: 'High', risk: 'Low', marketKey: 'Basmati Rice', alt: 'Maize (Makka)', altDesc: 'Good fallback if standing water cannot be maintained mid-season.', tips: ['Prepare nursery bed with organic manure 15 days before transplantation.', 'Maintain 2-3 cm standing water during first month for root establishment.', 'Apply Nitrogen fertilizers in three split doses for optimal growth.'] },
+            { name: 'Wheat', sci: 'Triticum aestivum', season: 'Rabi', soils: ['Alluvial', 'Black'], water: 'Moderate', yield: '18-22 Quintals/Acre', duration: '120-130 Days', match: 96, states: 'Punjab, Haryana, UP, MP', profit: 'High', risk: 'Low', marketKey: 'Wheat (Triticum)', alt: 'Mustard (Sarson)', altDesc: 'Better for dryland zones; requires less water with stable MSP.', tips: ['Sow between Oct 15 – Nov 15 for optimal germination in Rabi season.', 'Apply DAP at sowing and Urea in two splits during irrigation.', 'First irrigation at crown root initiation (21 days after sowing) is critical.'] },
+            { name: 'Cotton', sci: 'Gossypium hirsutum', season: 'Kharif', soils: ['Black', 'Red'], water: 'Moderate', yield: '8-12 Quintals/Acre', duration: '150-180 Days', match: 91, states: 'Maharashtra, Gujarat, Telangana', profit: 'High', risk: 'Medium', marketKey: 'Cotton', alt: 'Soybean', altDesc: 'Shorter duration, lower input cost — suitable for Black soil regions.', tips: ['Sow after first monsoon rains when soil temperature reaches 20°C.', 'Use Bt cotton varieties to reduce bollworm damage and pesticide cost.', 'Inter-crop with groundnut to maximize per-acre land utilization.'] },
+            { name: 'Mustard', sci: 'Brassica juncea', season: 'Rabi', soils: ['Alluvial', 'Arid'], water: 'Low', yield: '8-12 Quintals/Acre', duration: '90-110 Days', match: 93, states: 'Rajasthan, UP, Haryana, MP', profit: 'Medium', risk: 'Low', marketKey: 'Mustard (Sarson)', alt: 'Gram (Chana)', altDesc: 'Fixes soil nitrogen naturally; stable MSP and suits drier Rabi zones.', tips: ['Sow in lines 30 cm apart for optimum plant population density.', 'Only 1-2 irrigations needed; most critical stage is at flowering.', 'Apply sulphur along with NPK to improve oil content of seeds.'] },
+            { name: 'Maize', sci: 'Zea mays', season: 'Kharif', soils: ['Red', 'Laterite'], water: 'Moderate', yield: '20-25 Quintals/Acre', duration: '80-100 Days', match: 89, states: 'Karnataka, Telangana, Rajasthan, MP', profit: 'Medium', risk: 'Low', marketKey: 'Maize (Makka)', alt: 'Bajra (Pearl Millet)', altDesc: 'More drought tolerant; ideal for light sandy soils with low rainfall.', tips: ['Sow at 60×20 cm spacing with single seed per hill for uniform stand.', 'Apply 120 kg N per hectare in 3 equal splits aligned with irrigations.', 'Harvest when husks turn brown and grain moisture drops below 20%.'] },
+            { name: 'Soybean', sci: 'Glycine max', season: 'Kharif', soils: ['Black'], water: 'Moderate', yield: '12-18 Quintals/Acre', duration: '90-110 Days', match: 94, states: 'Madhya Pradesh, Maharashtra, Rajasthan', profit: 'High', risk: 'Medium', marketKey: 'Soybean', alt: 'Arhar (Pigeon Pea)', altDesc: 'Deep-rooted and drought tolerant; suitable as sole or inter crop.', tips: ['Inoculate seeds with Rhizobium culture before sowing to boost yield.', 'Sow at start of monsoon when 75-100 mm of rainfall has been received.', 'Avoid waterlogging; ridge-furrow system is recommended for heavy rainfall.'] },
+            { name: 'Groundnut', sci: 'Arachis hypogaea', season: 'Kharif', soils: ['Red', 'Alluvial'], water: 'Moderate', yield: '18-22 Quintals/Acre', duration: '100-130 Days', match: 87, states: 'Gujarat, Rajasthan, Andhra Pradesh', profit: 'High', risk: 'Low', marketKey: 'Groundnut', alt: 'Sesame (Til)', altDesc: 'Drought tolerant oilseed crop with very low water requirement.', tips: ['Sow in rows 30 cm apart with 10 cm plant-to-plant spacing.', 'Apply gypsum at 200 kg/ha at flowering stage for good pod development.', 'Earthing-up at 30-35 days after sowing helps pegs enter the soil properly.'] },
+            { name: 'Sugarcane', sci: 'Saccharum officinarum', season: 'Zaid', soils: ['Alluvial', 'Black'], water: 'High', yield: '300-400 Quintals/Acre', duration: '300-365 Days', match: 85, states: 'Uttar Pradesh, Maharashtra, Karnataka', profit: 'High', risk: 'Low', marketKey: 'Sugarcane', alt: 'Banana', altDesc: 'Higher per-acre profit with shorter cycle in tropical farming zones.', tips: ['Plant sets with 2-3 healthy buds in furrows spaced 90 cm apart.', 'Apply 300 kg N per hectare divided into 4-6 equal splits with irrigation.', 'Ensure irrigation every 7-10 days during the grand growth period.'] },
+            { name: 'Onion', sci: 'Allium cepa', season: 'Rabi', soils: ['Alluvial', 'Red'], water: 'Moderate', yield: '100-150 Quintals/Acre', duration: '90-120 Days', match: 88, states: 'Maharashtra, Karnataka, Andhra Pradesh', profit: 'Variable', risk: 'High', marketKey: 'Onion (Kanda)', alt: 'Garlic', altDesc: 'More price-stable; less disease-prone; well-suited for Rabi season.', tips: ['Prepare nursery beds 20 days before transplanting seedlings.', 'Transplant 45-day-old seedlings at 10×15 cm spacing in rows.', 'Stop irrigation 10 days before harvest for proper bulb curing.'] },
+            { name: 'Turmeric', sci: 'Curcuma longa', season: 'Kharif', soils: ['Red', 'Laterite'], water: 'High', yield: '150-250 Quintals/Acre', duration: '210-240 Days', match: 82, states: 'Andhra Pradesh, Telangana, Tamil Nadu', profit: 'High', risk: 'Medium', marketKey: 'Turmeric (Haldi)', alt: 'Ginger', altDesc: 'Similar growing conditions with higher market price but more volatility.', tips: ['Plant rhizomes in April-May before the first pre-monsoon showers.', 'Mulch the field with green leaves after planting to retain soil moisture.', 'Apply 30 tonnes/hectare of FYM before planting for optimal rhizome yield.'] }
+        ];
 
-  var currentCrop = cropDB[0]; // tracks currently displayed crop
+        var currentCrop = cropDB[0]; // tracks currently displayed crop
 
-  /* ─── RECOMMENDATION ENGINE ─────────────────────────────────────────────
-     Matches soil + season + water availability to best crop.
-     Falls back progressively: exact → season+soil → season only → first crop
-  ─────────────────────────────────────────────────────────────────────── */
-  function getRecommendation(soil, season, water) {
-    var m = cropDB.filter(function(c){ return c.season===season && c.soils.indexOf(soil)!==-1 && c.water===water; });
-    if (!m.length) m = cropDB.filter(function(c){ return c.season===season && c.soils.indexOf(soil)!==-1; });
-    if (!m.length) m = cropDB.filter(function(c){ return c.season===season; });
-    return m.length ? m[0] : cropDB[0];
-  }
+        /* ─── RECOMMENDATION ENGINE ─────────────────────────────────────────────
+           Matches soil + season + water availability to best crop.
+           Falls back progressively: exact → season+soil → season only → first crop
+        ─────────────────────────────────────────────────────────────────────── */
+        function getRecommendation(soil, season, water) {
+            var m = cropDB.filter(function (c) { return c.season === season && c.soils.indexOf(soil) !== -1 && c.water === water; });
+            if (!m.length) m = cropDB.filter(function (c) { return c.season === season && c.soils.indexOf(soil) !== -1; });
+            if (!m.length) m = cropDB.filter(function (c) { return c.season === season; });
+            return m.length ? m[0] : cropDB[0];
+        }
 
-  /* ─── UPDATE CARD ───────────────────────────────────────────────────────
-     Updates all IDs in the recommendation card with live crop data.
-  ─────────────────────────────────────────────────────────────────────── */
-  function updateCard(crop) {
-    currentCrop = crop;
-    document.getElementById('rec-crop-name').textContent = crop.name + ' (' + crop.sci + ')';
-    document.getElementById('rec-match-pct').textContent = crop.match + '% Match';
-    document.getElementById('rec-yield').textContent = crop.yield;
-    document.getElementById('rec-duration').textContent = crop.duration;
-    document.getElementById('rec-tips').innerHTML = crop.tips.map(function(t){
-      return '<li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary text-sm mt-1">check_circle</span><p class="text-body-md font-body-md text-on-surface-variant">'+t+'</p></li>';
-    }).join('');
-    document.getElementById('rec-alt-name').textContent = crop.alt;
-    document.getElementById('rec-alt-desc').textContent = crop.altDesc;
-    // Update "View Market Prices" to pass selected crop as URL query param
-    var mktBtn = document.getElementById('view-market-btn');
-    if (mktBtn) mktBtn.onclick = function(){ location.href = 'market_price.html?crop=' + encodeURIComponent(crop.marketKey); };
-  }
+        /* ─── UPDATE CARD ───────────────────────────────────────────────────────
+           Updates all IDs in the recommendation card with live crop data.
+        ─────────────────────────────────────────────────────────────────────── */
+        function updateCard(crop) {
+            currentCrop = crop;
+            document.getElementById('rec-crop-name').textContent = crop.name + ' (' + crop.sci + ')';
+            document.getElementById('rec-match-pct').textContent = crop.match + '% Match';
+            document.getElementById('rec-yield').textContent = crop.yield;
+            document.getElementById('rec-duration').textContent = crop.duration;
+            document.getElementById('rec-tips').innerHTML = crop.tips.map(function (t) {
+                return '<li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary text-sm mt-1">check_circle</span><p class="text-body-md font-body-md text-on-surface-variant">' + t + '</p></li>';
+            }).join('');
+            document.getElementById('rec-alt-name').textContent = crop.alt;
+            document.getElementById('rec-alt-desc').textContent = crop.altDesc;
+            // Update "View Market Prices" to pass selected crop as URL query param
+            var mktBtn = document.getElementById('view-market-btn');
+            if (mktBtn) mktBtn.onclick = function () { location.href = 'market_price.html?crop=' + encodeURIComponent(crop.marketKey); };
+        }
 
-  /* ─── SEASON TOGGLE ─────────────────────────────────────────────────── */
-  var seasonBtns = document.querySelectorAll('.season-btn');
-  function getActiveSeason() {
-    var active = document.querySelector('.season-btn.border-2');
-    return active ? active.dataset.season : 'Kharif';
-  }
-  seasonBtns.forEach(function(btn){
-    btn.addEventListener('click', function(){
-      seasonBtns.forEach(function(b){
-        b.classList.remove('border-2','border-primary','bg-primary-container/10','text-primary');
-        b.classList.add('border','border-outline-variant','text-on-surface-variant');
-      });
-      btn.classList.remove('border','border-outline-variant','text-on-surface-variant');
-      btn.classList.add('border-2','border-primary','bg-primary-container/10','text-primary');
+        /* ─── SEASON TOGGLE ─────────────────────────────────────────────────── */
+        var seasonBtns = document.querySelectorAll('.season-btn');
+        function getActiveSeason() {
+            var active = document.querySelector('.season-btn.border-2');
+            return active ? active.dataset.season : 'Kharif';
+        }
+        seasonBtns.forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                seasonBtns.forEach(function (b) {
+                    b.classList.remove('border-2', 'border-primary', 'bg-primary-container/10', 'text-primary');
+                    b.classList.add('border', 'border-outline-variant', 'text-on-surface-variant');
+                });
+                btn.classList.remove('border', 'border-outline-variant', 'text-on-surface-variant');
+                btn.classList.add('border-2', 'border-primary', 'bg-primary-container/10', 'text-primary');
+            });
+        });
+
+        /* ─── GENERATE RECOMMENDATION ───────────────────────────────────────── */
+        var genBtn = document.getElementById('gen-btn');
+        if (genBtn) {
+            genBtn.addEventListener('click', function () {
+                var soil = document.getElementById('soil-select').value;
+                var water = document.getElementById('water-select').value;
+                var season = getActiveSeason();
+                var crop = getRecommendation(soil, season, water);
+                updateCard(crop);
+                showToast('\u2705 Best crop for ' + season + ' · ' + soil + ' soil: ' + crop.name);
+            });
+        }
+
+        /* ─── DOWNLOAD GUIDE (Blob API) ─────────────────────────────────────────
+           Creates a real downloadable .txt file with crop guide content.
+           WHY: No server needed; Blob + createObjectURL works in all modern browsers.
+        ─────────────────────────────────────────────────────────────────────── */
+        var dlBtn = document.getElementById('download-btn');
+        if (dlBtn) {
+            dlBtn.addEventListener('click', function () {
+                var c = currentCrop;
+                var lines = [
+                    'KRISHI PORTAL \u2014 CROP GUIDE', '='.repeat(30), '',
+                    'Crop        : ' + c.name + ' (' + c.sci + ')',
+                    'Season      : ' + c.season,
+                    'Water Need  : ' + c.water,
+                    'Yield       : ' + c.yield,
+                    'Duration    : ' + c.duration,
+                    'Best States : ' + c.states,
+                    'Profit      : ' + c.profit,
+                    'Risk Level  : ' + c.risk,
+                    '', 'SOWING TIPS', '-'.repeat(20)
+                ].concat(c.tips.map(function (t, i) { return (i + 1) + '. ' + t; })).concat([
+                    '', 'ALTERNATIVE CROP', '-'.repeat(20),
+                    c.alt + ': ' + c.altDesc,
+                    '', 'Kisan Helpline: 1800-123-4567 (24/7)',
+                    '\u00a9 2024 Krishi Portal'
+                ]);
+                var blob = new Blob([lines.join('\n')], { type: 'text/plain;charset=utf-8' });
+                var url = URL.createObjectURL(blob);
+                var a = document.createElement('a');
+                a.href = url;
+                a.download = c.name.toLowerCase().replace(/[^a-z]/g, '-') + '-crop-guide.txt';
+                document.body.appendChild(a); a.click(); document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+                showToast('\uD83D\uDCC4 Downloading ' + c.name + ' guide...');
+            });
+        }
+
+        /* ─── ALTERNATIVE CROP CARD CLICK ───────────────────────────────────── */
+        var altCard = document.querySelector('.bg-surface-container-low.border.border-outline-variant.p-stack-md');
+        if (altCard) {
+            altCard.style.cursor = 'pointer';
+            altCard.addEventListener('click', function () {
+                showToast('\uD83C\uDF3E Selected: ' + currentCrop.alt + ' as your alternative crop');
+            });
+        }
+
+        // Initialize card with default (Kharif + Alluvial + High water = Basmati Rice)
+        updateCard(getRecommendation('Alluvial', 'Kharif', 'High'));
     });
-  });
-
-  /* ─── GENERATE RECOMMENDATION ───────────────────────────────────────── */
-  var genBtn = document.getElementById('gen-btn');
-  if (genBtn) {
-    genBtn.addEventListener('click', function(){
-      var soil  = document.getElementById('soil-select').value;
-      var water = document.getElementById('water-select').value;
-      var season = getActiveSeason();
-      var crop = getRecommendation(soil, season, water);
-      updateCard(crop);
-      showToast('\u2705 Best crop for ' + season + ' · ' + soil + ' soil: ' + crop.name);
-    });
-  }
-
-  /* ─── DOWNLOAD GUIDE (Blob API) ─────────────────────────────────────────
-     Creates a real downloadable .txt file with crop guide content.
-     WHY: No server needed; Blob + createObjectURL works in all modern browsers.
-  ─────────────────────────────────────────────────────────────────────── */
-  var dlBtn = document.getElementById('download-btn');
-  if (dlBtn) {
-    dlBtn.addEventListener('click', function(){
-      var c = currentCrop;
-      var lines = [
-        'KRISHI PORTAL \u2014 CROP GUIDE', '='.repeat(30), '',
-        'Crop        : ' + c.name + ' (' + c.sci + ')',
-        'Season      : ' + c.season,
-        'Water Need  : ' + c.water,
-        'Yield       : ' + c.yield,
-        'Duration    : ' + c.duration,
-        'Best States : ' + c.states,
-        'Profit      : ' + c.profit,
-        'Risk Level  : ' + c.risk,
-        '', 'SOWING TIPS', '-'.repeat(20)
-      ].concat(c.tips.map(function(t,i){ return (i+1)+'. '+t; })).concat([
-        '', 'ALTERNATIVE CROP', '-'.repeat(20),
-        c.alt + ': ' + c.altDesc,
-        '', 'Kisan Helpline: 1800-123-4567 (24/7)',
-        '\u00a9 2024 Krishi Portal'
-      ]);
-      var blob = new Blob([lines.join('\n')], {type:'text/plain;charset=utf-8'});
-      var url = URL.createObjectURL(blob);
-      var a = document.createElement('a');
-      a.href = url;
-      a.download = c.name.toLowerCase().replace(/[^a-z]/g,'-') + '-crop-guide.txt';
-      document.body.appendChild(a); a.click(); document.body.removeChild(a);
-      URL.revokeObjectURL(url);
-      showToast('\uD83D\uDCC4 Downloading ' + c.name + ' guide...');
-    });
-  }
-
-  /* ─── ALTERNATIVE CROP CARD CLICK ───────────────────────────────────── */
-  var altCard = document.querySelector('.bg-surface-container-low.border.border-outline-variant.p-stack-md');
-  if (altCard) {
-    altCard.style.cursor = 'pointer';
-    altCard.addEventListener('click', function(){
-      showToast('\uD83C\uDF3E Selected: ' + currentCrop.alt + ' as your alternative crop');
-    });
-  }
-
-  // Initialize card with default (Kharif + Alluvial + High water = Basmati Rice)
-  updateCard(getRecommendation('Alluvial', 'Kharif', 'High'));
-});
 </script>

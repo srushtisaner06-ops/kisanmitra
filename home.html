@@ -1,695 +1,899 @@
 <!DOCTYPE html>
 
-<html class="light" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Krishi Portal - Supporting Indian Farmers</title>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700&amp;family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="global.css"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script id="tailwind-config">
-        tailwind.config = {
-          darkMode: "class",
-          theme: {
-            extend: {
-              "colors": {
-                      "on-tertiary-fixed-variant": "#24502c",
-                      "secondary-container": "#91f78e",
-                      "on-secondary": "#ffffff",
-                      "inverse-primary": "#88d982",
-                      "tertiary-fixed-dim": "#a2d3a4",
-                      "error": "#ba1a1a",
-                      "surface-container-high": "#e5eadf",
-                      "primary-container": "#2e7d32",
-                      "surface": "#f7fbf0",
-                      "surface-tint": "#1b6d24",
-                      "surface-container-highest": "#e0e4da",
-                      "on-error": "#ffffff",
-                      "primary": "#0d631b",
-                      "on-background": "#181d17",
-                      "on-primary-fixed": "#002204",
-                      "on-error-container": "#93000a",
-                      "on-secondary-fixed-variant": "#005313",
-                      "inverse-surface": "#2d322b",
-                      "primary-fixed": "#a3f69c",
-                      "surface-container-low": "#f1f5eb",
-                      "surface-container-lowest": "#ffffff",
-                      "surface-container": "#ebefe5",
-                      "surface-bright": "#f7fbf0",
-                      "outline": "#707a6c",
-                      "on-primary-fixed-variant": "#005312",
-                      "on-tertiary": "#ffffff",
-                      "tertiary-fixed": "#bdefbe",
-                      "secondary": "#006e1c",
-                      "on-primary-container": "#cbffc2",
-                      "surface-dim": "#d7dbd2",
-                      "surface-variant": "#e0e4da",
-                      "on-tertiary-fixed": "#002109",
-                      "inverse-on-surface": "#eef2e8",
-                      "on-tertiary-container": "#ccfecd",
-                      "outline-variant": "#bfcaba",
-                      "tertiary": "#335f3a",
-                      "on-surface-variant": "#40493d",
-                      "on-primary": "#ffffff",
-                      "secondary-fixed": "#94f990",
-                      "secondary-fixed-dim": "#78dc77",
-                      "on-secondary-fixed": "#002204",
-                      "on-secondary-container": "#00731e",
-                      "tertiary-container": "#4b7850",
-                      "error-container": "#ffdad6",
-                      "background": "#f7fbf0",
-                      "on-surface": "#181d17",
-                      "primary-fixed-dim": "#88d982"
-              },
-              "borderRadius": {
-                      "DEFAULT": "0.25rem",
-                      "lg": "0.5rem",
-                      "xl": "0.75rem",
-                      "full": "9999px"
-              },
-              "spacing": {
-                      "gutter": "16px",
-                      "margin-desktop": "32px",
-                      "unit": "8px",
-                      "container-max": "1200px",
-                      "margin-mobile": "16px",
-                      "stack-md": "12px",
-                      "stack-sm": "8px",
-                      "stack-lg": "24px"
-              },
-              "fontFamily": {
-                      "headline-lg": ["Plus Jakarta Sans"],
-                      "body-md": ["Open Sans"],
-                      "display-lg": ["Plus Jakarta Sans"],
-                      "caption": ["Open Sans"],
-                      "headline-md": ["Plus Jakarta Sans"],
-                      "title-lg": ["Open Sans"],
-                      "body-lg": ["Open Sans"],
-                      "label-md": ["Open Sans"],
-                      "headline-lg-mobile": ["Plus Jakarta Sans"]
-              },
-              "fontSize": {
-                      "headline-lg": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
-                      "body-md": ["15px", {"lineHeight": "22px", "fontWeight": "400"}],
-                      "display-lg": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
-                      "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
-                      "headline-md": ["22px", {"lineHeight": "28px", "fontWeight": "600"}],
-                      "title-lg": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
-                      "body-lg": ["17px", {"lineHeight": "26px", "fontWeight": "400"}],
-                      "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
-                      "headline-lg-mobile": ["22px", {"lineHeight": "30px", "fontWeight": "600"}]
-              }
-            },
+<html class="light" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Krishi Portal - Supporting Indian Farmers</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700&amp;family=Open+Sans:wght@400;600&amp;display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="global.css" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-tertiary-fixed-variant": "#24502c",
+            "secondary-container": "#91f78e",
+            "on-secondary": "#ffffff",
+            "inverse-primary": "#88d982",
+            "tertiary-fixed-dim": "#a2d3a4",
+            "error": "#ba1a1a",
+            "surface-container-high": "#e5eadf",
+            "primary-container": "#2e7d32",
+            "surface": "#f7fbf0",
+            "surface-tint": "#1b6d24",
+            "surface-container-highest": "#e0e4da",
+            "on-error": "#ffffff",
+            "primary": "#0d631b",
+            "on-background": "#181d17",
+            "on-primary-fixed": "#002204",
+            "on-error-container": "#93000a",
+            "on-secondary-fixed-variant": "#005313",
+            "inverse-surface": "#2d322b",
+            "primary-fixed": "#a3f69c",
+            "surface-container-low": "#f1f5eb",
+            "surface-container-lowest": "#ffffff",
+            "surface-container": "#ebefe5",
+            "surface-bright": "#f7fbf0",
+            "outline": "#707a6c",
+            "on-primary-fixed-variant": "#005312",
+            "on-tertiary": "#ffffff",
+            "tertiary-fixed": "#bdefbe",
+            "secondary": "#006e1c",
+            "on-primary-container": "#cbffc2",
+            "surface-dim": "#d7dbd2",
+            "surface-variant": "#e0e4da",
+            "on-tertiary-fixed": "#002109",
+            "inverse-on-surface": "#eef2e8",
+            "on-tertiary-container": "#ccfecd",
+            "outline-variant": "#bfcaba",
+            "tertiary": "#335f3a",
+            "on-surface-variant": "#40493d",
+            "on-primary": "#ffffff",
+            "secondary-fixed": "#94f990",
+            "secondary-fixed-dim": "#78dc77",
+            "on-secondary-fixed": "#002204",
+            "on-secondary-container": "#00731e",
+            "tertiary-container": "#4b7850",
+            "error-container": "#ffdad6",
+            "background": "#f7fbf0",
+            "on-surface": "#181d17",
+            "primary-fixed-dim": "#88d982"
           },
-        }
-    </script>
-<style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
-            display: inline-block;
-            vertical-align: middle;
-            font-size: 20px;
-        }
-        .hide-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-        .hide-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-    </style>
-</head>
-<body class="bg-surface text-on-surface font-body-md">
-<!-- TopNavBar -->
-<header class="fixed top-0 w-full z-50 bg-surface border-b border-outline-variant shadow-sm">
-<nav class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-3 max-w-screen-xl mx-auto">
-<div class="text-headline-md font-headline-lg-mobile text-primary flex items-center gap-2">
-<span class="material-symbols-outlined text-primary" data-icon="eco">eco</span>
-<span class="font-headline-lg">Krishi Portal</span>
-</div>
-<div class="hidden md:flex items-center gap-6">
-<a class="text-primary font-bold border-b-2 border-primary pb-0.5 font-label-md text-label-md" href="home.html" data-i18n="nav_home">Home</a>
-<a class="text-on-surface-variant hover:text-secondary transition-colors font-label-md text-label-md" href="market_price.html" data-i18n="nav_market">Market Prices</a>
-<a class="text-on-surface-variant hover:text-secondary transition-colors font-label-md text-label-md" href="crop_guide.html" data-i18n="nav_crop">Crop Guide</a>
-<a class="text-on-surface-variant hover:text-secondary transition-colors font-label-md text-label-md" href="fertilizer.html" data-i18n="nav_fertilizer">Fertilizers</a>
-<a class="text-on-surface-variant hover:text-secondary transition-colors font-label-md text-label-md" href="govt_schemes.html" data-i18n="nav_schemes">Govt Schemes</a>
-<a class="text-on-surface-variant hover:text-secondary transition-colors font-label-md text-label-md" href="farming_tips.html" data-i18n="nav_tips">Farming Tips</a>
-<a class="text-on-surface-variant hover:text-secondary transition-colors font-label-md text-label-md" href="weather.html" data-i18n="nav_weather">Weather</a>
-</div>
-<div class="flex items-center gap-3">
-<button class="lang-toggle-btn text-on-surface-variant hover:text-primary transition-colors flex items-center gap-1 font-label-md text-label-md" aria-label="Change Language">
-<span class="material-symbols-outlined" data-icon="language">language</span>
-<span class="hidden sm:inline" data-i18n="nav_language">Language</span>
-</button>
-<button class="dark-toggle-btn text-on-surface-variant hover:text-primary transition-colors active:scale-95" aria-label="Toggle dark mode">
-<span class="material-symbols-outlined" data-icon="dark_mode">dark_mode</span>
-</button>
-</div>
-</nav>
-</header>
-<main class="pt-16">
-
-<!-- ═══ HERO — Full-Width Immersive ═══ -->
-<section class="hero-fullwidth">
-  <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=1800&q=80"
-    alt="Indian farmer in lush green wheat field at golden hour"
-    class="hero-bg lazy-fade" loading="eager" decoding="async" onload="this.classList.add('loaded')">
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <div style="max-width:600px">
-      <div class="hero-badge">
-        <span class="material-symbols-outlined" style="font-size:14px">eco</span>
-        India's Most Trusted Agri-Tech Platform
-      </div>
-      <h1 class="text-display-lg font-display-lg text-white leading-tight mb-4" data-i18n="home_hero_title">
-        Supporting Indian Farmers with Digital Solutions
-      </h1>
-      <p style="font-family:'Open Sans',sans-serif;font-size:17px;line-height:26px;color:rgba(255,255,255,0.85);margin-bottom:32px;max-width:500px" data-i18n="home_hero_sub">
-        Real-time market insights, expert guides, and direct access to government schemes — simple, reliable tools for 140 million Indian farmers.
-      </p>
-      <div class="flex flex-wrap gap-3">
-        <button id="cta-explore"
-          style="background:#fff;color:#0d631b;font-family:'Open Sans',sans-serif;font-size:14px;font-weight:700;padding:12px 28px;border-radius:8px;border:none;cursor:pointer;min-height:48px;letter-spacing:.01em;transition:background .2s"
-          onmouseover="this.style.background='#a3f69c'" onmouseout="this.style.background='#fff'"
-          data-i18n="home_cta_explore">Explore Services</button>
-        <button id="cta-learn"
-          style="background:rgba(255,255,255,0.1);color:#fff;font-family:'Open Sans',sans-serif;font-size:14px;font-weight:700;padding:12px 28px;border-radius:8px;border:2px solid rgba(255,255,255,0.5);cursor:pointer;min-height:48px;letter-spacing:.01em;transition:background .2s"
-          onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'"
-          data-i18n="home_cta_learn">Learn More</button>
-      </div>
-      <div style="display:flex;flex-wrap:wrap;gap:24px;margin-top:36px;padding-top:28px;border-top:1px solid rgba(255,255,255,0.15)">
-        <div style="display:flex;align-items:center;gap:8px;color:rgba(255,255,255,0.8)">
-          <span class="material-symbols-outlined" style="font-size:18px;color:#a3f69c">verified</span>
-          <span style="font-size:13px;font-family:'Open Sans',sans-serif">Govt. Verified Data</span>
-        </div>
-        <div style="display:flex;align-items:center;gap:8px;color:rgba(255,255,255,0.8)">
-          <span class="material-symbols-outlined" style="font-size:18px;color:#a3f69c">translate</span>
-          <span style="font-size:13px;font-family:'Open Sans',sans-serif">12 Regional Languages</span>
-        </div>
-        <div style="display:flex;align-items:center;gap:8px;color:rgba(255,255,255,0.8)">
-          <span class="material-symbols-outlined" style="font-size:18px;color:#a3f69c">phone_android</span>
-          <span style="font-size:13px;font-family:'Open Sans',sans-serif">Works Offline</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ STATISTICS VISUAL SECTION ═══ -->
-<section class="stats-visual-section py-14" id="stats-section">
-  <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1600&q=80"
-    alt="Aerial drone view of Indian farmland patchwork" class="stats-bg lazy-fade"
-    loading="lazy" decoding="async" onload="this.classList.add('loaded')">
-  <div class="stats-content px-margin-mobile md:px-margin-desktop max-w-screen-xl mx-auto">
-    <div class="text-center mb-10">
-      <p class="section-eyebrow" style="color:#a3f69c;justify-content:center">
-        <span class="material-symbols-outlined" style="font-size:14px">bar_chart</span>Our Impact
-      </p>
-      <h2 class="text-headline-lg font-headline-lg" style="color:#fff">Empowering Farmers Across India</h2>
-    </div>
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-5">
-      <div class="text-center p-6 rounded-xl" style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15)">
-        <p class="counter-value" style="font-size:42px;font-weight:700;color:#fff;line-height:1" data-counter="140" data-counter-suffix="M+">140M+</p>
-        <p style="font-size:13px;color:rgba(255,255,255,0.7);margin-top:8px;font-family:'Open Sans',sans-serif;font-weight:600" data-i18n="home_stats_farmers">Indian Farmers</p>
-      </div>
-      <div class="text-center p-6 rounded-xl" style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15)">
-        <p class="counter-value" style="font-size:42px;font-weight:700;color:#fff;line-height:1" data-counter="500" data-counter-suffix="+">500+</p>
-        <p style="font-size:13px;color:rgba(255,255,255,0.7);margin-top:8px;font-family:'Open Sans',sans-serif;font-weight:600" data-i18n="home_stats_mandis">Mandis Covered</p>
-      </div>
-      <div class="text-center p-6 rounded-xl" style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15)">
-        <p class="counter-value" style="font-size:42px;font-weight:700;color:#fff;line-height:1" data-counter="200" data-counter-suffix="+">200+</p>
-        <p style="font-size:13px;color:rgba(255,255,255,0.7);margin-top:8px;font-family:'Open Sans',sans-serif;font-weight:600" data-i18n="home_stats_crops">Crop Varieties</p>
-      </div>
-      <div class="text-center p-6 rounded-xl" style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15)">
-        <p class="counter-value" style="font-size:42px;font-weight:700;color:#fff;line-height:1" data-counter="28" data-counter-suffix="">28</p>
-        <p style="font-size:13px;color:rgba(255,255,255,0.7);margin-top:8px;font-family:'Open Sans',sans-serif;font-weight:600">States &amp; UTs</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ SERVICES SECTION ═══ -->
-<section id="services" class="px-margin-mobile md:px-margin-desktop py-14 max-w-screen-xl mx-auto">
-  <div class="mb-10">
-    <p class="section-eyebrow"><span class="material-symbols-outlined" style="font-size:14px">grid_view</span>What We Offer</p>
-    <h2 class="text-headline-lg font-headline-lg text-on-surface" data-i18n="home_services_title">Digital Services for Every Farmer</h2>
-    <p class="text-body-md text-on-surface-variant mt-1" data-i18n="home_services_sub">Utility-focused tools for daily farm management.</p>
-  </div>
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-
-    <div class="card-hover bg-surface-container-lowest border border-outline-variant rounded-xl hover:border-primary hover:shadow-lg transition-all group flex flex-col h-full overflow-hidden">
-      <div class="card-img-wrap" style="height:130px">
-        <img src="https://images.unsplash.com/photo-1488459716781-31db52582fe9?auto=format&fit=crop&w=600&q=80" alt="Vegetable market mandi India" class="card-img-zoom lazy-fade" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
-      </div>
-      <div class="p-4 flex flex-col flex-grow">
-        <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mb-3 text-primary"><span class="material-symbols-outlined" data-icon="currency_rupee">currency_rupee</span></div>
-        <h3 class="text-title-lg font-title-lg text-on-surface mb-1">Market Prices</h3>
-        <p class="text-caption text-on-surface-variant flex-grow">Live mandi updates across the state.</p>
-        <button onclick="location.href='market_price.html'" class="text-primary text-caption font-label-md mt-4 flex items-center gap-1 hover:gap-2 transition-all">Check Prices <span class="material-symbols-outlined text-[14px]">arrow_forward</span></button>
-      </div>
-    </div>
-
-    <div class="card-hover bg-surface-container-lowest border border-outline-variant rounded-xl hover:border-primary hover:shadow-lg transition-all group flex flex-col h-full overflow-hidden">
-      <div class="card-img-wrap" style="height:130px">
-        <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=600&q=80" alt="Lush green agricultural crop field" class="card-img-zoom lazy-fade" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
-      </div>
-      <div class="p-4 flex flex-col flex-grow">
-        <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mb-3 text-primary"><span class="material-symbols-outlined" data-icon="menu_book">menu_book</span></div>
-        <h3 class="text-title-lg font-title-lg text-on-surface mb-1">Crop Guide</h3>
-        <p class="text-caption text-on-surface-variant flex-grow">Planting and pest management data.</p>
-        <button onclick="location.href='crop_guide.html'" class="text-primary text-caption font-label-md mt-4 flex items-center gap-1 hover:gap-2 transition-all">View Guides <span class="material-symbols-outlined text-[14px]">arrow_forward</span></button>
-      </div>
-    </div>
-
-    <div class="card-hover bg-surface-container-lowest border border-outline-variant rounded-xl hover:border-primary hover:shadow-lg transition-all group flex flex-col h-full overflow-hidden">
-      <div class="card-img-wrap" style="height:130px">
-        <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=600&q=80" alt="Rich agricultural soil organic matter" class="card-img-zoom lazy-fade" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
-      </div>
-      <div class="p-4 flex flex-col flex-grow">
-        <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mb-3 text-primary"><span class="material-symbols-outlined" data-icon="science">science</span></div>
-        <h3 class="text-title-lg font-title-lg text-on-surface mb-1">Fertilizers</h3>
-        <p class="text-caption text-on-surface-variant flex-grow">Soil-specific recommendations.</p>
-        <button onclick="location.href='fertilizer.html'" class="text-primary text-caption font-label-md mt-4 flex items-center gap-1 hover:gap-2 transition-all">Soil Input <span class="material-symbols-outlined text-[14px]">arrow_forward</span></button>
-      </div>
-    </div>
-
-    <div class="card-hover bg-surface-container-lowest border border-outline-variant rounded-xl hover:border-primary hover:shadow-lg transition-all group flex flex-col h-full overflow-hidden">
-      <div class="card-img-wrap" style="height:130px">
-        <img src="https://images.unsplash.com/photo-1569025690938-a00729c9e1f9?auto=format&fit=crop&w=600&q=80" alt="Government agricultural support program India" class="card-img-zoom lazy-fade" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
-      </div>
-      <div class="p-4 flex flex-col flex-grow">
-        <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mb-3 text-primary"><span class="material-symbols-outlined" data-icon="account_balance">account_balance</span></div>
-        <h3 class="text-title-lg font-title-lg text-on-surface mb-1">Schemes</h3>
-        <p class="text-caption text-on-surface-variant flex-grow">Subsidies and insurance programs.</p>
-        <button onclick="location.href='govt_schemes.html'" class="text-primary text-caption font-label-md mt-4 flex items-center gap-1 hover:gap-2 transition-all">Apply Now <span class="material-symbols-outlined text-[14px]">arrow_forward</span></button>
-      </div>
-    </div>
-
-    <div class="card-hover bg-surface-container-lowest border border-outline-variant rounded-xl hover:border-primary hover:shadow-lg transition-all group flex flex-col h-full overflow-hidden">
-      <div class="card-img-wrap" style="height:130px">
-        <img src="https://images.unsplash.com/photo-1500651230702-0e2d8a49d4ad?auto=format&fit=crop&w=600&q=80" alt="Farmer learning modern agriculture techniques" class="card-img-zoom lazy-fade" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
-      </div>
-      <div class="p-4 flex flex-col flex-grow">
-        <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mb-3 text-primary"><span class="material-symbols-outlined" data-icon="psychology">psychology</span></div>
-        <h3 class="text-title-lg font-title-lg text-on-surface mb-1">Expert Tips</h3>
-        <p class="text-caption text-on-surface-variant flex-grow">Weekly innovations and advice.</p>
-        <button onclick="location.href='farming_tips.html'" class="text-primary text-caption font-label-md mt-4 flex items-center gap-1 hover:gap-2 transition-all">Read More <span class="material-symbols-outlined text-[14px]">arrow_forward</span></button>
-      </div>
-    </div>
-
-    <div class="card-hover bg-surface-container-lowest border border-outline-variant rounded-xl hover:border-primary hover:shadow-lg transition-all group flex flex-col h-full overflow-hidden">
-      <div class="card-img-wrap" style="height:130px">
-        <img src="https://images.unsplash.com/photo-1504432842672-1a79f78e4084?auto=format&fit=crop&w=600&q=80" alt="Monsoon rain over Indian farmland" class="card-img-zoom lazy-fade" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
-      </div>
-      <div class="p-4 flex flex-col flex-grow">
-        <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mb-3 text-primary"><span class="material-symbols-outlined" data-icon="partly_cloudy_day">partly_cloudy_day</span></div>
-        <h3 class="text-title-lg font-title-lg text-on-surface mb-1">Weather</h3>
-        <p class="text-caption text-on-surface-variant flex-grow">Local alerts and planning.</p>
-        <button onclick="location.href='weather.html'" class="text-primary text-caption font-label-md mt-4 flex items-center gap-1 hover:gap-2 transition-all">View Details <span class="material-symbols-outlined text-[14px]">arrow_forward</span></button>
-      </div>
-    </div>
-
-    <div class="card-hover bg-surface-container-lowest border border-outline-variant rounded-xl hover:border-primary hover:shadow-lg transition-all group flex flex-col h-full overflow-hidden">
-      <div class="card-img-wrap" style="height:130px">
-        <img src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?auto=format&fit=crop&w=600&q=80" alt="Drip irrigation soil health farm India" class="card-img-zoom lazy-fade" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
-      </div>
-      <div class="p-4 flex flex-col flex-grow">
-        <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mb-3 text-primary"><span class="material-symbols-outlined" data-icon="biotech">biotech</span></div>
-        <h3 class="text-title-lg font-title-lg text-on-surface mb-1">Soil Testing</h3>
-        <p class="text-caption text-on-surface-variant flex-grow">Nearest lab locations &amp; reports.</p>
-        <button onclick="showToast('📍 Nearest lab: IARI, New Delhi — 2.4 km away')" class="text-primary text-caption font-label-md mt-4 flex items-center gap-1 hover:gap-2 transition-all">Find Labs <span class="material-symbols-outlined text-[14px]">arrow_forward</span></button>
-      </div>
-    </div>
-
-
-
-  </div>
-</section>
-
-<!-- ═══ CROP ADVISORY BANNER ═══ -->
-<section class="px-margin-mobile md:px-margin-desktop pb-14 max-w-screen-xl mx-auto">
-  <div class="advisory-banner shadow-xl">
-    <img src="https://images.unsplash.com/photo-1560493676-04071c5f467b?auto=format&fit=crop&w=1400&q=80"
-      alt="Vast green paddy field India Karnataka" class="advisory-bg lazy-fade"
-      loading="lazy" decoding="async" onload="this.classList.add('loaded')">
-    <div class="advisory-overlay"></div>
-    <div class="advisory-content">
-      <p class="section-eyebrow" style="color:#a3f69c">
-        <span class="material-symbols-outlined" style="font-size:14px">tips_and_updates</span>Seasonal Advisory
-      </p>
-      <h2 class="text-headline-lg font-headline-lg" style="color:#fff;margin-bottom:12px">Get Smart Crop Recommendations for Your Region</h2>
-      <p style="font-family:'Open Sans',sans-serif;font-size:15px;color:rgba(255,255,255,0.82);margin-bottom:24px;max-width:420px">
-        Based on your soil type, local weather, and market prices — our advisory engine suggests the best crop for this season.
-      </p>
-      <button onclick="location.href='crop_guide.html'"
-        style="background:#fff;color:#0d631b;font-family:'Open Sans',sans-serif;font-size:14px;font-weight:700;padding:12px 24px;border-radius:8px;border:none;cursor:pointer;display:flex;align-items:center;gap:8px;transition:background .2s"
-        onmouseover="this.style.background='#a3f69c'" onmouseout="this.style.background='#fff'">
-        <span class="material-symbols-outlined" style="font-size:18px">agriculture</span>Explore Crop Guide
-      </button>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ SEASONAL CROP SPOTLIGHT ═══ -->
-<section class="bg-surface-container py-14">
-  <div class="px-margin-mobile md:px-margin-desktop max-w-screen-xl mx-auto">
-    <div class="flex justify-between items-center mb-8">
-      <div>
-        <p class="section-eyebrow"><span class="material-symbols-outlined" style="font-size:14px">calendar_month</span>This Season</p>
-        <h2 class="text-headline-lg font-headline-lg text-on-surface" data-i18n="home_seasonal_title">Seasonal Crop Spotlight</h2>
-        <p class="text-body-md text-on-surface-variant" data-i18n="home_seasonal_sub">Recommended crops for current sowing cycle.</p>
-      </div>
-      <div class="flex gap-2">
-        <button class="w-9 h-9 border border-outline-variant rounded-lg flex items-center justify-center text-primary hover:bg-white transition-colors shadow-sm">
-          <span class="material-symbols-outlined">chevron_left</span>
-        </button>
-        <button class="w-9 h-9 border border-outline-variant rounded-lg flex items-center justify-center text-primary hover:bg-white transition-colors shadow-sm">
-          <span class="material-symbols-outlined">chevron_right</span>
-        </button>
-      </div>
-    </div>
-    <div class="flex gap-5 overflow-x-auto hide-scrollbar pb-2 -mx-margin-mobile px-margin-mobile md:mx-0 md:px-0">
-
-      <div class="card-hover flex-shrink-0 w-64 bg-white border border-outline-variant rounded-xl overflow-hidden shadow-sm group">
-        <div class="card-img-wrap" style="height:140px">
-          <img src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?auto=format&fit=crop&w=600&q=80" alt="Golden wheat harvest field India" class="card-img-zoom lazy-fade" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
-        </div>
-        <div class="p-3 space-y-1.5">
-          <h4 class="text-title-lg font-title-lg text-on-surface">Wheat (Gehun)</h4>
-          <div class="flex flex-wrap gap-1.5">
-            <span class="bg-secondary-container/20 text-on-secondary-fixed-variant px-1.5 py-0.5 rounded text-[11px] font-label-md">Rabi</span>
-            <span class="bg-tertiary-fixed/20 text-on-tertiary-fixed-variant px-1.5 py-0.5 rounded text-[11px] font-label-md">Loamy</span>
-          </div>
-          <button class="text-primary text-caption font-label-md flex items-center gap-1 hover:gap-2 transition-all pt-1">Details <span class="material-symbols-outlined text-[14px]">arrow_forward</span></button>
-        </div>
-      </div>
-
-      <div class="card-hover flex-shrink-0 w-64 bg-white border border-outline-variant rounded-xl overflow-hidden shadow-sm group">
-        <div class="card-img-wrap" style="height:140px">
-          <img src="https://images.unsplash.com/photo-1602080858428-57174f9431cf?auto=format&fit=crop&w=600&q=80" alt="Green paddy rice rows India" class="card-img-zoom lazy-fade" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
-        </div>
-        <div class="p-3 space-y-1.5">
-          <h4 class="text-title-lg font-title-lg text-on-surface">Rice (Chawal)</h4>
-          <div class="flex flex-wrap gap-1.5">
-            <span class="bg-secondary-container/20 text-on-secondary-fixed-variant px-1.5 py-0.5 rounded text-[11px] font-label-md">Kharif</span>
-            <span class="bg-tertiary-fixed/20 text-on-tertiary-fixed-variant px-1.5 py-0.5 rounded text-[11px] font-label-md">Clayey</span>
-          </div>
-          <button class="text-primary text-caption font-label-md flex items-center gap-1 hover:gap-2 transition-all pt-1">Details <span class="material-symbols-outlined text-[14px]">arrow_forward</span></button>
-        </div>
-      </div>
-
-      <div class="card-hover flex-shrink-0 w-64 bg-white border border-outline-variant rounded-xl overflow-hidden shadow-sm group">
-        <div class="card-img-wrap" style="height:140px">
-          <img src="https://images.unsplash.com/photo-1620380541296-8e5c35352a29?auto=format&fit=crop&w=600&q=80" alt="White cotton bolls ready for harvest" class="card-img-zoom lazy-fade" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
-        </div>
-        <div class="p-3 space-y-1.5">
-          <h4 class="text-title-lg font-title-lg text-on-surface">Cotton (Kapaas)</h4>
-          <div class="flex flex-wrap gap-1.5">
-            <span class="bg-secondary-container/20 text-on-secondary-fixed-variant px-1.5 py-0.5 rounded text-[11px] font-label-md">Kharif</span>
-            <span class="bg-tertiary-fixed/20 text-on-tertiary-fixed-variant px-1.5 py-0.5 rounded text-[11px] font-label-md">Black</span>
-          </div>
-          <button class="text-primary text-caption font-label-md flex items-center gap-1 hover:gap-2 transition-all pt-1">Details <span class="material-symbols-outlined text-[14px]">arrow_forward</span></button>
-        </div>
-      </div>
-
-      <div class="card-hover flex-shrink-0 w-64 bg-white border border-outline-variant rounded-xl overflow-hidden shadow-sm group">
-        <div class="card-img-wrap" style="height:140px">
-          <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=600&q=80" alt="Bright yellow mustard sarson bloom field Haryana India" class="card-img-zoom lazy-fade" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
-
-        </div>
-        <div class="p-3 space-y-1.5">
-          <h4 class="text-title-lg font-title-lg text-on-surface">Mustard (Sarson)</h4>
-          <div class="flex flex-wrap gap-1.5">
-            <span class="bg-secondary-container/20 text-on-secondary-fixed-variant px-1.5 py-0.5 rounded text-[11px] font-label-md">Rabi</span>
-            <span class="bg-tertiary-fixed/20 text-on-tertiary-fixed-variant px-1.5 py-0.5 rounded text-[11px] font-label-md">Sandy</span>
-          </div>
-          <button class="text-primary text-caption font-label-md flex items-center gap-1 hover:gap-2 transition-all pt-1">Details <span class="material-symbols-outlined text-[14px]">arrow_forward</span></button>
-        </div>
-      </div>
-
-      <div class="card-hover flex-shrink-0 w-64 bg-white border border-outline-variant rounded-xl overflow-hidden shadow-sm group">
-        <div class="card-img-wrap" style="height:140px">
-          <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=600&q=80" alt="Tall green sugarcane field India" class="card-img-zoom lazy-fade" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
-        </div>
-        <div class="p-3 space-y-1.5">
-          <h4 class="text-title-lg font-title-lg text-on-surface">Sugarcane (Ganna)</h4>
-          <div class="flex flex-wrap gap-1.5">
-            <span class="bg-secondary-container/20 text-on-secondary-fixed-variant px-1.5 py-0.5 rounded text-[11px] font-label-md">Annual</span>
-            <span class="bg-tertiary-fixed/20 text-on-tertiary-fixed-variant px-1.5 py-0.5 rounded text-[11px] font-label-md">Alluvial</span>
-          </div>
-          <button class="text-primary text-caption font-label-md flex items-center gap-1 hover:gap-2 transition-all pt-1">Details <span class="material-symbols-outlined text-[14px]">arrow_forward</span></button>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ═══ FARMER SUCCESS STORIES ═══ -->
-<section class="px-margin-mobile md:px-margin-desktop py-14 max-w-screen-xl mx-auto">
-  <div class="mb-10">
-    <p class="section-eyebrow"><span class="material-symbols-outlined" style="font-size:14px">emoji_events</span>Real Stories</p>
-    <h2 class="text-headline-lg font-headline-lg text-on-surface">Farmer Success Stories</h2>
-    <p class="text-body-md text-on-surface-variant mt-1">Real impact from across the country.</p>
-  </div>
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-    <div class="story-card scroll-reveal">
-      <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=600&q=80" alt="Indian farmer in wheat field Punjab" class="story-card-img lazy-fade" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
-      <div class="p-5">
-        <span style="display:inline-block;background:rgba(13,99,27,0.1);color:#0d631b;font-size:11px;font-weight:700;padding:2px 8px;border-radius:4px;margin-bottom:12px;font-family:'Open Sans',sans-serif;letter-spacing:.05em;text-transform:uppercase">Market Prices</span>
-        <p class="text-body-md text-on-surface-variant italic mb-4">"Using KisanMitra's live mandi prices, I sold my wheat 3 days earlier and earned ₹4,200 more per acre than my neighbours."</p>
-        <div class="flex items-center gap-3">
-          <img src="https://images.unsplash.com/photo-1566753323558-f4e0952af115?auto=format&fit=crop&w=100&q=80" alt="Gurpreet Singh Punjab farmer" class="testimonial-avatar lazy-fade" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
-          <div>
-            <p class="text-label-md font-label-md text-on-surface">Gurpreet Singh</p>
-            <p class="text-[11px] text-on-surface-variant">Amritsar, Punjab · Wheat Farmer</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="story-card scroll-reveal">
-      <img src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?auto=format&fit=crop&w=600&q=80" alt="Drip irrigation farm Maharashtra onion" class="story-card-img lazy-fade" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
-      <div class="p-5">
-        <span style="display:inline-block;background:rgba(13,99,27,0.1);color:#0d631b;font-size:11px;font-weight:700;padding:2px 8px;border-radius:4px;margin-bottom:12px;font-family:'Open Sans',sans-serif;letter-spacing:.05em;text-transform:uppercase">Govt Schemes</span>
-        <p class="text-body-md text-on-surface-variant italic mb-4">"I applied for PM-KISAN and drip irrigation subsidy through KisanMitra. Got ₹6,000 in my account within 10 days."</p>
-        <div class="flex items-center gap-3">
-          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80" alt="Ramesh Patil Maharashtra onion farmer" class="testimonial-avatar lazy-fade" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
-          <div>
-            <p class="text-label-md font-label-md text-on-surface">Ramesh Patil</p>
-            <p class="text-[11px] text-on-surface-variant">Nashik, Maharashtra · Onion Farmer</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="story-card scroll-reveal">
-      <img src="https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?auto=format&fit=crop&w=600&q=80" alt="Woman farmer organic vegetables harvest India" class="story-card-img lazy-fade" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
-      <div class="p-5">
-        <span style="display:inline-block;background:rgba(13,99,27,0.1);color:#0d631b;font-size:11px;font-weight:700;padding:2px 8px;border-radius:4px;margin-bottom:12px;font-family:'Open Sans',sans-serif;letter-spacing:.05em;text-transform:uppercase">Expert Tips</span>
-        <p class="text-body-md text-on-surface-variant italic mb-4">"The fertilizer guides helped me switch to organic farming. My produce now sells at 40% premium in the city market."</p>
-        <div class="flex items-center gap-3">
-          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=100&q=80" alt="Kavitha Reddy Telangana organic farmer" class="testimonial-avatar lazy-fade" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
-          <div>
-            <p class="text-label-md font-label-md text-on-surface">Kavitha Reddy</p>
-            <p class="text-[11px] text-on-surface-variant">Warangal, Telangana · Organic Farmer</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ FIELD GALLERY ═══ -->
-<section class="bg-surface-container py-14">
-  <div class="px-margin-mobile md:px-margin-desktop max-w-screen-xl mx-auto">
-    <div class="flex justify-between items-end mb-8">
-      <div>
-        <p class="section-eyebrow"><span class="material-symbols-outlined" style="font-size:14px">photo_library</span>Field Updates</p>
-        <h2 class="text-headline-lg font-headline-lg text-on-surface">From the Fields of India</h2>
-        <p class="text-body-md text-on-surface-variant mt-1">Real agriculture visuals from our farming community.</p>
-      </div>
-    </div>
-    <div class="gallery-grid">
-      <div class="gallery-item tall">
-        <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=700&q=80" alt="Aerial view of Indian agricultural farmland patchwork" class="lazy-fade" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
-        <div class="gallery-overlay"><span class="gallery-caption">Aerial View — Punjab Farmlands</span></div>
-      </div>
-      <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1574943320219-553eb213f72d?auto=format&fit=crop&w=600&q=80" alt="Indian farmer harvesting crops in field" class="lazy-fade" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
-        <div class="gallery-overlay"><span class="gallery-caption">Harvest Season — Madhya Pradesh</span></div>
-      </div>
-      <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1584940120743-8981ca35b012?auto=format&fit=crop&w=600&q=80" alt="Smart drip irrigation crop field technology" class="lazy-fade" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
-        <div class="gallery-overlay"><span class="gallery-caption">Smart Irrigation — Rajasthan</span></div>
-      </div>
-      <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=600&q=80" alt="Sugarcane crop rows rural India" class="lazy-fade" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
-        <div class="gallery-overlay"><span class="gallery-caption">Sugarcane Fields — Uttar Pradesh</span></div>
-      </div>
-      <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1560493676-04071c5f467b?auto=format&fit=crop&w=600&q=80" alt="Lush green paddy fields Karnataka India" class="lazy-fade" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
-        <div class="gallery-overlay"><span class="gallery-caption">Paddy Fields — Karnataka</span></div>
-      </div>
-      <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1598030473479-7c2cee8e0efe?auto=format&fit=crop&w=600&q=80" alt="Yellow mustard field bloom India spring Haryana" class="lazy-fade" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
-        <div class="gallery-overlay"><span class="gallery-caption">Mustard Bloom — Haryana</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ TESTIMONIALS ═══ -->
-<section id="testimonials-section" class="px-margin-mobile md:px-margin-desktop py-14 max-w-screen-xl mx-auto">
-  <div class="text-center mb-10">
-    <p class="section-eyebrow" style="justify-content:center"><span class="material-symbols-outlined" style="font-size:14px">forum</span>Community Voice</p>
-    <h2 class="text-headline-lg font-headline-lg text-on-surface" data-i18n="home_community_title">What Farmers Say</h2>
-    <p class="text-body-md text-on-surface-variant" data-i18n="home_community_sub">Feedback from across India.</p>
-  </div>
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-
-    <div class="testimonial-card bg-white border border-outline-variant p-6 rounded-xl shadow-sm scroll-reveal">
-      <div class="flex items-center gap-3 mb-4">
-        <img src="https://images.unsplash.com/photo-1566753323558-f4e0952af115?auto=format&fit=crop&w=100&q=80" alt="Ramesh Kumar Punjab farmer" class="testimonial-avatar lazy-fade" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
-        <div>
-          <p class="text-label-md font-label-md text-on-surface">Ramesh Kumar</p>
-          <p class="text-[11px] text-on-surface-variant">Punjab</p>
-          <div style="display:flex;gap:2px;margin-top:4px">
-            <span class="material-symbols-outlined" style="font-size:14px;color:#f59e0b;font-variation-settings:'FILL' 1">star</span>
-            <span class="material-symbols-outlined" style="font-size:14px;color:#f59e0b;font-variation-settings:'FILL' 1">star</span>
-            <span class="material-symbols-outlined" style="font-size:14px;color:#f59e0b;font-variation-settings:'FILL' 1">star</span>
-            <span class="material-symbols-outlined" style="font-size:14px;color:#f59e0b;font-variation-settings:'FILL' 1">star</span>
-            <span class="material-symbols-outlined" style="font-size:14px;color:#f59e0b;font-variation-settings:'FILL' 1">star</span>
-          </div>
-        </div>
-      </div>
-      <p class="text-body-md text-on-surface-variant italic">"Market price updates help me sell at the best rates. No more guesswork."</p>
-    </div>
-
-    <div class="testimonial-card bg-white border border-outline-variant p-6 rounded-xl shadow-sm scroll-reveal">
-      <div class="flex items-center gap-3 mb-4">
-        <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=100&q=80" alt="Sunita Devi Madhya Pradesh farmer" class="testimonial-avatar lazy-fade" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
-        <div>
-          <p class="text-label-md font-label-md text-on-surface">Sunita Devi</p>
-          <p class="text-[11px] text-on-surface-variant">Madhya Pradesh</p>
-          <div style="display:flex;gap:2px;margin-top:4px">
-            <span class="material-symbols-outlined" style="font-size:14px;color:#f59e0b;font-variation-settings:'FILL' 1">star</span>
-            <span class="material-symbols-outlined" style="font-size:14px;color:#f59e0b;font-variation-settings:'FILL' 1">star</span>
-            <span class="material-symbols-outlined" style="font-size:14px;color:#f59e0b;font-variation-settings:'FILL' 1">star</span>
-            <span class="material-symbols-outlined" style="font-size:14px;color:#f59e0b;font-variation-settings:'FILL' 1">star</span>
-            <span class="material-symbols-outlined" style="font-size:14px;color:#f59e0b;font-variation-settings:'FILL' 1">star</span>
-          </div>
-        </div>
-      </div>
-      <p class="text-body-md text-on-surface-variant italic">"Fertilizer guides reduced my costs by 15%. Simple and practical."</p>
-    </div>
-
-    <div class="testimonial-card bg-white border border-outline-variant p-6 rounded-xl shadow-sm scroll-reveal">
-      <div class="flex items-center gap-3 mb-4">
-        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80" alt="Arjun Singh Rajasthan farmer" class="testimonial-avatar lazy-fade" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
-        <div>
-          <p class="text-label-md font-label-md text-on-surface">Arjun Singh</p>
-          <p class="text-[11px] text-on-surface-variant">Rajasthan</p>
-          <div style="display:flex;gap:2px;margin-top:4px">
-            <span class="material-symbols-outlined" style="font-size:14px;color:#f59e0b;font-variation-settings:'FILL' 1">star</span>
-            <span class="material-symbols-outlined" style="font-size:14px;color:#f59e0b;font-variation-settings:'FILL' 1">star</span>
-            <span class="material-symbols-outlined" style="font-size:14px;color:#f59e0b;font-variation-settings:'FILL' 1">star</span>
-            <span class="material-symbols-outlined" style="font-size:14px;color:#f59e0b;font-variation-settings:'FILL' 1">star</span>
-            <span class="material-symbols-outlined" style="font-size:14px;color:#f59e0b;font-variation-settings:'FILL' 1">star</span>
-          </div>
-        </div>
-      </div>
-      <p class="text-body-md text-on-surface-variant italic">"Weather alerts saved my harvest last month. Prompt notifications are key."</p>
-    </div>
-
-  </div>
-</section>
-
-</main>
-<!-- Footer -->
-<!-- Page Scripts -->
-<script src="translations.js"></script>
-<script src="global.js"></script>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  // CTA Button: Explore Services → scroll to #services
-  var exploreBtn = document.getElementById('cta-explore');
-  if (exploreBtn) {
-    exploreBtn.addEventListener('click', function() {
-      document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
-    });
-  }
-  // CTA Button: Learn More → scroll to stats
-  var learnBtn = document.getElementById('cta-learn');
-  if (learnBtn) {
-    learnBtn.addEventListener('click', function() {
-      document.getElementById('stats-section').scrollIntoView({ behavior: 'smooth' });
-    });
-  }
-
-  // Crop Spotlight Carousel scroll
-  var strip = document.querySelector('.hide-scrollbar');
-  var leftBtn = document.querySelectorAll('[class*="chevron_left"]')[0];
-  var rightBtn = document.querySelectorAll('[class*="chevron_right"]')[0];
-  if (strip) {
-    var leftChev = document.querySelector('button .material-symbols-outlined:not([data-icon])');
-    // Use parent buttons of chevron icons
-    var navBtns = document.querySelectorAll('section .flex.gap-2 button');
-    if (navBtns.length >= 2) {
-      navBtns[0].addEventListener('click', function() { strip.scrollBy({ left: -280, behavior: 'smooth' }); });
-      navBtns[1].addEventListener('click', function() { strip.scrollBy({ left: 280, behavior: 'smooth' }); });
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter": "16px",
+            "margin-desktop": "32px",
+            "unit": "8px",
+            "container-max": "1200px",
+            "margin-mobile": "16px",
+            "stack-md": "12px",
+            "stack-sm": "8px",
+            "stack-lg": "24px"
+          },
+          "fontFamily": {
+            "headline-lg": ["Plus Jakarta Sans"],
+            "body-md": ["Open Sans"],
+            "display-lg": ["Plus Jakarta Sans"],
+            "caption": ["Open Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "title-lg": ["Open Sans"],
+            "body-lg": ["Open Sans"],
+            "label-md": ["Open Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "headline-lg": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+            "body-md": ["15px", { "lineHeight": "22px", "fontWeight": "400" }],
+            "display-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "caption": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+            "headline-md": ["22px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "title-lg": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "body-lg": ["17px", { "lineHeight": "26px", "fontWeight": "400" }],
+            "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "headline-lg-mobile": ["22px", { "lineHeight": "30px", "fontWeight": "600" }]
+          }
+        },
+      },
     }
-  }
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+      display: inline-block;
+      vertical-align: middle;
+      font-size: 20px;
+    }
 
-  // Crop Details buttons → crop_guide.html
-  document.querySelectorAll('.hide-scrollbar button').forEach(function(btn) {
-    btn.addEventListener('click', function() { location.href = 'crop_guide.html'; });
-  });
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
 
-  // Testimonials: auto-carousel on mobile
-  var testimonialGrid = document.querySelector('#testimonials-section .grid');
-  // (Desktop shows 3-column grid, mobile auto-slides)
-  var cards = document.querySelectorAll('#testimonials-section .grid > div');
-  if (cards.length && window.innerWidth < 768) {
-    var current = 0;
-    cards.forEach(function(c, i) { if (i > 0) c.style.display = 'none'; });
-    setInterval(function() {
-      cards[current].style.display = 'none';
-      current = (current + 1) % cards.length;
-      cards[current].style.display = '';
-    }, 3500);
-  }
-});
-</script>
-<footer class="bg-surface-container-high border-t border-outline-variant w-full py-8">
-<div class="grid grid-cols-1 md:grid-cols-4 gap-8 px-margin-mobile md:px-margin-desktop max-w-screen-xl mx-auto">
-<div class="md:col-span-1 space-y-3">
-<div class="text-title-lg font-headline-md text-primary">Krishi Portal</div>
-<p class="text-caption text-on-surface-variant">Empowering Indian Farmers with digital tools for a prosperous future.</p>
-<p class="text-[11px] text-on-surface-variant">© 2024 Krishi Portal.</p>
-</div>
-<div class="space-y-3">
-<h4 class="text-label-md font-label-md text-on-surface" data-i18n="footer_quicklinks">Quick Links</h4>
-<ul class="space-y-1.5">
-<li><a class="text-on-surface-variant hover:text-primary transition-colors text-caption" href="privacy-policy.html" data-i18n="footer_privacy">Privacy Policy</a></li>
-<li><a class="text-on-surface-variant hover:text-primary transition-colors text-caption" href="terms-of-service.html" data-i18n="footer_terms">Terms of Service</a></li>
-<li><a class="text-on-surface-variant hover:text-primary transition-colors text-caption" href="contact_us.html" data-i18n="nav_contact">Contact Us</a></li>
-</ul>
-</div>
-<div class="space-y-3">
-<h4 class="text-label-md font-label-md text-on-surface" data-i18n="footer_services">Services</h4>
-<ul class="space-y-1.5">
-<li><a class="text-on-surface-variant hover:text-primary transition-colors text-caption" href="market_price.html" data-i18n="nav_market">Market Prices</a></li>
-<li><a class="text-on-surface-variant hover:text-primary transition-colors text-caption" href="crop_guide.html" data-i18n="nav_crop">Crop Guide</a></li>
-<li><a class="text-on-surface-variant hover:text-primary transition-colors text-caption" href="govt_schemes.html" data-i18n="nav_schemes">Govt Schemes</a></li>
-</ul>
-</div>
-<div class="space-y-3">
-<h4 class="text-label-md font-label-md text-on-surface" data-i18n="support_helpline">Helpline</h4>
-<div class="p-3 border border-outline-variant rounded bg-surface">
-<p class="text-caption font-bold text-on-surface">1800-123-4567</p>
-<p class="text-[10px] text-on-surface-variant mt-1">24/7 Regional Support</p>
-</div>
-</div>
-</div>
-</footer>
-</body></html>
+    .hide-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+
+<body class="bg-surface text-on-surface font-body-md">
+  <!-- TopNavBar -->
+  <header class="fixed top-0 w-full z-50 bg-surface border-b border-outline-variant shadow-sm">
+    <nav
+      class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-3 max-w-screen-xl mx-auto">
+      <div class="text-headline-md font-headline-lg-mobile text-primary flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary" data-icon="eco">eco</span>
+        <span class="font-headline-lg">Krishi Portal</span>
+      </div>
+      <div class="hidden md:flex items-center gap-6">
+        <a class="text-primary font-bold border-b-2 border-primary pb-0.5 font-label-md text-label-md" href="home.html"
+          data-i18n="nav_home">Home</a>
+        <a class="text-on-surface-variant hover:text-secondary transition-colors font-label-md text-label-md"
+          href="market_price.html" data-i18n="nav_market">Market Prices</a>
+        <a class="text-on-surface-variant hover:text-secondary transition-colors font-label-md text-label-md"
+          href="crop_guide.html" data-i18n="nav_crop">Crop Guide</a>
+        <a class="text-on-surface-variant hover:text-secondary transition-colors font-label-md text-label-md"
+          href="fertilizer.html" data-i18n="nav_fertilizer">Fertilizers</a>
+        <a class="text-on-surface-variant hover:text-secondary transition-colors font-label-md text-label-md"
+          href="govt_schemes.html" data-i18n="nav_schemes">Govt Schemes</a>
+        <a class="text-on-surface-variant hover:text-secondary transition-colors font-label-md text-label-md"
+          href="farming_tips.html" data-i18n="nav_tips">Farming Tips</a>
+        <a class="text-on-surface-variant hover:text-secondary transition-colors font-label-md text-label-md"
+          href="weather.html" data-i18n="nav_weather">Weather</a>
+      </div>
+      <div class="flex items-center gap-3">
+        <button
+          class="lang-toggle-btn text-on-surface-variant hover:text-primary transition-colors flex items-center gap-1 font-label-md text-label-md"
+          aria-label="Change Language">
+          <span class="material-symbols-outlined" data-icon="language">language</span>
+          <span class="hidden sm:inline" data-i18n="nav_language">Language</span>
+        </button>
+        <button class="dark-toggle-btn text-on-surface-variant hover:text-primary transition-colors active:scale-95"
+          aria-label="Toggle dark mode">
+          <span class="material-symbols-outlined" data-icon="dark_mode">dark_mode</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+  <main class="pt-16">
+
+    <!-- ═══ HERO — Full-Width Immersive ═══ -->
+    <section class="hero-fullwidth">
+      <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=1800&q=80"
+        alt="Indian farmer in lush green wheat field at golden hour" class="hero-bg lazy-fade" loading="eager"
+        decoding="async" onload="this.classList.add('loaded')">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <div style="max-width:600px">
+          <div class="hero-badge">
+            <span class="material-symbols-outlined" style="font-size:14px">eco</span>
+            India's Most Trusted Agri-Tech Platform
+          </div>
+          <h1 class="text-display-lg font-display-lg text-white leading-tight mb-4" data-i18n="home_hero_title">
+            Supporting Indian Farmers with Digital Solutions
+          </h1>
+          <p style="font-family:'Open Sans',sans-serif;font-size:17px;line-height:26px;color:rgba(255,255,255,0.85);margin-bottom:32px;max-width:500px"
+            data-i18n="home_hero_sub">
+            Real-time market insights, expert guides, and direct access to government schemes — simple, reliable tools
+            for 140 million Indian farmers.
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <button id="cta-explore"
+              style="background:#fff;color:#0d631b;font-family:'Open Sans',sans-serif;font-size:14px;font-weight:700;padding:12px 28px;border-radius:8px;border:none;cursor:pointer;min-height:48px;letter-spacing:.01em;transition:background .2s"
+              onmouseover="this.style.background='#a3f69c'" onmouseout="this.style.background='#fff'"
+              data-i18n="home_cta_explore">Explore Services</button>
+            <button id="cta-learn"
+              style="background:rgba(255,255,255,0.1);color:#fff;font-family:'Open Sans',sans-serif;font-size:14px;font-weight:700;padding:12px 28px;border-radius:8px;border:2px solid rgba(255,255,255,0.5);cursor:pointer;min-height:48px;letter-spacing:.01em;transition:background .2s"
+              onmouseover="this.style.background='rgba(255,255,255,0.2)'"
+              onmouseout="this.style.background='rgba(255,255,255,0.1)'" data-i18n="home_cta_learn">Learn More</button>
+          </div>
+          <div
+            style="display:flex;flex-wrap:wrap;gap:24px;margin-top:36px;padding-top:28px;border-top:1px solid rgba(255,255,255,0.15)">
+            <div style="display:flex;align-items:center;gap:8px;color:rgba(255,255,255,0.8)">
+              <span class="material-symbols-outlined" style="font-size:18px;color:#a3f69c">verified</span>
+              <span style="font-size:13px;font-family:'Open Sans',sans-serif">Govt. Verified Data</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;color:rgba(255,255,255,0.8)">
+              <span class="material-symbols-outlined" style="font-size:18px;color:#a3f69c">translate</span>
+              <span style="font-size:13px;font-family:'Open Sans',sans-serif">12 Regional Languages</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;color:rgba(255,255,255,0.8)">
+              <span class="material-symbols-outlined" style="font-size:18px;color:#a3f69c">phone_android</span>
+              <span style="font-size:13px;font-family:'Open Sans',sans-serif">Works Offline</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ STATISTICS VISUAL SECTION ═══ -->
+    <section class="stats-visual-section py-14" id="stats-section">
+      <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1600&q=80"
+        alt="Aerial drone view of Indian farmland patchwork" class="stats-bg lazy-fade" loading="lazy" decoding="async"
+        onload="this.classList.add('loaded')">
+      <div class="stats-content px-margin-mobile md:px-margin-desktop max-w-screen-xl mx-auto">
+        <div class="text-center mb-10">
+          <p class="section-eyebrow" style="color:#a3f69c;justify-content:center">
+            <span class="material-symbols-outlined" style="font-size:14px">bar_chart</span>Our Impact
+          </p>
+          <h2 class="text-headline-lg font-headline-lg" style="color:#fff">Empowering Farmers Across India</h2>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-5">
+          <div class="text-center p-6 rounded-xl"
+            style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15)">
+            <p class="counter-value" style="font-size:42px;font-weight:700;color:#fff;line-height:1" data-counter="140"
+              data-counter-suffix="M+">140M+</p>
+            <p style="font-size:13px;color:rgba(255,255,255,0.7);margin-top:8px;font-family:'Open Sans',sans-serif;font-weight:600"
+              data-i18n="home_stats_farmers">Indian Farmers</p>
+          </div>
+          <div class="text-center p-6 rounded-xl"
+            style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15)">
+            <p class="counter-value" style="font-size:42px;font-weight:700;color:#fff;line-height:1" data-counter="500"
+              data-counter-suffix="+">500+</p>
+            <p style="font-size:13px;color:rgba(255,255,255,0.7);margin-top:8px;font-family:'Open Sans',sans-serif;font-weight:600"
+              data-i18n="home_stats_mandis">Mandis Covered</p>
+          </div>
+          <div class="text-center p-6 rounded-xl"
+            style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15)">
+            <p class="counter-value" style="font-size:42px;font-weight:700;color:#fff;line-height:1" data-counter="200"
+              data-counter-suffix="+">200+</p>
+            <p style="font-size:13px;color:rgba(255,255,255,0.7);margin-top:8px;font-family:'Open Sans',sans-serif;font-weight:600"
+              data-i18n="home_stats_crops">Crop Varieties</p>
+          </div>
+          <div class="text-center p-6 rounded-xl"
+            style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15)">
+            <p class="counter-value" style="font-size:42px;font-weight:700;color:#fff;line-height:1" data-counter="28"
+              data-counter-suffix="">28</p>
+            <p
+              style="font-size:13px;color:rgba(255,255,255,0.7);margin-top:8px;font-family:'Open Sans',sans-serif;font-weight:600">
+              States &amp; UTs</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ SERVICES SECTION ═══ -->
+    <section id="services" class="px-margin-mobile md:px-margin-desktop py-14 max-w-screen-xl mx-auto">
+      <div class="mb-10">
+        <p class="section-eyebrow"><span class="material-symbols-outlined" style="font-size:14px">grid_view</span>What
+          We Offer</p>
+        <h2 class="text-headline-lg font-headline-lg text-on-surface" data-i18n="home_services_title">Digital Services
+          for Every Farmer</h2>
+        <p class="text-body-md text-on-surface-variant mt-1" data-i18n="home_services_sub">Utility-focused tools for
+          daily farm management.</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+
+        <div
+          class="card-hover bg-surface-container-lowest border border-outline-variant rounded-xl hover:border-primary hover:shadow-lg transition-all group flex flex-col h-full overflow-hidden">
+          <div class="card-img-wrap" style="height:130px">
+            <img src="https://images.unsplash.com/photo-1488459716781-31db52582fe9?auto=format&fit=crop&w=600&q=80"
+              alt="Vegetable market mandi India" class="card-img-zoom lazy-fade" loading="lazy" decoding="async"
+              onload="this.classList.add('loaded')">
+          </div>
+          <div class="p-4 flex flex-col flex-grow">
+            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mb-3 text-primary"><span
+                class="material-symbols-outlined" data-icon="currency_rupee">currency_rupee</span></div>
+            <h3 class="text-title-lg font-title-lg text-on-surface mb-1">Market Prices</h3>
+            <p class="text-caption text-on-surface-variant flex-grow">Live mandi updates across the state.</p>
+            <button onclick="location.href='market_price.html'"
+              class="text-primary text-caption font-label-md mt-4 flex items-center gap-1 hover:gap-2 transition-all">Check
+              Prices <span class="material-symbols-outlined text-[14px]">arrow_forward</span></button>
+          </div>
+        </div>
+
+        <div
+          class="card-hover bg-surface-container-lowest border border-outline-variant rounded-xl hover:border-primary hover:shadow-lg transition-all group flex flex-col h-full overflow-hidden">
+          <div class="card-img-wrap" style="height:130px">
+            <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=600&q=80"
+              alt="Lush green agricultural crop field" class="card-img-zoom lazy-fade" loading="lazy" decoding="async"
+              onload="this.classList.add('loaded')">
+          </div>
+          <div class="p-4 flex flex-col flex-grow">
+            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mb-3 text-primary"><span
+                class="material-symbols-outlined" data-icon="menu_book">menu_book</span></div>
+            <h3 class="text-title-lg font-title-lg text-on-surface mb-1">Crop Guide</h3>
+            <p class="text-caption text-on-surface-variant flex-grow">Planting and pest management data.</p>
+            <button onclick="location.href='crop_guide.html'"
+              class="text-primary text-caption font-label-md mt-4 flex items-center gap-1 hover:gap-2 transition-all">View
+              Guides <span class="material-symbols-outlined text-[14px]">arrow_forward</span></button>
+          </div>
+        </div>
+
+        <div
+          class="card-hover bg-surface-container-lowest border border-outline-variant rounded-xl hover:border-primary hover:shadow-lg transition-all group flex flex-col h-full overflow-hidden">
+          <div class="card-img-wrap" style="height:130px">
+            <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=600&q=80"
+              alt="Rich agricultural soil organic matter" class="card-img-zoom lazy-fade" loading="lazy"
+              decoding="async" onload="this.classList.add('loaded')">
+          </div>
+          <div class="p-4 flex flex-col flex-grow">
+            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mb-3 text-primary"><span
+                class="material-symbols-outlined" data-icon="science">science</span></div>
+            <h3 class="text-title-lg font-title-lg text-on-surface mb-1">Fertilizers</h3>
+            <p class="text-caption text-on-surface-variant flex-grow">Soil-specific recommendations.</p>
+            <button onclick="location.href='fertilizer.html'"
+              class="text-primary text-caption font-label-md mt-4 flex items-center gap-1 hover:gap-2 transition-all">Soil
+              Input <span class="material-symbols-outlined text-[14px]">arrow_forward</span></button>
+          </div>
+        </div>
+
+        <div
+          class="card-hover bg-surface-container-lowest border border-outline-variant rounded-xl hover:border-primary hover:shadow-lg transition-all group flex flex-col h-full overflow-hidden">
+          <div class="card-img-wrap" style="height:130px">
+            <img src="https://images.unsplash.com/photo-1569025690938-a00729c9e1f9?auto=format&fit=crop&w=600&q=80"
+              alt="Government agricultural support program India" class="card-img-zoom lazy-fade" loading="lazy"
+              decoding="async" onload="this.classList.add('loaded')">
+          </div>
+          <div class="p-4 flex flex-col flex-grow">
+            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mb-3 text-primary"><span
+                class="material-symbols-outlined" data-icon="account_balance">account_balance</span></div>
+            <h3 class="text-title-lg font-title-lg text-on-surface mb-1">Schemes</h3>
+            <p class="text-caption text-on-surface-variant flex-grow">Subsidies and insurance programs.</p>
+            <button onclick="location.href='govt_schemes.html'"
+              class="text-primary text-caption font-label-md mt-4 flex items-center gap-1 hover:gap-2 transition-all">Apply
+              Now <span class="material-symbols-outlined text-[14px]">arrow_forward</span></button>
+          </div>
+        </div>
+
+        <div
+          class="card-hover bg-surface-container-lowest border border-outline-variant rounded-xl hover:border-primary hover:shadow-lg transition-all group flex flex-col h-full overflow-hidden">
+          <div class="card-img-wrap" style="height:130px">
+            <img src="https://images.unsplash.com/photo-1500651230702-0e2d8a49d4ad?auto=format&fit=crop&w=600&q=80"
+              alt="Farmer learning modern agriculture techniques" class="card-img-zoom lazy-fade" loading="lazy"
+              decoding="async" onload="this.classList.add('loaded')">
+          </div>
+          <div class="p-4 flex flex-col flex-grow">
+            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mb-3 text-primary"><span
+                class="material-symbols-outlined" data-icon="psychology">psychology</span></div>
+            <h3 class="text-title-lg font-title-lg text-on-surface mb-1">Expert Tips</h3>
+            <p class="text-caption text-on-surface-variant flex-grow">Weekly innovations and advice.</p>
+            <button onclick="location.href='farming_tips.html'"
+              class="text-primary text-caption font-label-md mt-4 flex items-center gap-1 hover:gap-2 transition-all">Read
+              More <span class="material-symbols-outlined text-[14px]">arrow_forward</span></button>
+          </div>
+        </div>
+
+        <div
+          class="card-hover bg-surface-container-lowest border border-outline-variant rounded-xl hover:border-primary hover:shadow-lg transition-all group flex flex-col h-full overflow-hidden">
+          <div class="card-img-wrap" style="height:130px">
+            <img src="https://images.unsplash.com/photo-1504432842672-1a79f78e4084?auto=format&fit=crop&w=600&q=80"
+              alt="Monsoon rain over Indian farmland" class="card-img-zoom lazy-fade" loading="lazy" decoding="async"
+              onload="this.classList.add('loaded')">
+          </div>
+          <div class="p-4 flex flex-col flex-grow">
+            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mb-3 text-primary"><span
+                class="material-symbols-outlined" data-icon="partly_cloudy_day">partly_cloudy_day</span></div>
+            <h3 class="text-title-lg font-title-lg text-on-surface mb-1">Weather</h3>
+            <p class="text-caption text-on-surface-variant flex-grow">Local alerts and planning.</p>
+            <button onclick="location.href='weather.html'"
+              class="text-primary text-caption font-label-md mt-4 flex items-center gap-1 hover:gap-2 transition-all">View
+              Details <span class="material-symbols-outlined text-[14px]">arrow_forward</span></button>
+          </div>
+        </div>
+
+        <div
+          class="card-hover bg-surface-container-lowest border border-outline-variant rounded-xl hover:border-primary hover:shadow-lg transition-all group flex flex-col h-full overflow-hidden">
+          <div class="card-img-wrap" style="height:130px">
+            <img src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?auto=format&fit=crop&w=600&q=80"
+              alt="Drip irrigation soil health farm India" class="card-img-zoom lazy-fade" loading="lazy"
+              decoding="async" onload="this.classList.add('loaded')">
+          </div>
+          <div class="p-4 flex flex-col flex-grow">
+            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mb-3 text-primary"><span
+                class="material-symbols-outlined" data-icon="biotech">biotech</span></div>
+            <h3 class="text-title-lg font-title-lg text-on-surface mb-1">Soil Testing</h3>
+            <p class="text-caption text-on-surface-variant flex-grow">Nearest lab locations &amp; reports.</p>
+            <button onclick="showToast('📍 Nearest lab: IARI, New Delhi — 2.4 km away')"
+              class="text-primary text-caption font-label-md mt-4 flex items-center gap-1 hover:gap-2 transition-all">Find
+              Labs <span class="material-symbols-outlined text-[14px]">arrow_forward</span></button>
+          </div>
+        </div>
+
+
+
+      </div>
+    </section>
+
+    <!-- ═══ CROP ADVISORY BANNER ═══ -->
+    <section class="px-margin-mobile md:px-margin-desktop pb-14 max-w-screen-xl mx-auto">
+      <div class="advisory-banner shadow-xl">
+        <img src="https://images.unsplash.com/photo-1560493676-04071c5f467b?auto=format&fit=crop&w=1400&q=80"
+          alt="Vast green paddy field India Karnataka" class="advisory-bg lazy-fade" loading="lazy" decoding="async"
+          onload="this.classList.add('loaded')">
+        <div class="advisory-overlay"></div>
+        <div class="advisory-content">
+          <p class="section-eyebrow" style="color:#a3f69c">
+            <span class="material-symbols-outlined" style="font-size:14px">tips_and_updates</span>Seasonal Advisory
+          </p>
+          <h2 class="text-headline-lg font-headline-lg" style="color:#fff;margin-bottom:12px">Get Smart Crop
+            Recommendations for Your Region</h2>
+          <p
+            style="font-family:'Open Sans',sans-serif;font-size:15px;color:rgba(255,255,255,0.82);margin-bottom:24px;max-width:420px">
+            Based on your soil type, local weather, and market prices — our advisory engine suggests the best crop for
+            this season.
+          </p>
+          <button onclick="location.href='crop_guide.html'"
+            style="background:#fff;color:#0d631b;font-family:'Open Sans',sans-serif;font-size:14px;font-weight:700;padding:12px 24px;border-radius:8px;border:none;cursor:pointer;display:flex;align-items:center;gap:8px;transition:background .2s"
+            onmouseover="this.style.background='#a3f69c'" onmouseout="this.style.background='#fff'">
+            <span class="material-symbols-outlined" style="font-size:18px">agriculture</span>Explore Crop Guide
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ SEASONAL CROP SPOTLIGHT ═══ -->
+    <section class="bg-surface-container py-14">
+      <div class="px-margin-mobile md:px-margin-desktop max-w-screen-xl mx-auto">
+        <div class="flex justify-between items-center mb-8">
+          <div>
+            <p class="section-eyebrow"><span class="material-symbols-outlined"
+                style="font-size:14px">calendar_month</span>This Season</p>
+            <h2 class="text-headline-lg font-headline-lg text-on-surface" data-i18n="home_seasonal_title">Seasonal Crop
+              Spotlight</h2>
+            <p class="text-body-md text-on-surface-variant" data-i18n="home_seasonal_sub">Recommended crops for current
+              sowing cycle.</p>
+          </div>
+          <div class="flex gap-2">
+            <button
+              class="w-9 h-9 border border-outline-variant rounded-lg flex items-center justify-center text-primary hover:bg-white transition-colors shadow-sm">
+              <span class="material-symbols-outlined">chevron_left</span>
+            </button>
+            <button
+              class="w-9 h-9 border border-outline-variant rounded-lg flex items-center justify-center text-primary hover:bg-white transition-colors shadow-sm">
+              <span class="material-symbols-outlined">chevron_right</span>
+            </button>
+          </div>
+        </div>
+        <div class="flex gap-5 overflow-x-auto hide-scrollbar pb-2 -mx-margin-mobile px-margin-mobile md:mx-0 md:px-0">
+
+          <div
+            class="card-hover flex-shrink-0 w-64 bg-white border border-outline-variant rounded-xl overflow-hidden shadow-sm group">
+            <div class="card-img-wrap" style="height:140px">
+              <img src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?auto=format&fit=crop&w=600&q=80"
+                alt="Golden wheat harvest field India" class="card-img-zoom lazy-fade" loading="lazy" decoding="async"
+                onload="this.classList.add('loaded')">
+            </div>
+            <div class="p-3 space-y-1.5">
+              <h4 class="text-title-lg font-title-lg text-on-surface">Wheat (Gehun)</h4>
+              <div class="flex flex-wrap gap-1.5">
+                <span
+                  class="bg-secondary-container/20 text-on-secondary-fixed-variant px-1.5 py-0.5 rounded text-[11px] font-label-md">Rabi</span>
+                <span
+                  class="bg-tertiary-fixed/20 text-on-tertiary-fixed-variant px-1.5 py-0.5 rounded text-[11px] font-label-md">Loamy</span>
+              </div>
+              <button
+                class="text-primary text-caption font-label-md flex items-center gap-1 hover:gap-2 transition-all pt-1">Details
+                <span class="material-symbols-outlined text-[14px]">arrow_forward</span></button>
+            </div>
+          </div>
+
+          <div
+            class="card-hover flex-shrink-0 w-64 bg-white border border-outline-variant rounded-xl overflow-hidden shadow-sm group">
+            <div class="card-img-wrap" style="height:140px">
+              <img
+                src="https://plus.unsplash.com/premium_photo-1664910307279-7f8e551e1e1d?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Green paddy rice rows India" class="card-img-zoom lazy-fade" loading="lazy" decoding="async"
+                onload="this.classList.add('loaded')">
+            </div>
+            <div class="p-3 space-y-1.5">
+              <h4 class="text-title-lg font-title-lg text-on-surface">Rice (Chawal)</h4>
+              <div class="flex flex-wrap gap-1.5">
+                <span
+                  class="bg-secondary-container/20 text-on-secondary-fixed-variant px-1.5 py-0.5 rounded text-[11px] font-label-md">Kharif</span>
+                <span
+                  class="bg-tertiary-fixed/20 text-on-tertiary-fixed-variant px-1.5 py-0.5 rounded text-[11px] font-label-md">Clayey</span>
+              </div>
+              <button
+                class="text-primary text-caption font-label-md flex items-center gap-1 hover:gap-2 transition-all pt-1">Details
+                <span class="material-symbols-outlined text-[14px]">arrow_forward</span></button>
+            </div>
+          </div>
+
+          <div
+            class="card-hover flex-shrink-0 w-64 bg-white border border-outline-variant rounded-xl overflow-hidden shadow-sm group">
+            <div class="card-img-wrap" style="height:140px">
+              <img
+                src="https://images.unsplash.com/photo-1502395809857-fd80069897d0?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="White cotton bolls ready for harvest" class="card-img-zoom lazy-fade" loading="lazy"
+                decoding="async" onload="this.classList.add('loaded')">
+            </div>
+            <div class="p-3 space-y-1.5">
+              <h4 class="text-title-lg font-title-lg text-on-surface">Cotton (Kapaas)</h4>
+              <div class="flex flex-wrap gap-1.5">
+                <span
+                  class="bg-secondary-container/20 text-on-secondary-fixed-variant px-1.5 py-0.5 rounded text-[11px] font-label-md">Kharif</span>
+                <span
+                  class="bg-tertiary-fixed/20 text-on-tertiary-fixed-variant px-1.5 py-0.5 rounded text-[11px] font-label-md">Black</span>
+              </div>
+              <button
+                class="text-primary text-caption font-label-md flex items-center gap-1 hover:gap-2 transition-all pt-1">Details
+                <span class="material-symbols-outlined text-[14px]">arrow_forward</span></button>
+            </div>
+          </div>
+
+          <div
+            class="card-hover flex-shrink-0 w-64 bg-white border border-outline-variant rounded-xl overflow-hidden shadow-sm group">
+            <div class="card-img-wrap" style="height:140px">
+              <img
+                src="https://plus.unsplash.com/premium_photo-1683547021481-223c9f43994f?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Bright yellow mustard sarson bloom field Haryana India" class="card-img-zoom lazy-fade"
+                loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+
+            </div>
+            <div class="p-3 space-y-1.5">
+              <h4 class="text-title-lg font-title-lg text-on-surface">Mustard (Sarson)</h4>
+              <div class="flex flex-wrap gap-1.5">
+                <span
+                  class="bg-secondary-container/20 text-on-secondary-fixed-variant px-1.5 py-0.5 rounded text-[11px] font-label-md">Rabi</span>
+                <span
+                  class="bg-tertiary-fixed/20 text-on-tertiary-fixed-variant px-1.5 py-0.5 rounded text-[11px] font-label-md">Sandy</span>
+              </div>
+              <button
+                class="text-primary text-caption font-label-md flex items-center gap-1 hover:gap-2 transition-all pt-1">Details
+                <span class="material-symbols-outlined text-[14px]">arrow_forward</span></button>
+            </div>
+          </div>
+
+          <div
+            class="card-hover flex-shrink-0 w-64 bg-white border border-outline-variant rounded-xl overflow-hidden shadow-sm group">
+            <div class="card-img-wrap" style="height:140px">
+              <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=600&q=80"
+                alt="Tall green sugarcane field India" class="card-img-zoom lazy-fade" loading="lazy" decoding="async"
+                onload="this.classList.add('loaded')">
+            </div>
+            <div class="p-3 space-y-1.5">
+              <h4 class="text-title-lg font-title-lg text-on-surface">Sugarcane (Ganna)</h4>
+              <div class="flex flex-wrap gap-1.5">
+                <span
+                  class="bg-secondary-container/20 text-on-secondary-fixed-variant px-1.5 py-0.5 rounded text-[11px] font-label-md">Annual</span>
+                <span
+                  class="bg-tertiary-fixed/20 text-on-tertiary-fixed-variant px-1.5 py-0.5 rounded text-[11px] font-label-md">Alluvial</span>
+              </div>
+              <button
+                class="text-primary text-caption font-label-md flex items-center gap-1 hover:gap-2 transition-all pt-1">Details
+                <span class="material-symbols-outlined text-[14px]">arrow_forward</span></button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ FARMER SUCCESS STORIES ═══ -->
+    <section class="px-margin-mobile md:px-margin-desktop py-14 max-w-screen-xl mx-auto">
+      <div class="mb-10">
+        <p class="section-eyebrow"><span class="material-symbols-outlined"
+            style="font-size:14px">emoji_events</span>Real Stories</p>
+        <h2 class="text-headline-lg font-headline-lg text-on-surface">Farmer Success Stories</h2>
+        <p class="text-body-md text-on-surface-variant mt-1">Real impact from across the country.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="story-card scroll-reveal">
+          <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=600&q=80"
+            alt="Indian farmer in wheat field Punjab" class="story-card-img lazy-fade" loading="lazy" decoding="async"
+            onload="this.classList.add('loaded')">
+          <div class="p-5">
+            <span
+              style="display:inline-block;background:rgba(13,99,27,0.1);color:#0d631b;font-size:11px;font-weight:700;padding:2px 8px;border-radius:4px;margin-bottom:12px;font-family:'Open Sans',sans-serif;letter-spacing:.05em;text-transform:uppercase">Market
+              Prices</span>
+            <p class="text-body-md text-on-surface-variant italic mb-4">"Using KisanMitra's live mandi prices, I sold my
+              wheat 3 days earlier and earned ₹4,200 more per acre than my neighbours."</p>
+            <div class="flex items-center gap-3">
+              <img
+                src="https://images.unsplash.com/photo-1568016002953-5827f8f30e16?q=80&w=639&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Gurpreet Singh Punjab farmer" class="testimonial-avatar lazy-fade" loading="lazy" decoding="async"
+                onload="this.classList.add('loaded')">
+              <div>
+                <p class="text-label-md font-label-md text-on-surface">Gurpreet Singh</p>
+                <p class="text-[11px] text-on-surface-variant">Amritsar, Punjab · Wheat Farmer</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="story-card scroll-reveal">
+          <img src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?auto=format&fit=crop&w=600&q=80"
+            alt="Drip irrigation farm Maharashtra onion" class="story-card-img lazy-fade" loading="lazy"
+            decoding="async" onload="this.classList.add('loaded')">
+          <div class="p-5">
+            <span
+              style="display:inline-block;background:rgba(13,99,27,0.1);color:#0d631b;font-size:11px;font-weight:700;padding:2px 8px;border-radius:4px;margin-bottom:12px;font-family:'Open Sans',sans-serif;letter-spacing:.05em;text-transform:uppercase">Govt
+              Schemes</span>
+            <p class="text-body-md text-on-surface-variant italic mb-4">"I applied for PM-KISAN and drip irrigation
+              subsidy through KisanMitra. Got ₹6,000 in my account within 10 days."</p>
+            <div class="flex items-center gap-3">
+              <img
+                src="https://images.unsplash.com/photo-1724996871733-93a10302de11?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Ramesh Patil Maharashtra onion farmer" class="testimonial-avatar lazy-fade" loading="lazy"
+                decoding="async" onload="this.classList.add('loaded')">
+              <div>
+                <p class="text-label-md font-label-md text-on-surface">Ramesh Patil</p>
+                <p class="text-[11px] text-on-surface-variant">Nashik, Maharashtra · Onion Farmer</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="story-card scroll-reveal">
+          <img src="https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?auto=format&fit=crop&w=600&q=80"
+            alt="Woman farmer organic vegetables harvest India" class="story-card-img lazy-fade" loading="lazy"
+            decoding="async" onload="this.classList.add('loaded')">
+          <div class="p-5">
+            <span
+              style="display:inline-block;background:rgba(13,99,27,0.1);color:#0d631b;font-size:11px;font-weight:700;padding:2px 8px;border-radius:4px;margin-bottom:12px;font-family:'Open Sans',sans-serif;letter-spacing:.05em;text-transform:uppercase">Expert
+              Tips</span>
+            <p class="text-body-md text-on-surface-variant italic mb-4">"The fertilizer guides helped me switch to
+              organic farming. My produce now sells at 40% premium in the city market."</p>
+            <div class="flex items-center gap-3">
+              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=100&q=80"
+                alt="Kavitha Reddy Telangana organic farmer" class="testimonial-avatar lazy-fade" loading="lazy"
+                decoding="async" onload="this.classList.add('loaded')">
+              <div>
+                <p class="text-label-md font-label-md text-on-surface">Kavitha Reddy</p>
+                <p class="text-[11px] text-on-surface-variant">Warangal, Telangana · Organic Farmer</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ FIELD GALLERY ═══ -->
+    <section class="bg-surface-container py-14">
+      <div class="px-margin-mobile md:px-margin-desktop max-w-screen-xl mx-auto">
+        <div class="flex justify-between items-end mb-8">
+          <div>
+            <p class="section-eyebrow"><span class="material-symbols-outlined"
+                style="font-size:14px">photo_library</span>Field Updates</p>
+            <h2 class="text-headline-lg font-headline-lg text-on-surface">From the Fields of India</h2>
+            <p class="text-body-md text-on-surface-variant mt-1">Real agriculture visuals from our farming community.
+            </p>
+          </div>
+        </div>
+        <div class="gallery-grid">
+          <div class="gallery-item tall">
+            <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=700&q=80"
+              alt="Aerial view of Indian agricultural farmland patchwork" class="lazy-fade" loading="lazy"
+              decoding="async" onload="this.classList.add('loaded')">
+            <div class="gallery-overlay"><span class="gallery-caption">Aerial View — Punjab Farmlands</span></div>
+          </div>
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1574943320219-553eb213f72d?auto=format&fit=crop&w=600&q=80"
+              alt="Indian farmer harvesting crops in field" class="lazy-fade" loading="lazy" decoding="async"
+              onload="this.classList.add('loaded')">
+            <div class="gallery-overlay"><span class="gallery-caption">Harvest Season — Madhya Pradesh</span></div>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://plus.unsplash.com/premium_photo-1661825536186-19606cd9a0f1?q=80&w=719&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="Smart drip irrigation crop field technology" class="lazy-fade" loading="lazy" decoding="async"
+              onload="this.classList.add('loaded')">
+            <div class="gallery-overlay"><span class="gallery-caption">Smart Irrigation — Rajasthan</span></div>
+          </div>
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=600&q=80"
+              alt="Sugarcane crop rows rural India" class="lazy-fade" loading="lazy" decoding="async"
+              onload="this.classList.add('loaded')">
+            <div class="gallery-overlay"><span class="gallery-caption">Sugarcane Fields — Uttar Pradesh</span></div>
+          </div>
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1560493676-04071c5f467b?auto=format&fit=crop&w=600&q=80"
+              alt="Lush green paddy fields Karnataka India" class="lazy-fade" loading="lazy" decoding="async"
+              onload="this.classList.add('loaded')">
+            <div class="gallery-overlay"><span class="gallery-caption">Paddy Fields — Karnataka</span></div>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://images.unsplash.com/photo-1570592366025-1e955e47796d?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="Yellow mustard field bloom India spring Haryana" class="lazy-fade" loading="lazy" decoding="async"
+              onload="this.classList.add('loaded')">
+            <div class="gallery-overlay"><span class="gallery-caption">Mustard Bloom — Haryana</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ TESTIMONIALS ═══ -->
+    <section id="testimonials-section" class="px-margin-mobile md:px-margin-desktop py-14 max-w-screen-xl mx-auto">
+      <div class="text-center mb-10">
+        <p class="section-eyebrow" style="justify-content:center"><span class="material-symbols-outlined"
+            style="font-size:14px">forum</span>Community Voice</p>
+        <h2 class="text-headline-lg font-headline-lg text-on-surface" data-i18n="home_community_title">What Farmers Say
+        </h2>
+        <p class="text-body-md text-on-surface-variant" data-i18n="home_community_sub">Feedback from across India.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <div class="testimonial-card bg-white border border-outline-variant p-6 rounded-xl shadow-sm scroll-reveal">
+          <div class="flex items-center gap-3 mb-4">
+            <img
+              src="https://plus.unsplash.com/premium_photo-1682092016074-b136e1acb26e?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="Ramesh Kumar Punjab farmer" class="testimonial-avatar lazy-fade" loading="lazy" decoding="async"
+              onload="this.classList.add('loaded')">
+            <div>
+              <p class="text-label-md font-label-md text-on-surface">Ramesh Kumar</p>
+              <p class="text-[11px] text-on-surface-variant">Punjab</p>
+              <div style="display:flex;gap:2px;margin-top:4px">
+                <span class="material-symbols-outlined"
+                  style="font-size:14px;color:#f59e0b;font-variation-settings:'FILL' 1">star</span>
+                <span class="material-symbols-outlined"
+                  style="font-size:14px;color:#f59e0b;font-variation-settings:'FILL' 1">star</span>
+                <span class="material-symbols-outlined"
+                  style="font-size:14px;color:#f59e0b;font-variation-settings:'FILL' 1">star</span>
+                <span class="material-symbols-outlined"
+                  style="font-size:14px;color:#f59e0b;font-variation-settings:'FILL' 1">star</span>
+                <span class="material-symbols-outlined"
+                  style="font-size:14px;color:#f59e0b;font-variation-settings:'FILL' 1">star</span>
+              </div>
+            </div>
+          </div>
+          <p class="text-body-md text-on-surface-variant italic">"Market price updates help me sell at the best rates.
+            No more guesswork."</p>
+        </div>
+
+        <div class="testimonial-card bg-white border border-outline-variant p-6 rounded-xl shadow-sm scroll-reveal">
+          <div class="flex items-center gap-3 mb-4">
+            <img
+              src="https://images.unsplash.com/photo-1530507629858-e4977d30e9e0?q=80&w=643&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="Sunita Devi Madhya Pradesh farmer" class="testimonial-avatar lazy-fade" loading="lazy"
+              decoding="async" onload="this.classList.add('loaded')">
+            <div>
+              <p class="text-label-md font-label-md text-on-surface">Sunita Devi</p>
+              <p class="text-[11px] text-on-surface-variant">Madhya Pradesh</p>
+              <div style="display:flex;gap:2px;margin-top:4px">
+                <span class="material-symbols-outlined"
+                  style="font-size:14px;color:#f59e0b;font-variation-settings:'FILL' 1">star</span>
+                <span class="material-symbols-outlined"
+                  style="font-size:14px;color:#f59e0b;font-variation-settings:'FILL' 1">star</span>
+                <span class="material-symbols-outlined"
+                  style="font-size:14px;color:#f59e0b;font-variation-settings:'FILL' 1">star</span>
+                <span class="material-symbols-outlined"
+                  style="font-size:14px;color:#f59e0b;font-variation-settings:'FILL' 1">star</span>
+                <span class="material-symbols-outlined"
+                  style="font-size:14px;color:#f59e0b;font-variation-settings:'FILL' 1">star</span>
+              </div>
+            </div>
+          </div>
+          <p class="text-body-md text-on-surface-variant italic">"Fertilizer guides reduced my costs by 15%. Simple and
+            practical."</p>
+        </div>
+
+        <div class="testimonial-card bg-white border border-outline-variant p-6 rounded-xl shadow-sm scroll-reveal">
+          <div class="flex items-center gap-3 mb-4">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80"
+              alt="Arjun Singh Rajasthan farmer" class="testimonial-avatar lazy-fade" loading="lazy" decoding="async"
+              onload="this.classList.add('loaded')">
+            <div>
+              <p class="text-label-md font-label-md text-on-surface">Arjun Singh</p>
+              <p class="text-[11px] text-on-surface-variant">Rajasthan</p>
+              <div style="display:flex;gap:2px;margin-top:4px">
+                <span class="material-symbols-outlined"
+                  style="font-size:14px;color:#f59e0b;font-variation-settings:'FILL' 1">star</span>
+                <span class="material-symbols-outlined"
+                  style="font-size:14px;color:#f59e0b;font-variation-settings:'FILL' 1">star</span>
+                <span class="material-symbols-outlined"
+                  style="font-size:14px;color:#f59e0b;font-variation-settings:'FILL' 1">star</span>
+                <span class="material-symbols-outlined"
+                  style="font-size:14px;color:#f59e0b;font-variation-settings:'FILL' 1">star</span>
+                <span class="material-symbols-outlined"
+                  style="font-size:14px;color:#f59e0b;font-variation-settings:'FILL' 1">star</span>
+              </div>
+            </div>
+          </div>
+          <p class="text-body-md text-on-surface-variant italic">"Weather alerts saved my harvest last month. Prompt
+            notifications are key."</p>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+  <!-- Footer -->
+  <!-- Page Scripts -->
+  <script src="translations.js"></script>
+  <script src="global.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // CTA Button: Explore Services → scroll to #services
+      var exploreBtn = document.getElementById('cta-explore');
+      if (exploreBtn) {
+        exploreBtn.addEventListener('click', function () {
+          document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
+        });
+      }
+      // CTA Button: Learn More → scroll to stats
+      var learnBtn = document.getElementById('cta-learn');
+      if (learnBtn) {
+        learnBtn.addEventListener('click', function () {
+          document.getElementById('stats-section').scrollIntoView({ behavior: 'smooth' });
+        });
+      }
+
+      // Crop Spotlight Carousel scroll
+      var strip = document.querySelector('.hide-scrollbar');
+      var leftBtn = document.querySelectorAll('[class*="chevron_left"]')[0];
+      var rightBtn = document.querySelectorAll('[class*="chevron_right"]')[0];
+      if (strip) {
+        var leftChev = document.querySelector('button .material-symbols-outlined:not([data-icon])');
+        // Use parent buttons of chevron icons
+        var navBtns = document.querySelectorAll('section .flex.gap-2 button');
+        if (navBtns.length >= 2) {
+          navBtns[0].addEventListener('click', function () { strip.scrollBy({ left: -280, behavior: 'smooth' }); });
+          navBtns[1].addEventListener('click', function () { strip.scrollBy({ left: 280, behavior: 'smooth' }); });
+        }
+      }
+
+      // Crop Details buttons → crop_guide.html
+      document.querySelectorAll('.hide-scrollbar button').forEach(function (btn) {
+        btn.addEventListener('click', function () { location.href = 'crop_guide.html'; });
+      });
+
+      // Testimonials: auto-carousel on mobile
+      var testimonialGrid = document.querySelector('#testimonials-section .grid');
+      // (Desktop shows 3-column grid, mobile auto-slides)
+      var cards = document.querySelectorAll('#testimonials-section .grid > div');
+      if (cards.length && window.innerWidth < 768) {
+        var current = 0;
+        cards.forEach(function (c, i) { if (i > 0) c.style.display = 'none'; });
+        setInterval(function () {
+          cards[current].style.display = 'none';
+          current = (current + 1) % cards.length;
+          cards[current].style.display = '';
+        }, 3500);
+      }
+    });
+  </script>
+  <footer class="bg-surface-container-high border-t border-outline-variant w-full py-8">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 px-margin-mobile md:px-margin-desktop max-w-screen-xl mx-auto">
+      <div class="md:col-span-1 space-y-3">
+        <div class="text-title-lg font-headline-md text-primary">Krishi Portal</div>
+        <p class="text-caption text-on-surface-variant">Empowering Indian Farmers with digital tools for a prosperous
+          future.</p>
+        <p class="text-[11px] text-on-surface-variant">© 2024 Krishi Portal.</p>
+      </div>
+      <div class="space-y-3">
+        <h4 class="text-label-md font-label-md text-on-surface" data-i18n="footer_quicklinks">Quick Links</h4>
+        <ul class="space-y-1.5">
+          <li><a class="text-on-surface-variant hover:text-primary transition-colors text-caption"
+              href="privacy-policy.html" data-i18n="footer_privacy">Privacy Policy</a></li>
+          <li><a class="text-on-surface-variant hover:text-primary transition-colors text-caption"
+              href="terms-of-service.html" data-i18n="footer_terms">Terms of Service</a></li>
+          <li><a class="text-on-surface-variant hover:text-primary transition-colors text-caption"
+              href="contact_us.html" data-i18n="nav_contact">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="space-y-3">
+        <h4 class="text-label-md font-label-md text-on-surface" data-i18n="footer_services">Services</h4>
+        <ul class="space-y-1.5">
+          <li><a class="text-on-surface-variant hover:text-primary transition-colors text-caption"
+              href="market_price.html" data-i18n="nav_market">Market Prices</a></li>
+          <li><a class="text-on-surface-variant hover:text-primary transition-colors text-caption"
+              href="crop_guide.html" data-i18n="nav_crop">Crop Guide</a></li>
+          <li><a class="text-on-surface-variant hover:text-primary transition-colors text-caption"
+              href="govt_schemes.html" data-i18n="nav_schemes">Govt Schemes</a></li>
+        </ul>
+      </div>
+      <div class="space-y-3">
+        <h4 class="text-label-md font-label-md text-on-surface" data-i18n="support_helpline">Helpline</h4>
+        <div class="p-3 border border-outline-variant rounded bg-surface">
+          <p class="text-caption font-bold text-on-surface">1800-123-4567</p>
+          <p class="text-[10px] text-on-surface-variant mt-1">24/7 Regional Support</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
